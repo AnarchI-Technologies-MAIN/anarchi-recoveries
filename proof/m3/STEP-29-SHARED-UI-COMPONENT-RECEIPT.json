@@ -1,0 +1,59 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_29_SHARED_UI_COMPONENT_CONTRACT_COMPLETE",
+  "generated_at": "2026-08-29T12:05:45Z",
+  "from_commit": "cf67b5fa03b0a39be2a075562264f2edcf6de7de",
+  "authority": {
+    "production_mutated": false,
+    "component_authority": "framework-neutral @anarchi/ui package",
+    "token_authority": "@anarchi/design-tokens",
+    "status_semantics": "visible text plus ARIA label; never color-only",
+    "financial_display": "decimal string, explicit currency, provenance reference",
+    "external_side_effects": "named target and side-effect label with confirmation required",
+    "screens_implemented": false,
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "status_label": "text, tone, ariaLabel",
+    "money_line": "label, decimal amount, uppercase ISO currency, provenance ref",
+    "proof_chain_item": "event, label, timestamp, core/policy versions, lowercase SHA-256 evaluation hash",
+    "external_action": "label, side-effect label, target system, mandatory confirmation",
+    "client_scope": "shared semantics for web, Tauri, and later mobile clients"
+  },
+  "verification": {
+    "status_accessibility_guard": "PASS",
+    "money_precision_currency_provenance_guard": "PASS",
+    "proof_hash_guard": "PASS",
+    "external_side_effect_guard": "PASS",
+    "ui_package_tests": "PASS_4",
+    "ui_package_typecheck": "PASS",
+    "design_tokens_tests_typecheck": "PASS_3",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "full_node_tests_typecheck": "PASS",
+    "policy_and_governance_validators": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "Rescue/Recovery/Proof/Cash screens",
+    "WCAG AA keyboard and focus audit",
+    "visual regression evidence",
+    "web, Tauri, iPad/iPhone, and Android client adapters"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/ui/package.json": "b4a838b17a2e685ac99ae20d54bcc1cea2322616121304c96bd15e1212b95b14",
+    "packages/ui/tsconfig.json": "4a2c627a62f525defbf0d604e2d3c0d49694d2d857b17695066d3f18bec7ce8c",
+    "packages/ui/src/index.ts": "ef1fb6d5e096fc3334b98d63413971ecf3ab355d41f287270be44efded091d26",
+    "packages/ui/test/components.test.ts": "3caf8f766621b72a31052340c878835b8e3a8ed00997f07353b8dd096fe1a730",
+    "docs/architecture/shared-ui-component-contract.md": "aeb8be177b5019c06add47fbe0f932e1e3d2bf2312f1ffa42b79b456c7b8f70a",
+    "package.json": "d49e259bc4733ff6f093bbe9bb15fef6d1ab9c8985aa46a875dca3af297976dd",
+    "governance/repository-map.v1.json": "ed54304922ffe9b9937739cceacc1891e04ecd68f852504041973dfdead6da34"
+  }
+}

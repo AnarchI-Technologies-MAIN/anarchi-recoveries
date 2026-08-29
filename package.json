@@ -11,6 +11,8 @@
     "typecheck:authz": "npm --workspace @anarchi/authz run typecheck",
     "test:design-tokens": "npm --workspace @anarchi/design-tokens test",
     "typecheck:design-tokens": "npm --workspace @anarchi/design-tokens run typecheck",
+    "test:ui": "npm --workspace @anarchi/ui test",
+    "typecheck:ui": "npm --workspace @anarchi/ui run typecheck",
     "test:observability": "npm --workspace @anarchi/observability test",
     "typecheck:observability": "npm --workspace @anarchi/observability run typecheck"
   },

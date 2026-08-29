@@ -26,7 +26,7 @@
     { "path": "packages/connector-sdk", "status": "SCAFFOLDED" },
     { "path": "packages/authz", "status": "PARTIAL" },
     { "path": "packages/observability", "status": "PARTIAL" },
-    { "path": "packages/ui", "status": "SCAFFOLDED" },
+    { "path": "packages/ui", "status": "PARTIAL" },
     { "path": "packages/design-tokens", "status": "PARTIAL" },
     { "path": "packages/api-client", "status": "SCAFFOLDED" },
     { "path": "connectors/procore", "status": "SCAFFOLDED" },
