@@ -1,0 +1,48 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_20_POLICY_BOUND_AUTOMATION_DRY_RUN_COMPLETE",
+  "generated_at": "2026-08-29T11:32:43Z",
+  "from_commit": "95f5c20f4cc25159ba907751ce7c9ddccb862b62",
+  "authority": {
+    "production_mutated": false,
+    "automation_authority": "rust-recovery-core-policy-evaluator",
+    "execution_authority": "none; evaluation produces a receipt only",
+    "default_mode": "human approval",
+    "dry_run_side_effects": "none",
+    "authorized_automation": "explicit policy, threshold, recipient, pricing, and deadline gates",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "dry_run": "always simulation-only with deterministic reason code",
+    "human_approval": "always human-approval-required unless a separate explicit policy authorizes execution",
+    "authorized_automation": "enabled policy and automation_allowed plus amount, entitlement, evidence, pricing, recipient, and deadline checks",
+    "amount": "explicit decimal string rounded to two money places",
+    "currency": "explicit ISO uppercase code",
+    "receipt_hash": "canonical decision hash over unsigned receipt",
+    "fail_closed": "invalid policy, candidate, threshold, currency, amount, or serialization rejects evaluation"
+  },
+  "verification": {
+    "dry_run_is_simulation_only": "PASS",
+    "human_approval_default": "PASS",
+    "authorized_thresholds": "PASS",
+    "disabled_policy_fails_closed": "PASS",
+    "invalid_amount_and_thresholds_fail_closed": "PASS",
+    "receipt_hash_replay": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-001", "DRIFT-002", "DRIFT-003", "DRIFT-009", "DRIFT-010",
+    "DRIFT-011", "DRIFT-020", "DRIFT-035", "DRIFT-036", "DRIFT-037",
+    "DRIFT-038", "DRIFT-040", "DRIFT-041", "DRIFT-042", "DRIFT-044",
+    "DRIFT-072"
+  ],
+  "artifact_sha256": {
+    "crates/recovery-core/src/automation.rs": "00441806f9bd0591305ba834c61b6b7e6669733040333c82099e2ddcb7350f08",
+    "crates/recovery-core/src/lib.rs": "a6d503288c708706de9ed12d42b46b0736c003a9e7750d6686f543a4b4dd75f4"
+  }
+}
