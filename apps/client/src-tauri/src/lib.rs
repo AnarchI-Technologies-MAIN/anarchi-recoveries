@@ -11,6 +11,28 @@ pub enum ClientMode {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum NotificationTarget {
+    WindowsDesktop,
+    Ios,
+    Android,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum NotificationPrivacy {
+    Private,
+    Detailed,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct NotificationPayload {
+    pub target: NotificationTarget,
+    pub privacy: NotificationPrivacy,
+    pub title: String,
+    pub body: String,
+    pub lock_screen_safe: bool,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum CacheKind {
     RecentOpportunitySummary,
     PreviouslyOpenedEvidence,
@@ -84,6 +106,35 @@ pub enum ClientShellError {
     OfflineExecutionForbidden,
     #[error("encrypted cache entry is invalid: {0}")]
     InvalidEncryptedCache(&'static str),
+    #[error("notification field {0} is required")]
+    InvalidNotification(&'static str),
+}
+
+pub fn build_notification(
+    target: NotificationTarget,
+    privacy: NotificationPrivacy,
+    summary: &str,
+    confidential_detail: Option<&str>,
+) -> Result<NotificationPayload, ClientShellError> {
+    if summary.trim().is_empty() {
+        return Err(ClientShellError::InvalidNotification("summary"));
+    }
+    let (body, lock_screen_safe) = match privacy {
+        NotificationPrivacy::Private => ("AnarchI Recoveries update available".to_owned(), true),
+        NotificationPrivacy::Detailed => {
+            let detail = confidential_detail
+                .filter(|value| !value.trim().is_empty())
+                .ok_or(ClientShellError::InvalidNotification("confidential_detail"))?;
+            (format!("{summary}: {detail}"), false)
+        }
+    };
+    Ok(NotificationPayload {
+        target,
+        privacy,
+        title: "ANARCHI / RECOVERIES".to_owned(),
+        body,
+        lock_screen_safe,
+    })
 }
 
 pub fn validate_encrypted_cache_entry(
@@ -251,6 +302,42 @@ mod tests {
         assert_eq!(
             validate_encrypted_cache_entry(&empty, "2026-08-29T12:01:00Z"),
             Err(ClientShellError::InvalidEncryptedCache("ciphertext"))
+        );
+    }
+
+    #[test]
+    fn private_notifications_never_place_detail_on_lock_screen() {
+        let notification = build_notification(
+            NotificationTarget::WindowsDesktop,
+            NotificationPrivacy::Private,
+            "Deadline approaching",
+            Some("REC / 00481: $12,481.23"),
+        )
+        .expect("valid notification");
+        assert!(notification.lock_screen_safe);
+        assert_eq!(notification.body, "AnarchI Recoveries update available");
+        assert!(!notification.body.contains("12,481"));
+    }
+
+    #[test]
+    fn detailed_notifications_are_explicitly_opt_in() {
+        let notification = build_notification(
+            NotificationTarget::Ios,
+            NotificationPrivacy::Detailed,
+            "Deadline approaching",
+            Some("REC / 00481"),
+        )
+        .expect("valid notification");
+        assert!(!notification.lock_screen_safe);
+        assert!(notification.body.contains("REC / 00481"));
+        assert_eq!(
+            build_notification(
+                NotificationTarget::Android,
+                NotificationPrivacy::Detailed,
+                "Update",
+                None
+            ),
+            Err(ClientShellError::InvalidNotification("confidential_detail"))
         );
     }
 }

@@ -1,0 +1,38 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_35_NATIVE_NOTIFICATION_PRIVACY_BASELINE",
+  "generated_at": "2026-08-29T12:32:11Z",
+  "from_commit": "1d2ad0247fe050369874dba012f10accbc8d541d",
+  "status": "PRIVACY_CONTRACT_NOT_DELIVERING",
+  "authority": {
+    "production_mutated": false,
+    "targets": ["WindowsDesktop", "Ios", "Android"],
+    "default": "Private",
+    "private_lock_screen": "generic body only",
+    "detailed_mode": "explicit opt-in and not lock-screen safe",
+    "provider_delivery": "not registered or enabled"
+  },
+  "verification": {
+    "client_shell_tests": "PASS_6",
+    "private_detail_redaction": "PASS",
+    "detailed_opt_in_required": "PASS",
+    "cargo_fmt_clippy": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "native provider registration",
+    "device-token lifecycle and revocation",
+    "delivery retries and receipt evidence",
+    "full repository gate after receipt commit"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "apps/client/src-tauri/src/lib.rs": "492e7970b5fd62116b0801b8ad54317b6749feff1f2f11812408e6571a5e7c0b",
+    "docs/architecture/native-notification-privacy.md": "c31aa02d397299edbc6f016669c1c14ef4f3cce6bb5123cccffd8c57dd647d21"
+  }
+}
