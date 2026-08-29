@@ -475,6 +475,7 @@ def build_evidence_packet(
             "company": project["company"],
             "project": project["project"],
         },
+        "run_id": report["run_id"],
         "repository_commit": source,
         "spec_digest": SPEC_SHA256,
         "rule_registry_digest": file_digest(RULE_REGISTRY_PATH),
