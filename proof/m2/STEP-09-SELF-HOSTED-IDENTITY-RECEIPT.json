@@ -1,0 +1,138 @@
+{
+  "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
+  "receipt_id": "RECOVERIES-STEP-09-20260829T050124Z",
+  "recorded_at": "2026-08-29T05:01:24Z",
+  "repository": "/home/alexg-anarchi/anarchi-recoveries",
+  "branch": "main",
+  "transition": {
+    "from_commit": "03e55a5826486492ada8c171df11102c6f94aea6",
+    "from": "STEP_08_RLS_RUNTIME_ROLES_LOCAL_PROOF_COMPLETE",
+    "to": "STEP_09_SELF_HOSTED_IDENTITY_LOCAL_PROOF_COMPLETE",
+    "spec_step": 9,
+    "spec_method": 7,
+    "scope": [
+      "pinned self-hosted ZITADEL OIDC proof stack",
+      "live OIDC discovery and JWKS proof",
+      "issuer/audience/signature/algorithm/subject verification boundary",
+      "external issuer and subject to internal user mapping",
+      "active membership to requested internal organization resolution"
+    ]
+  },
+  "authority_limits": {
+    "production_mutated": false,
+    "production_identity_activated": false,
+    "production_issuer_trusted": false,
+    "live_customer_identity_created": false,
+    "external_provider_org_is_tenant_authority": false,
+    "anar_core_authorization_claimed": false,
+    "m2_completion_claimed": false
+  },
+  "provider_provenance": {
+    "provider": "ZITADEL",
+    "release": "v4.16.2",
+    "image": "ghcr.io/zitadel/zitadel:v4.16.2",
+    "oci_manifest_digest": "sha256:4b68a2106f60baa2895e5a00a77fcd915d29d0db3f0c011d3eb9f99f557b2b48",
+    "official_sources": [
+      "https://github.com/zitadel/zitadel/releases/tag/v4.16.2",
+      "https://zitadel.com/docs/self-hosting/deploy/compose",
+      "https://zitadel.com/docs/self-hosting/manage/custom-domain",
+      "https://zitadel.com/docs/self-hosting/manage/requirements"
+    ],
+    "source_checked_at": "2026-08-29T05:01:24Z"
+  },
+  "artifacts": {
+    "infra/postgres/migrations/000007_identity_context.sql": "3684fbcc40a2c1b42732861c3e5b2cffed051660360423183232a490d0c1c28d",
+    "tools/migration-check/verify-step-09.sql": "61d15f44b4cd2d70fd31bc4d817369b14de6b06e48b0a0655d037633ae95d927",
+    "infra/zitadel/test-zitadel.compose.yaml": "c8a3b8d25a85e4d70c59edd4a9b2f4a5443fb6b1e26ebd1aea6e1c2781d72314",
+    "infra/zitadel/verify-discovery.mjs": "fdf9df527f6f3fb82d861e85e773ac15494e96ee0fe56be1d3805e5cd5e5b141",
+    "packages/authz/src/oidc.ts": "6d72d1820db2e0077f69ad7c22f2b5d58efc8bd14f47db1be54635e6af37ffbb",
+    "packages/authz/test/oidc.test.ts": "4315d7c14840ac01a63c60d40811e75cae85ef2b01ee10e0f24ea5b67c42ad97",
+    "package-lock.json": "f16d971f4dc1c23ec5ba47c568607148da05f0c79637f1c92830d7093a00acb0",
+    "governance/repository-map.v1.json": "9167a14c6a877364c2ba910f0e5ef9e73b2351b0eb08643e56c199d627ecc9a7"
+  },
+  "live_local_provider_proof": {
+    "kind": "DISPOSABLE_LOOPBACK_TMPFS",
+    "compose_project": "recoveries-zitadel-test",
+    "issuer": "http://127.0.0.1:58080",
+    "jwks_uri": "http://127.0.0.1:58080/oauth/v2/keys",
+    "discovery_sha256": "4e08a2ee7ddc7b30009d7273c731e02c7087d4c4178ac209dd8740aa9c6656bb",
+    "jwks_sha256": "c264784c2bc6d74f665a1e3a880f5f156fc6ac4d82cb2d7ecdb7804ad61beac1",
+    "jwks_hash_scope": "INSTANCE_SPECIFIC_PUBLIC_KEYS",
+    "key_count": 2,
+    "key_type": "RSA",
+    "key_algorithm": "RS256"
+  },
+  "verification": [
+    {
+      "gate": "OIDC TypeScript strict typecheck",
+      "result": "PASS"
+    },
+    {
+      "gate": "cryptographic OIDC verifier tests",
+      "result": "PASS",
+      "tests_passed": 5,
+      "tests_failed": 0
+    },
+    {
+      "gate": "live self-hosted discovery and JWKS",
+      "result": "PASS"
+    },
+    {
+      "gate": "fresh seven-migration database replay",
+      "result": "PASS",
+      "ledger_rows": 7,
+      "distinct_versions": 7
+    },
+    {
+      "gate": "verified external pair resolves internal user",
+      "result": "PASS"
+    },
+    {
+      "gate": "active membership resolves requested internal organization",
+      "result": "PASS"
+    },
+    {
+      "gate": "unknown issuer or unjoined organization",
+      "result": "PASS",
+      "result_detail": "REJECTED"
+    },
+    {
+      "gate": "post-RLS migration owner execution",
+      "result": "PASS",
+      "function_owner": "recoveries_migration_role"
+    },
+    {
+      "gate": "npm dependency audit",
+      "result": "PASS",
+      "vulnerabilities": 0
+    }
+  ],
+  "construction_findings": [
+    {
+      "sequence": 1,
+      "result": "FAIL_CLOSED",
+      "finding": "the first strict TypeScript gate rejected explicit .ts test imports without allowImportingTsExtensions",
+      "correction": "enable explicit TypeScript source imports only in the no-emit NodeNext configuration and rerun the full gate"
+    }
+  ],
+  "drift_controls_addressed": [
+    {
+      "id": "DRIFT-027",
+      "claim": "the external token yields only issuer and subject; internal organization authority requires active database membership"
+    },
+    {
+      "id": "DRIFT-028",
+      "claim": "identity context is established through the non-bypass runtime role boundary"
+    },
+    {
+      "id": "DRIFT-044",
+      "claim": "the transition is limited to frozen SPEC 1.6 step 9"
+    }
+  ],
+  "acceptance": {
+    "status": "PASS",
+    "claim": "SPEC 1.6 step 9 local self-hosted identity integration only",
+    "next_spec_step": 10,
+    "next_step_name": "Implement durable inbox/outbox"
+  }
+}

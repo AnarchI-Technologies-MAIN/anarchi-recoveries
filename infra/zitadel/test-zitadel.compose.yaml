@@ -1,0 +1,41 @@
+services:
+  zitadel-test-postgres:
+    image: postgres:18.1-bookworm
+    environment:
+      POSTGRES_DB: zitadel
+      POSTGRES_USER: zitadel_test
+      POSTGRES_PASSWORD: ${RECOVERIES_ZITADEL_TEST_DB_PASSWORD:?required for isolated identity tests}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zitadel_test -d zitadel"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    tmpfs:
+      - /var/lib/postgresql:rw,noexec,nosuid,size=512m
+    restart: "no"
+
+  zitadel-test:
+    image: ghcr.io/zitadel/zitadel:v4.16.2@sha256:4b68a2106f60baa2895e5a00a77fcd915d29d0db3f0c011d3eb9f99f557b2b48
+    command: start-from-init --masterkey "${RECOVERIES_ZITADEL_TEST_MASTERKEY:?must be exactly 32 characters}"
+    environment:
+      ZITADEL_PORT: 8080
+      ZITADEL_EXTERNALDOMAIN: 127.0.0.1
+      ZITADEL_EXTERNALPORT: 58080
+      ZITADEL_EXTERNALSECURE: false
+      ZITADEL_TLS_ENABLED: false
+      ZITADEL_DATABASE_POSTGRES_DSN: postgresql://zitadel_test:${RECOVERIES_ZITADEL_TEST_DB_PASSWORD:?required for isolated identity tests}@zitadel-test-postgres:5432/zitadel?sslmode=disable
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORDCHANGEREQUIRED: true
+      ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_REQUIRED: false
+      ZITADEL_LOGSTORE_ACCESS_STDOUT_ENABLED: true
+    ports:
+      - "127.0.0.1:58080:8080"
+    depends_on:
+      zitadel-test-postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/app/zitadel", "ready"]
+      interval: 5s
+      timeout: 10s
+      retries: 60
+      start_period: 20s
+    restart: "no"

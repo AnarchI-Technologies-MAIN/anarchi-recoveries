@@ -1,6 +1,8 @@
 /target/
+node_modules/
+dist/
+coverage/
 **/*.rs.bk
 .env
 .env.*
 !.env.example
-
