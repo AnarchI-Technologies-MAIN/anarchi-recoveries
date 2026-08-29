@@ -1,0 +1,44 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_17_PROCORE_READ_ONLY_CONNECTOR_COMPLETE",
+  "generated_at": "2026-08-29T11:16:30Z",
+  "from_commit": "7abeabde11e83d110a327dcd611b5bbb6a7782ac",
+  "authority": {
+    "production_mutated": false,
+    "procore_writes": false,
+    "local_business_state_writes": false,
+    "credential_authority": "injected token source; broker/vault deferred to step 26",
+    "vendor_semantics_authority": "adapter observation only",
+    "implicit_clock": false
+  },
+  "endpoint": {
+    "method": "GET",
+    "path": "/rest/v1.0/companies/{company_id}/projects",
+    "required_header": "Procore-Company-Id",
+    "source": "https://developers.procore.com/reference/rest/company-projects?version=1.0"
+  },
+  "verification": {
+    "paginated_project_mapping": "PASS",
+    "explicit_page_and_per_page": "PASS",
+    "required_auth_headers": "PASS",
+    "non_success_body_redaction": "PASS",
+    "malformed_project_rejected": "PASS",
+    "pagination_bound": "PASS_1000_PAGES",
+    "go_race": "PASS",
+    "go_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-019", "DRIFT-021", "DRIFT-041", "DRIFT-042", "DRIFT-044",
+    "DRIFT-072"
+  ],
+  "artifact_sha256": {
+    "connectors/procore/go.mod": "bfbbfb9e279d0dc2683e44891f70b1bda472af19775db7580151faef6d2b955a",
+    "connectors/procore/client.go": "dbda4ed6e3f3d7e6292ceb56e85ca6e103bf4bae8f3d4986442bbe68df0d3047",
+    "connectors/procore/client_test.go": "755a19f393984310ec3d7df84ab7fc27ef69184d3a1a81d98b8d3c414b97830f",
+    "go.work": "51cb3b8e658a92b5a5ababd6365ae8bd84dbcff7200a17af25fb809dc9b8603d",
+    "docs/integrations/procore.md": "f6840ca89936d62bb9fb4fb9fdc95561f2cdc7dba7cfc0c5158e560888ac5294"
+  }
+}
