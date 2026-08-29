@@ -1,0 +1,62 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "step": "STEP_12_INGESTION_LOCAL_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T09:34:43Z",
+  "from_commit": "9582d2db386dac2085b3ba30301ad84dbc65a217",
+  "authority": {
+    "production_mutated": false,
+    "object_store": "disposable_loopback_tmpfs_only",
+    "postgres": "disposable_loopback_only",
+    "m2_complete": false
+  },
+  "construction_findings": [
+    {
+      "id": "STEP12-FINDING-001",
+      "status": "corrected",
+      "detail": "The locked function search_path could not resolve pgcrypto.digest in public; the cryptographic call was schema-qualified before migration commit."
+    },
+    {
+      "id": "STEP12-FINDING-002",
+      "status": "corrected",
+      "detail": "The outbox requires available_at with no default; ingestion now sets it explicitly to occurred_at."
+    },
+    {
+      "id": "STEP12-FINDING-003",
+      "status": "corrected",
+      "detail": "The adapter proof fixture used multiple parameterized SQL commands in one pgx prepared statement; setup and cleanup were split into individual statements."
+    },
+    {
+      "id": "STEP12-FINDING-004",
+      "status": "corrected",
+      "detail": "Source, MIME, timestamp, event UUID, correlation UUID, causation UUID, and idempotency metadata are now validated before object-store mutation."
+    }
+  ],
+  "verification": {
+    "fresh_migration_replay": "PASS_10_OF_10",
+    "all_foundation_and_step_07_11_proofs": "PASS",
+    "evidence_and_outbox_atomic": "PASS",
+    "outbox_failure_rolls_back_evidence": "PASS",
+    "invalid_request_mutates_nothing": "PASS",
+    "hash_or_size_mismatch_mutates_nothing": "PASS",
+    "remote_head_mismatch_skips_database": "PASS",
+    "minio_pgx_runtime_role_adapter": "PASS_INGESTION_ADAPTER_PROOF",
+    "go_tests_race_vet": "PASS",
+    "rust_tests_fmt_clippy": "PASS",
+    "authz_typecheck_tests_audit": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "secret_scan": "PASS"
+  },
+  "drift_controls": ["DRIFT-017", "DRIFT-018", "DRIFT-019", "DRIFT-022", "DRIFT-023", "DRIFT-044"],
+  "artifact_sha256": {
+    "infra/postgres/migrations/000010_ingestion_transaction.sql": "abd05d7171f1bdecd96d87252fb554c9f3889fc9b99d23164db204137fec934d",
+    "tools/migration-check/verify-step-12.sql": "4b47154724b9ae2c68c0f4175d0acde80dd1af439eb08c1b2e43f81fd63aed8d",
+    "services/ingestion/go.mod": "5d7fb413a813d5d9efd08d29db2cae1904ac51c6aa132079aa2855be6ffca348",
+    "services/ingestion/go.sum": "5fff8c3698afd5b6370a83b8189d4537cede3d304e8c8103b9e7b7346047ffd4",
+    "services/ingestion/internal/ingest/service.go": "7b6140f82b5f242aa7d626f356165acfa7fab5ab7b56e732fa62f12ee513707b",
+    "services/ingestion/internal/ingest/service_test.go": "58129d0ca8fea632b6d799de78a2630c9c043517f91e434bcb8e50afbca196fe",
+    "services/ingestion/internal/objectstore/minio.go": "da4746d2ee1039e9653b92918bbb142e56d5d87d4670432cb332616185afee66",
+    "services/ingestion/internal/repository/postgres.go": "49e3a5d098fa1639eb9c2cd291635108608c60af85b286f5842fca44d3c34e61",
+    "services/ingestion/cmd/ingestion-proof/main.go": "8ebaaf497524a019d3e45c9f48c3bf7989a174cf0842c646b42f6a5a492395b4",
+    "go.work.sum": "308298752182f68ef707b63449ec9dcd50546f4e0ff957b25284d6d30e0e08ef"
+  }
+}
