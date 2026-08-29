@@ -1,0 +1,63 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_15_EVALUATION_PERSISTENCE_COMPLETE",
+  "generated_at": "2026-08-29T11:09:06Z",
+  "from_commit": "3b43ddcde577eea92dae3f42e3c6a660e12a898e",
+  "authority": {
+    "production_mutated": false,
+    "step_15_complete": true,
+    "evaluation_authority": "rust-recovery-core",
+    "persistence_authority": "recoveries.persist_recovery_evaluation",
+    "no_opportunity_receipts": "recoveries.audit_events",
+    "opportunity_state": "recoveries.recovery_opportunities",
+    "rust_core_network_access": false,
+    "rust_core_database_access": false,
+    "implicit_clock": false
+  },
+  "construction_findings": [
+    {
+      "id": "STEP15-BOUNDARY-001",
+      "status": "corrected",
+      "detail": "The frozen entity list has no separate evaluation table although the sequence requires durable evaluation and hash persistence. The existing immutable audit_events relation is now the receipt authority for every evaluation; recovery_opportunities is created only for OPPORTUNITY decisions. The decision is documented in ADR-001 and introduces no unlisted table."
+    },
+    {
+      "id": "STEP15-FINDING-002",
+      "status": "corrected",
+      "detail": "Exact worker retries previously would have collided with uniqueness constraints. Evaluation, audit, and outbox inserts now accept an exact replay and reject conflicting reuse."
+    }
+  ],
+  "verification": {
+    "fresh_migration_replay": "PASS_13_OF_13",
+    "foundation_step_07_14_proofs": "PASS",
+    "step_10_concurrent_skip_locked": "PASS",
+    "evaluation_no_opportunity_audit_receipt": "PASS",
+    "evaluation_opportunity_domain_row": "PASS",
+    "evaluation_outbox_atomic": "PASS",
+    "evaluation_envelope_hash_replay": "PASS",
+    "exact_evaluation_retry_without_duplication": "PASS",
+    "runtime_direct_opportunity_write_denied": "PASS",
+    "invalid_evaluation_hash_fails_closed": "PASS",
+    "go_worker_to_rust_core_boundary": "PASS",
+    "evaluation_hash": "d1a50ea8564eb00191ab1484cb90c218c692f2370b60bb5b0c0b3058dd6df344",
+    "full_go_race_vet": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-001", "DRIFT-002", "DRIFT-017", "DRIFT-020", "DRIFT-022",
+    "DRIFT-023", "DRIFT-024", "DRIFT-025", "DRIFT-026", "DRIFT-039",
+    "DRIFT-041", "DRIFT-042", "DRIFT-044", "DRIFT-072"
+  ],
+  "artifact_sha256": {
+    "infra/postgres/bootstrap/service-roles.sql": "ffc3598e0dc70512611213223150f18f9a5af6455bbd2f75e61234a9a74ed417",
+    "infra/postgres/migrations/000013_evaluation_persistence.sql": "c782133cc05d2765f5066e978281a1b16966550eb90d43cffef8e6e9901a0cee",
+    "tools/migration-check/verify-step-15.sql": "c8b8b9340df0f2c8edd6fcc86e50c1f6abd4ee520f27eb874745b8914d517aae",
+    "docs/ADR/ADR-001-evaluation-receipt-placement.md": "b423415ce2f1efcaed5f76df7da4f6c60e2aca20efbde5e399ace6ab4b622951",
+    "crates/recovery-core/src/engine.rs": "0d50ed23ff27d29c5816e5e403660e022570a1e71db2401e6eee6bd9611a6b68",
+    "crates/recovery-core/src/bin/recovery-core-runner.rs": "1f4f6694a9e0e9c31b6c9d8c52164f1cd9fbb2831bd7783a48ec2ba030eae130",
+    "services/normalization/internal/core/process.go": "f7ecf7633356ad8c87f60cb57de9afc164d9ffc275cc8ba2632adbbd7e7000b9",
+    "schemas/canonical/project_evaluation_boundary_response.v1.schema.json": "9040a29bc196689fdb7398f9769d29a61f16956165dbec0b9df684aef798d40c"
+  }
+}
