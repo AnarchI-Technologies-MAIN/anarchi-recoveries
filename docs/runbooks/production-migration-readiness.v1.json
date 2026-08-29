@@ -1,0 +1,36 @@
+{
+  "schema": "anarchi.recoveries.production-migration-readiness.v1",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "status": "NOT_AUTHORIZED",
+  "production_mutated": false,
+  "source_stage": "founder_dev_wsl2_spine",
+  "target_stage": "dedicated_early_production_stack",
+  "dedicated_stack_slots": [
+    { "slot": 1, "workload": "ingress / reverse proxy" },
+    { "slot": 2, "workload": "API + web" },
+    { "slot": 3, "workload": "Go workers / connectors" },
+    { "slot": 4, "workload": "Rust evaluation services" },
+    { "slot": 5, "workload": "PostgreSQL primary" },
+    { "slot": 6, "workload": "PostgreSQL replica / backup target" },
+    { "slot": 7, "workload": "S3 evidence storage" },
+    { "slot": 8, "workload": "NATS / coordination" },
+    { "slot": 9, "workload": "Vault / security services" },
+    { "slot": 10, "workload": "observability + backup / spare capacity" }
+  ],
+  "objectives": {
+    "postgresql_rpo_minutes_max": 15,
+    "core_recoveries_rto_hours_max": 4,
+    "independent_full_backup": "nightly",
+    "continuous_incremental_db_protection": true,
+    "off_stack_encrypted_backup_minimum": 1,
+    "backup_restoration_testing": "scheduled_and_recorded"
+  },
+  "preflight": {
+    "authority_approved": false,
+    "rollback_plan_approved": false,
+    "backup_restore_proof": false,
+    "secret_broker_vault_ready": false,
+    "observability_ready": false,
+    "dedicated_stack_reachable": false
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_39_40_PRODUCTION_MIGRATION_AND_RPO_RTO_READINESS_BASELINE",
+  "generated_at": "2026-08-29T12:40:08Z",
+  "from_commit": "57653e6be9d64679220c812c6a246e50b0edd679",
+  "status": "NOT_AUTHORIZED",
+  "authority": {
+    "production_mutated": false,
+    "source_stage": "founder_dev_wsl2_spine",
+    "target_stage": "dedicated_early_production_stack",
+    "stack_map": "ten logical workload slots pinned to SPEC-1.6",
+    "authorization": "requires every independent preflight check",
+    "live_contact": "none"
+  },
+  "objectives": {
+    "postgresql_rpo_minutes_max": 15,
+    "core_recoveries_rto_hours_max": 4,
+    "independent_full_backup": "nightly",
+    "continuous_incremental_db_protection": true,
+    "off_stack_encrypted_backup_minimum": 1,
+    "backup_restoration_testing": "scheduled_and_recorded"
+  },
+  "verification": {
+    "production_readiness_validator": "PASS",
+    "production_readiness_tests": "PASS_3",
+    "preflight_authorization_guard": "PASS",
+    "workload_order_guard": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "authority approval",
+    "rollback plan approval",
+    "backup and restore proof",
+    "Secret Broker/Vault readiness proof",
+    "observability readiness proof",
+    "dedicated-stack reachability proof",
+    "independent live migration and restore exercise"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "docs/runbooks/production-migration-readiness.v1.json": "149de502cb950c9becdc520a212978e59219f2cd87c9285ce7446d614fa4e485",
+    "tools/migration-check/verify_production_readiness.py": "7040f6537910b182f0f08453b45705322123edca1ada759dcd1411b9bba398a0",
+    "tools/migration-check/test_verify_production_readiness.py": "a5330751c085f65feb75bdf2623015eeca6238a44f0bf3a46889d2c8c18b6c9c",
+    "docs/architecture/production-migration-boundary.md": "c0e063602b3e7a33fd662ed7c2d4dee45a9b71bb9ccae47eb95f985988acc49b"
+  }
+}
