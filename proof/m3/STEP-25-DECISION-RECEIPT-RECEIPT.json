@@ -1,0 +1,56 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_25_ANAR_CORE_DECISION_RECEIPTS_COMPLETE",
+  "generated_at": "2026-08-29T11:55:20Z",
+  "from_commit": "8986610e87f00ba13126d810b3473dce46965220",
+  "authority": {
+    "production_mutated": false,
+    "binding_id": "ENF-RECOVERIES-00001",
+    "canonical_rule_id": "RULE-AUTH-RECOVERIES-001",
+    "registry_status": "READY",
+    "binding_status": "ACTIVE",
+    "decision_receipt_authority": "rust-recovery-core-canonical-emitter",
+    "execution_authority": "none; executor and external APIs remain unconnected",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "receipt_fields": "decision ID, subject, organization, operation, resource, purpose, result, authority class, policy version, binding, expiry, payload hash, decision hash",
+    "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+    "payload_pinning": "receipt verification recomputes the hash and compares the current payload hash",
+    "mutation_behavior": "PAYLOAD_MUTATION denial",
+    "tamper_behavior": "INVALID_HASH denial",
+    "scope_behavior": "request and decision organization/resource/policy/payload scope must match"
+  },
+  "verification": {
+    "receipt_replay_hash": "PASS",
+    "payload_mutation_denied": "PASS",
+    "tampered_hash_denied": "PASS",
+    "positive_and_negative_authority_fixtures": "PASS",
+    "release_provenance": "PASS",
+    "registry_validator": "PASS_1_ACTIVE_BINDING",
+    "governance_readiness": "READY",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "full_node_tests_typecheck": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-060", "DRIFT-061", "DRIFT-062", "DRIFT-063", "DRIFT-064",
+    "DRIFT-083", "DRIFT-084", "DRIFT-085", "DRIFT-086", "DRIFT-088",
+    "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "crates/recovery-core/src/decision_receipt.rs": "cd5669a79f9ede38f3cbf0ff653e10b2b22ccc1a6bb61a975bed346e6bb0f5aa",
+    "crates/recovery-core/src/governance.rs": "86816236ed0cddbd0ce8cace15f577977826e9a9de186203b7f969c7aacf7394",
+    "crates/recovery-core/src/lib.rs": "d8cf519f800ead6b936679831611fe3e98d8065ab7ac7c61e2e12b7881fe80f2",
+    "crates/recovery-core/tests/governance_fixture_test.rs": "67ea57dcfca060be51bec45d9a4dd126f11a43bc6a30bc54944653b6d1a58ae0",
+    "schemas/rules/governance-decision-receipt.v1.schema.json": "4c62b92b2ff0806592003417f0e4ebf582dcacff59adbfbb54665a1c7957deb6",
+    "fixtures/governance/notice-payload-mutation-denied.json": "126c5b0fa6f2f0617fd5ce75d355f466bd1b0e52bb19df4d11d28b6998728694",
+    "governance/enforcement-binding-registry.v1.json": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
+    "proof/m3/STEP-25-RELEASE-PROVENANCE.json": "7edd6a6b6a18c14978af591d49c5e04b13d7ce01fb1a2c5c66aae15b85bc7131",
+    "tools/governance/verify_binding_registry.py": "bca5b93c5f2e801e32a8c2e2c2599e67797164b9ac9b2abdfbc1b9e2e26b144f"
+  }
+}

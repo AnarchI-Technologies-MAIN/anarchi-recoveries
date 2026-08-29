@@ -1,6 +1,6 @@
 {
   "schema": "anarchi.recoveries.enforcement-binding-registry.v1",
-  "status": "NOT_READY",
+  "status": "READY",
   "source": {
     "path": "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md",
     "heading": "### 23. Enforcement Binding Registry",
@@ -20,7 +20,7 @@
       "test_ref": "crates/recovery-core/tests/governance_fixture_test.rs",
       "proof_fixture": "fixtures/governance/notice-denied-without-authority.json",
       "fail_mode": "DENY",
-      "status": "SIMULATED"
+      "status": "ACTIVE"
     }
   ]
 }

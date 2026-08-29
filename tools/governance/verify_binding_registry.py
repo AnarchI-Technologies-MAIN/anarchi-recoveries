@@ -81,6 +81,10 @@ def validate_registry(registry: object, root: Path = ROOT) -> int:
         binding["status"] == "ACTIVE" for binding in bindings
     ):
         raise ValueError("READY registry requires at least one ACTIVE binding")
+    if registry["status"] == "READY" and not (
+        root / "proof/m3/STEP-25-RELEASE-PROVENANCE.json"
+    ).is_file():
+        raise ValueError("READY registry requires release provenance")
     if registry["status"] == "NOT_READY" and any(
         binding["status"] == "ACTIVE" for binding in bindings
     ):

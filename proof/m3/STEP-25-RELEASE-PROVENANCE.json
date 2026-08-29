@@ -1,0 +1,30 @@
+{
+  "schema": "anarchi.recoveries.release-provenance.v1",
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "release_id": "recoveries-governance-v1",
+  "implementation_commit": "8986610e87f00ba13126d810b3473dce46965220",
+  "binding_id": "ENF-RECOVERIES-00001",
+  "canonical_rule_id": "RULE-AUTH-RECOVERIES-001",
+  "proof_scope": "decision receipt emission, payload mutation denial, first Recoveries human-approval gate",
+  "production_activation": false,
+  "verified_commands": [
+    "cargo test --workspace",
+    "cargo fmt --all -- --check",
+    "cargo clippy --workspace --all-targets -- -D warnings",
+    "go test -race and go vet for all connector/service modules",
+    "npm authz and observability tests and typechecks",
+    "python3 tools/governance/verify_binding_registry.py",
+    "python3 tools/spec-index/verify_spec_controls.py",
+    "git diff --check"
+  ],
+  "artifact_sha256": {
+    "crates/recovery-core/src/decision_receipt.rs": "cd5669a79f9ede38f3cbf0ff653e10b2b22ccc1a6bb61a975bed346e6bb0f5aa",
+    "crates/recovery-core/src/governance.rs": "86816236ed0cddbd0ce8cace15f577977826e9a9de186203b7f969c7aacf7394",
+    "crates/recovery-core/src/lib.rs": "d8cf519f800ead6b936679831611fe3e98d8065ab7ac7c61e2e12b7881fe80f2",
+    "crates/recovery-core/tests/governance_fixture_test.rs": "67ea57dcfca060be51bec45d9a4dd126f11a43bc6a30bc54944653b6d1a58ae0",
+    "schemas/rules/governance-decision-receipt.v1.schema.json": "4c62b92b2ff0806592003417f0e4ebf582dcacff59adbfbb54665a1c7957deb6",
+    "fixtures/governance/notice-payload-mutation-denied.json": "126c5b0fa6f2f0617fd5ce75d355f466bd1b0e52bb19df4d11d28b6998728694",
+    "tools/governance/verify_binding_registry.py": "bca5b93c5f2e801e32a8c2e2c2599e67797164b9ac9b2abdfbc1b9e2e26b144f"
+  }
+}
