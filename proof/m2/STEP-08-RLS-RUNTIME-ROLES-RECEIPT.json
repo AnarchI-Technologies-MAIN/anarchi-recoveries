@@ -1,0 +1,119 @@
+{
+  "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
+  "receipt_id": "RECOVERIES-STEP-08-20260829T045356Z",
+  "recorded_at": "2026-08-29T04:53:56Z",
+  "repository": "/home/alexg-anarchi/anarchi-recoveries",
+  "branch": "main",
+  "transition": {
+    "from_commit": "121c13612c7b6a6ad7941573b368b3b45444b8c9",
+    "from": "STEP_07_TEMPORAL_MONEY_CURRENCY_LOCAL_PROOF_COMPLETE",
+    "to": "STEP_08_RLS_RUNTIME_ROLES_LOCAL_PROOF_COMPLETE",
+    "spec_step": 8,
+    "spec_method": 7,
+    "scope": [
+      "separate migration/table-owner role",
+      "non-login non-bypass runtime role",
+      "forced row-level security on every current tenant table",
+      "internal organization UUID session authority",
+      "tenant-aware composite foreign-key catalog audit"
+    ]
+  },
+  "authority_limits": {
+    "production_mutated": false,
+    "production_database_contacted": false,
+    "external_idp_integrated": false,
+    "external_idp_organization_used_as_tenant_authority": false,
+    "application_authorization_claimed": false,
+    "m2_completion_claimed": false
+  },
+  "artifacts": [
+    {
+      "path": "infra/postgres/migrations/000006_tenant_rls_runtime_roles.sql",
+      "sha256": "f9f2e0dd6317fdc31fd3051a5afc236153de6dfd0af2ee24be445416b94b87e9",
+      "stored_ledger_sha256": "f9f2e0dd6317fdc31fd3051a5afc236153de6dfd0af2ee24be445416b94b87e9"
+    },
+    {
+      "path": "tools/migration-check/verify-step-08.sql",
+      "sha256": "68e9d3b4155d98f15152272d98bf4f26b656cd57085855d6e756469782627a76"
+    },
+    {
+      "path": "tools/migration-check/apply-migrations.sh",
+      "sha256": "370f1639e100f1b32108b488987c3a2ecbb8f69bc3a378a8a6de379a9b9fe28f"
+    }
+  ],
+  "database_roles": {
+    "owner": "recoveries_migration_role",
+    "runtime": "recoveries_runtime_role",
+    "runtime_attributes": {
+      "login": false,
+      "superuser": false,
+      "createdb": false,
+      "createrole": false,
+      "replication": false,
+      "bypassrls": false
+    }
+  },
+  "verification": [
+    {
+      "gate": "fresh six-migration disposable database replay",
+      "result": "PASS",
+      "ledger_rows": 6,
+      "distinct_versions": 6
+    },
+    {
+      "gate": "ENABLE and FORCE RLS inventory",
+      "result": "PASS",
+      "tenant_tables": 16
+    },
+    {
+      "gate": "unset organization context read and write",
+      "result": "PASS",
+      "observed_rows": 0,
+      "write_result": "REJECTED"
+    },
+    {
+      "gate": "Tenant A read/write attempt against Tenant B",
+      "result": "PASS",
+      "cross_tenant_rows_observed": 0,
+      "cross_tenant_write_result": "REJECTED"
+    },
+    {
+      "gate": "runtime access to users, external identities, and migration ledger",
+      "result": "PASS",
+      "direct_select_privilege": false
+    },
+    {
+      "gate": "schema and relation owner separation",
+      "result": "PASS"
+    },
+    {
+      "gate": "tenant-aware composite foreign-key catalog audit",
+      "result": "PASS",
+      "unsafe_constraints": 0
+    }
+  ],
+  "drift_controls_addressed": [
+    {
+      "id": "DRIFT-026",
+      "claim": "every current tenant-to-tenant foreign key includes organization identity"
+    },
+    {
+      "id": "DRIFT-027",
+      "claim": "RLS predicates use only anarchi.current_organization_id internal UUID"
+    },
+    {
+      "id": "DRIFT-028",
+      "claim": "the runtime role is non-login, non-superuser, and NOBYPASSRLS"
+    },
+    {
+      "id": "DRIFT-044",
+      "claim": "the transition is limited to frozen SPEC 1.6 step 8"
+    }
+  ],
+  "acceptance": {
+    "status": "PASS",
+    "claim": "SPEC 1.6 step 8 local RLS and runtime-role enforcement only",
+    "next_spec_step": 9,
+    "next_step_name": "Integrate self-hosted identity"
+  }
+}

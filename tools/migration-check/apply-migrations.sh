@@ -31,7 +31,19 @@ while IFS= read -r migration; do
     continue
   fi
 
-  psql "$RECOVERIES_TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f "$migration"
+  migration_role_exists="$(
+    psql "$RECOVERIES_TEST_DATABASE_URL" -X -qAt \
+      -v ON_ERROR_STOP=1 \
+      -c "SELECT 1 FROM pg_roles WHERE rolname = 'recoveries_migration_role'" \
+      2>/dev/null || true
+  )"
+
+  if [[ "$migration_role_exists" == "1" ]]; then
+    PGOPTIONS="${PGOPTIONS:-} -c role=recoveries_migration_role" \
+      psql "$RECOVERIES_TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f "$migration"
+  else
+    psql "$RECOVERIES_TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f "$migration"
+  fi
   psql "$RECOVERIES_TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 \
     -c "INSERT INTO recoveries.schema_migrations(version, sha256) VALUES ('$version', '$digest')"
 done < <(find "$migration_root" -maxdepth 1 -type f -name '*.sql' | sort)
