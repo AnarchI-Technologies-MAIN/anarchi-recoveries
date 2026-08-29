@@ -1,0 +1,17 @@
+{
+  "receipt_schema": "anarchi.recoveries.corrective-transition.v1",
+  "receipt_id": "RECOVERIES-SPEC-CONTROL-GATE-CORRECTION-20260829T043734Z",
+  "recorded_at": "2026-08-29T04:37:34Z",
+  "affected_commit": "a9f24e1",
+  "observation": "git diff --cached --check detected one trailing blank line in each of three spec-index scripts, but subsequent interactive commands were not fail-fast and the commit still occurred.",
+  "correction": {
+    "files": [
+      "tools/spec-index/build_drift_registry.py",
+      "tools/spec-index/materialize_repository_map.py",
+      "tools/spec-index/verify_spec_controls.py"
+    ],
+    "change": "Remove only the trailing blank lines and require fail-fast commit gates going forward."
+  },
+  "affected_drift_rules": ["DRIFT-044", "DRIFT-088"],
+  "production_effects": false
+}
