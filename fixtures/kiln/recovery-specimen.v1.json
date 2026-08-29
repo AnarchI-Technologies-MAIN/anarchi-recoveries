@@ -1,0 +1,13 @@
+{
+  "schema": "anarchi.recoveries.kiln-specimen.v1",
+  "payload": {
+    "recovery_id": "REC / KILN-0001",
+    "amount": "100.00",
+    "currency": "USD",
+    "evaluation_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "proof": {
+    "source_ref": "fixture://kiln/recovery-specimen",
+    "decision_receipt_ref": "fixture://kiln/decision-1"
+  }
+}

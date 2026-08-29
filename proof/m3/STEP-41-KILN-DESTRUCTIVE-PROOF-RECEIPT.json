@@ -1,0 +1,39 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_41_KILN_DESTRUCTIVE_PROOF_HARNESS_COMPLETE",
+  "generated_at": "2026-08-29T12:42:58Z",
+  "from_commit": "7264fa78ad65b8e36ca84aa527e343af9e02ae13",
+  "authority": {
+    "production_mutated": false,
+    "specimen_only": true,
+    "stages": ["mutation", "fracture proof", "survivor evidence", "restoration proof"],
+    "forbidden_actions": ["repair", "promote", "commit", "push", "publish", "deploy", "authorize"],
+    "promotion_authority": "separate human/governance decision"
+  },
+  "verification": {
+    "kiln_tests": "PASS_3",
+    "source_immutability": "PASS",
+    "fracture_digest": "PASS",
+    "survivor_fields": "PASS",
+    "restoration_digest": "PASS",
+    "forbidden_authority_actions": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "additional destructive cases against each enforcement/security boundary",
+    "independent Kiln artifact storage and review workflow",
+    "human/governance adjudication and promotion proof"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "tools/kiln/kiln_protocol.py": "b5c7accb979db2b265e544bd187652c82a554c7bdb613915b66f46bea97ea9e5",
+    "tools/kiln/test_kiln_protocol.py": "2dc1565b8c07beba020652c93ed4f2e506580fe3d26b8c6148cf732d0f4fc926",
+    "fixtures/kiln/recovery-specimen.v1.json": "43e6fad89b6e1e6e14f6db03960d787e45cff2b915de57f168ba4139a045b3bc",
+    "docs/architecture/kiln-destructive-proof.md": "0aadff88d4cc66242fef27ed058256c281fa898b48040386d8262436f64498fc"
+  }
+}
