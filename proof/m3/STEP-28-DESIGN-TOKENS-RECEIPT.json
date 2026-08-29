@@ -1,0 +1,59 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_28_EVIDENCE_LEDGER_DESIGN_TOKENS_COMPLETE",
+  "generated_at": "2026-08-29T12:03:14Z",
+  "from_commit": "fec93f7dd2650cb49d1c63f77dd15e5c88e333e9",
+  "authority": {
+    "production_mutated": false,
+    "token_authority": "typed @anarchi/design-tokens package",
+    "theme_authority": "Evidence Ledger light and dark counterparts",
+    "blacksite_and_heritage_accents": "not product defaults",
+    "client_usage": "web, Tauri, and mobile consumers are expected to share this package",
+    "screens_implemented": false,
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "light_palette": "frozen Evidence Ledger canvas, surface, ink, brand, status, and info colors",
+    "dark_palette": "frozen dark counterpart with explicit brand and status colors",
+    "typography": "Geist Sans primary; Geist Mono evidence/rules/numbers; documented fallbacks",
+    "spacing": "4px base grid: 4, 8, 12, 16, 24, 32, 48, 64",
+    "radius": "4px fields/tags, 6px buttons, 8px cards, 12px panels",
+    "authority_rule": "consumers must not introduce local palette or spacing authority"
+  },
+  "verification": {
+    "light_palette_values": "PASS",
+    "dark_counterpart_values": "PASS",
+    "typography_scale": "PASS",
+    "spacing_scale": "PASS",
+    "radius_scale": "PASS",
+    "package_tests": "PASS_3",
+    "package_typecheck": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "full_node_tests_typecheck": "PASS",
+    "policy_and_governance_validators": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "shared component primitives",
+    "web screens and accessibility implementation",
+    "Tauri and mobile client consumption",
+    "visual regression and WCAG AA verification"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-046", "DRIFT-050", "DRIFT-051", "DRIFT-057",
+    "DRIFT-058", "DRIFT-081", "DRIFT-082", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/design-tokens/package.json": "b6e56d2c81c734904da16bb70a275e2b785600126a259730dfa79f9721fdbae6",
+    "packages/design-tokens/tsconfig.json": "4a2c627a62f525defbf0d604e2d3c0d49694d2d857b17695066d3f18bec7ce8c",
+    "packages/design-tokens/src/index.ts": "12348a6823f1245cbd0313672f608bc3aa0ea3bd6fe1d9ba79e95279f799d657",
+    "packages/design-tokens/test/tokens.test.ts": "aa4ae38f60db2644f033cb010c9042aef4fd0fa1b37fa129ec3ef9e0e28785ce",
+    "docs/architecture/evidence-ledger-design-tokens.md": "311db5fafb4a19c9ad21b9e88336a71d8f3b57c7a91f97c6fbb3e9cc59f3ec51",
+    "package.json": "edcdbdec8d1a462fc6d59dc17f27549b918935a58588404b1bee6ba23aec1f5b",
+    "governance/repository-map.v1.json": "c19227c44d4aaf53759860c2f80356c76c3a073292734fdad93001f3a3aa5859"
+  }
+}

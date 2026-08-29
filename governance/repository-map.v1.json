@@ -27,7 +27,7 @@
     { "path": "packages/authz", "status": "PARTIAL" },
     { "path": "packages/observability", "status": "PARTIAL" },
     { "path": "packages/ui", "status": "SCAFFOLDED" },
-    { "path": "packages/design-tokens", "status": "SCAFFOLDED" },
+    { "path": "packages/design-tokens", "status": "PARTIAL" },
     { "path": "packages/api-client", "status": "SCAFFOLDED" },
     { "path": "connectors/procore", "status": "SCAFFOLDED" },
     { "path": "connectors/quickbooks-online", "status": "SCAFFOLDED" },
