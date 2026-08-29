@@ -1,0 +1,50 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_18_QUICKBOOKS_ONLINE_READ_ONLY_CONNECTOR_COMPLETE",
+  "generated_at": "2026-08-29T11:19:29Z",
+  "from_commit": "aa1d6d1920a70ddcc96bde1eb099d28cec815881",
+  "authority": {
+    "production_mutated": false,
+    "qbo_writes": false,
+    "local_payment_state_writes": false,
+    "credential_authority": "injected token source; broker/vault deferred to step 26",
+    "vendor_semantics_authority": "adapter observation only",
+    "billing_and_allocation": "deferred to step 19",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "endpoint": {
+    "method": "POST",
+    "path": "/v3/company/{realm_id}/query",
+    "query_parameter": "minorversion",
+    "body": "select * from Invoice|Payment STARTPOSITION n MAXRESULTS page_size",
+    "authorization": "OAuth 2.0 bearer token",
+    "source": "https://www.postman.com/intuit-developer/intuit-developer-quickbooks-online-accounting-api/request/4884662-168fc705-0c39-48fc-bf4e-337d197f91c4"
+  },
+  "verification": {
+    "invoice_query_pagination": "PASS",
+    "payment_query_mapping": "PASS",
+    "linked_invoice_ids_preserved": "PASS",
+    "explicit_decimal_amount_validation": "PASS",
+    "explicit_currency_validation": "PASS",
+    "unsupported_entity_rejected": "PASS",
+    "non_success_body_redaction": "PASS",
+    "pagination_bound": "PASS_1000_PAGES",
+    "go_race": "PASS",
+    "go_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-010", "DRIFT-019", "DRIFT-021", "DRIFT-033", "DRIFT-036",
+    "DRIFT-041", "DRIFT-042", "DRIFT-044", "DRIFT-072"
+  ],
+  "artifact_sha256": {
+    "connectors/quickbooks-online/go.mod": "57fcaaa7a1a00f635a14063b86abaa954ac9c4c06f0a5f6024581432179dc6f5",
+    "connectors/quickbooks-online/client.go": "bf23febb79019ffcce1f950d2cfcbf762e35e4f7eaa0df6397cce732588a9ac2",
+    "connectors/quickbooks-online/client_test.go": "949571e37b1921bfc5eb15601a61fe26662b330556444c623f0bb67a9882645b",
+    "go.work": "e5098b5ec0cc0deccb57882295315f2332aaa3ae4fd0afd135cd29cec36c420a",
+    "docs/integrations/quickbooks-online.md": "b0dca70d533c4cedc98283dd2c3347fccb5a7c9a13028facb475344470935139"
+  }
+}
