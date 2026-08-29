@@ -3,6 +3,7 @@ mod automation;
 mod baseline;
 mod canonical;
 mod engine;
+mod historical;
 mod pricing;
 
 pub use attribution::{
@@ -19,3 +20,7 @@ pub use baseline::{
 };
 pub use canonical::{canonical_json, decision_hash};
 pub use engine::{EngineError, evaluate_recovery};
+pub use historical::{
+    HistoricalDecision, HistoricalDeduplicationKey, HistoricalFinding, HistoricalRecord,
+    HistoricalRescueError, HistoricalScanInput, HistoricalScanResult, scan_historical,
+};

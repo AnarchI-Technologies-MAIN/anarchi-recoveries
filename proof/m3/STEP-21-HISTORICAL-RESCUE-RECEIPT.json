@@ -1,0 +1,52 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_21_HISTORICAL_RESCUE_SCAN_COMPLETE",
+  "generated_at": "2026-08-29T11:38:25Z",
+  "from_commit": "468e637949268149e6aa10f0af03eee2eb48fa0d",
+  "authority": {
+    "production_mutated": false,
+    "historical_scan_authority": "rust-recovery-core-read-only-classifier",
+    "source_authority": "normalized historical records with explicit provenance",
+    "financial_authority": "none; no price, attribution, payment, or fee mutation",
+    "execution_authority": "none",
+    "connector_ingestion": "deferred to a separate bounded transition",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "scan": "explicit schema, scan ID, tenant, project, rule version, evaluation time, and non-empty record set",
+    "revision_order": "explicit non-negative numeric order; vendor labels are descriptive only",
+    "deduplication_key": "project + scope item + location + change type + origin revision/directive + time bucket",
+    "eligible_for_review": "all verified detection conditions and source provenance present",
+    "potential_change": "direction or performed work remains unverified while other evidence gates pass",
+    "more_evidence_required": "missing verification, mapping, evidence, or source provenance",
+    "no_opportunity": "non-positive revision/quantity delta, remaining allowance, or existing change-order coverage",
+    "duplicate": "repeated deterministic key retained and marked without dropping history",
+    "receipt_hash": "canonical decision hash over the complete sorted finding set"
+  },
+  "verification": {
+    "verified_delta_is_eligible_for_review": "PASS",
+    "direction_gap_is_potential_change": "PASS",
+    "missing_provenance_requires_more_evidence": "PASS",
+    "duplicate_history_retained": "PASS",
+    "input_order_replay_hash": "PASS",
+    "tenant_boundary_fails_closed": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-001", "DRIFT-002", "DRIFT-006", "DRIFT-007", "DRIFT-009",
+    "DRIFT-017", "DRIFT-020", "DRIFT-021", "DRIFT-035", "DRIFT-036",
+    "DRIFT-037", "DRIFT-038", "DRIFT-040", "DRIFT-041", "DRIFT-042",
+    "DRIFT-043", "DRIFT-044", "DRIFT-048", "DRIFT-049", "DRIFT-052",
+    "DRIFT-083", "DRIFT-085", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "crates/recovery-core/src/historical.rs": "a0bd36f18116629e8962c37ecb31511f272485027cbdaa1304dcaed0295fdb7d",
+    "crates/recovery-core/src/lib.rs": "08d0b37a6848dfbccafaf3f2e705219acb06ca4b0689a3767e17add81d02b0a5",
+    "docs/ADR/ADR-002-historical-rescue-scan-boundary.md": "ac813c8e77f3d5bc32b8b1db19018ede9796317087ed6913c9f825578e1d0234"
+  }
+}
