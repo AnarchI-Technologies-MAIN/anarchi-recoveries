@@ -208,6 +208,14 @@ def evaluate_lifecycle(case: dict[str, Any]) -> tuple[dict[str, Any], bool, bool
     if value.get("contradictory_facts"):
         observed = {"decision": "HOLD", "reason": "CONTRADICTORY_FACTS"}
         return observed, True, False
+    if value.get("unconverted_t_and_m"):
+        return {"decision": "HOLD", "reason": "UNCONVERTED_T_AND_M"}, True, False
+    if value.get("duplicate_evidence_chain"):
+        return {"decision": "NO_OPPORTUNITY", "reason": "DUPLICATE_EVIDENCE_CHAIN"}, False, False
+    if value.get("irrelevant_field_change"):
+        return {"decision": "NO_OPPORTUNITY", "reason": "IRRELEVANT_FIELD_CHANGE"}, False, False
+    if value.get("already_paid"):
+        return {"decision": "NO_OPPORTUNITY", "reason": "ALREADY_PAID"}, True, False
     candidate_positive = money(value["observed_quantity"]) > money(value["baseline_quantity"])
     if not value.get("evidence_provenance_complete", False):
         return {"decision": "HOLD", "reason": "MISSING_EVIDENCE_PROVENANCE"}, candidate_positive, False

@@ -31,7 +31,7 @@ class PilotRehearsalTests(unittest.TestCase):
             bundle = build_rehearsal(run_id="pilot-test-replay")
             write_proof(bundle, Path(directory))
             result = validate(Path(directory))
-            self.assertEqual(result["case_count"], 14)
+            self.assertEqual(result["case_count"], 18)
             self.assertEqual(result["pilot_recommendation"], "HOLD")
             self.assertEqual(result["review"], "PENDING")
             packet = read_json(Path(directory) / "pilot-evidence-packet.v1.json")
