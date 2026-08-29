@@ -1,0 +1,425 @@
+{
+  "receipts": [
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-opportunity",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "5181b69108a3236abbfb8619bbe5f9d410f91fdb4bf2eb01b81cf9c33364461f",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "785104de1d2d34940365d468c6b0596770f8c52e2a4657772333336421fd356d",
+      "previous_receipt_sha256": "",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-opportunity-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "564839fa6993186174092895af4134e6bed299f5f44611b75c36fbcdf0e21117",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-covered",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "43645c1de4ef9a9b533181610b73095a900685ba7326693765b8488d8589c4e0",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
+      "previous_receipt_sha256": "564839fa6993186174092895af4134e6bed299f5f44611b75c36fbcdf0e21117",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-covered-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "ff905348c7449b1c3907b04f2cc57b1f3370da6c4496db367fe17e71b335aabf",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-contradictory",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "0d7d46a1b8f0e581de767a0c426f627bb48fc0f51942b35a32057ea34a92787a",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
+      "previous_receipt_sha256": "ff905348c7449b1c3907b04f2cc57b1f3370da6c4496db367fe17e71b335aabf",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-contradictory-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "8bcead9808f6125abb824b06ba11356d1efa683d138e8d42b5a9eb1bc6c2bd46",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-missing-provenance",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "d90095fa89339fec06a8307942b5a99aff1e1e1581f1c956b8a3b02eb0342f32",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
+      "previous_receipt_sha256": "8bcead9808f6125abb824b06ba11356d1efa683d138e8d42b5a9eb1bc6c2bd46",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-missing-provenance-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "4929f0475bf2e7cefa9ba96c457676c68d5fc2c5e2dd83ede35a8122169c07c3",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "provider-outage",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "d74374e49e808c04afbdc968f94a24bd67ac221f4ed0150cfbc2dcef9fcc98a9",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "55bbe525bc894aa95b85b87d9c9dbb583a300c2e20641d3d76f9e73c0df07a15",
+      "previous_receipt_sha256": "4929f0475bf2e7cefa9ba96c457676c68d5fc2c5e2dd83ede35a8122169c07c3",
+      "receipt_id": "RECOVERIES-PILOT-provider-outage-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "3b444d7793dfdcaf75679f9ea525441f3294fd6848ea32dbc59d37d30359e0ce",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "action-allowed",
+      "flow": "authorized_action",
+      "input_sha256": "de374772fe0a012b253bd90cf319e74bcfc9749eb8178a36ab5faf79d70d1e7e",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "c569b92a3d325d8934061988f841158e4ce5d382f17e99586ba534d441af461a",
+      "previous_receipt_sha256": "3b444d7793dfdcaf75679f9ea525441f3294fd6848ea32dbc59d37d30359e0ce",
+      "receipt_id": "RECOVERIES-PILOT-action-allowed-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "fb1e33e6b4b6ab0938044d51a96b6f2af8f2414da52714b74cd80d2af806f007",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "action-no-approval",
+      "flow": "authorized_action",
+      "input_sha256": "7983f23f4c506c4554409aca0356942f77a9e1ba20b1d4ad217dd175e2b0a80d",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "2fa72d71b2c242ccf134004278d82f003bd064ddd3c4c7065f7ce259b288ba4f",
+      "previous_receipt_sha256": "fb1e33e6b4b6ab0938044d51a96b6f2af8f2414da52714b74cd80d2af806f007",
+      "receipt_id": "RECOVERIES-PILOT-action-no-approval-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "ad4a3838416448c7f374adef3c57440dab996adea2b62e4f7ea57406bdd06ba4",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "action-payload-mutation",
+      "flow": "authorized_action",
+      "input_sha256": "5fbe13231be8eed0728510d14306212a4f4ed05f760081cbe78252e4efe99684",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
+      "previous_receipt_sha256": "ad4a3838416448c7f374adef3c57440dab996adea2b62e4f7ea57406bdd06ba4",
+      "receipt_id": "RECOVERIES-PILOT-action-payload-mutation-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "5923fc026a141615db9816ef562f63672eb37bfdf22cbf153d4f073d45eecb25",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "action-wrong-tenant",
+      "flow": "authorized_action",
+      "input_sha256": "19f96ad13f499a80b9da5750a14a18e74a2bff5c4e44afced89d3ce67aa7608e",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
+      "previous_receipt_sha256": "5923fc026a141615db9816ef562f63672eb37bfdf22cbf153d4f073d45eecb25",
+      "receipt_id": "RECOVERIES-PILOT-action-wrong-tenant-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "2a5bd221dab959b1601babae59f246e5ba44d575205f6c6966864457d2d2cb54",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "action-wrong-purpose",
+      "flow": "authorized_action",
+      "input_sha256": "ef26441f68e79c32a9e66c68bf4d6c4dfeb20569898e76b75a423c7e9a8aba2d",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
+      "previous_receipt_sha256": "2a5bd221dab959b1601babae59f246e5ba44d575205f6c6966864457d2d2cb54",
+      "receipt_id": "RECOVERIES-PILOT-action-wrong-purpose-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "b6687244f814693bd005e7c85734855e462bef8ff5f90189a84aa36991e9e928",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "action-expired-capability",
+      "flow": "authorized_action",
+      "input_sha256": "a2711fb1c94c8fc825b48bac386228fe1eb5b8dafc1c94e9312f5f03b227acd6",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "e1292fbe604675b0a0344185904b04dc02e76a8a5ad2504e173b135d304221fc",
+      "previous_receipt_sha256": "b6687244f814693bd005e7c85734855e462bef8ff5f90189a84aa36991e9e928",
+      "receipt_id": "RECOVERIES-PILOT-action-expired-capability-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "c5146bcaeb0f69821806d20ab606f9ee6ac7b3d95730dbdbe317784a382f7c6a",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "money-partial-multi-payment",
+      "flow": "cash_and_billing",
+      "input_sha256": "ff1a1699260b5762a0a68508ef85537a6296954314bed09eb820e586478ba8df",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "bb0e15c24e113511cc651630e9d0db95462b7b84cfac2b8325ea7e63ee576c05",
+      "previous_receipt_sha256": "c5146bcaeb0f69821806d20ab606f9ee6ac7b3d95730dbdbe317784a382f7c6a",
+      "receipt_id": "RECOVERIES-PILOT-money-partial-multi-payment-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "6f98e53511337f09a9e006c4f253f93a0140c42d4273be165f9db6086102475d",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "money-overallocation",
+      "flow": "cash_and_billing",
+      "input_sha256": "3d3d95f540958b188c72ebc4f1e8f3efa7ef3780aefc8feeec65c860561e78c2",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
+      "previous_receipt_sha256": "6f98e53511337f09a9e006c4f253f93a0140c42d4273be165f9db6086102475d",
+      "receipt_id": "RECOVERIES-PILOT-money-overallocation-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "9180ded05c54a21be4a72ee5da8d39eefa13bca3d355019988d87d9ef3069ada",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "money-verification-only",
+      "flow": "cash_and_billing",
+      "input_sha256": "f4092ffffe5ad828b7ded26b2440abf03d2aabc9a48dd745de69a1aa6ec89368",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
+      "previous_receipt_sha256": "9180ded05c54a21be4a72ee5da8d39eefa13bca3d355019988d87d9ef3069ada",
+      "receipt_id": "RECOVERIES-PILOT-money-verification-only-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "2bfd7d783885351f96bb3cd70a00fe2f30e6e46c2b309e2fff9c177133c724a9",
+      "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+      "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    }
+  ],
+  "schema": "anarchi.recoveries.pilot-rehearsal-chain.v1"
+}

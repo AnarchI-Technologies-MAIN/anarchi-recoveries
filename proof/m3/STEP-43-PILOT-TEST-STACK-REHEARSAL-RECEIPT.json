@@ -1,0 +1,34 @@
+{
+  "artifact_sha256": {
+    "docs/architecture/pilot-rehearsal.md": "78dc70c5bb827772a8fde0576b056d5c29210f357c7da8b6e6bad7295d03c9a9",
+    "fixtures/pilot/manifest.v1.json": "f6b1299b66926a92cf6525dcc3ddeed22923802351eb9c65dc28a970fd2706d2",
+    "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca",
+    "tools/pilot/run_rehearsal.py": "c9769ed661032c5c9833dce22c2d6090ed57a055635c45b837afb272ff99c36a",
+    "tools/pilot/verify_pilot_rehearsal.py": "76aebf7924861679f5be2a805a336ead49291af530429810240ef63408fabdb4"
+  },
+  "authority": {
+    "live_services_contacted": false,
+    "production_mutated": false,
+    "release_authority": "none"
+  },
+  "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+  "open_items": [
+    "service-backed business API proof remains a later increment"
+  ],
+  "previous_receipt_sha256": "",
+  "receipt_id": "RECOVERIES-STEP_43_PILOT_TEST_STACK_REHEARSAL-pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
+  "receipt_sha256": "8011c1f48de8ada2aef447df276f408a17efb5f348398ed7448cc7113bc6b3b8",
+  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_43_PILOT_TEST_STACK_REHEARSAL",
+  "transition": "isolated test-stack rehearsal",
+  "verification": {
+    "compose_config": "PASS",
+    "production_endpoint_contact_count": 0,
+    "services_healthy": true,
+    "services_started": true,
+    "teardown": "PASS"
+  }
+}

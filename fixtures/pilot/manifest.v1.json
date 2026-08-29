@@ -1,0 +1,210 @@
+{
+  "schema": "anarchi.recoveries.pilot-fixture-manifest.v1",
+  "corpus_version": "pilot-synthetic-2026-08-29.v1",
+  "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+  "source_policy": "synthetic-only-no-customer-data",
+  "cases": [
+    {
+      "case_id": "lifecycle-opportunity",
+      "flow": "recovery_lifecycle",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": true},
+      "input": {
+        "baseline_quantity": "100.00",
+        "observed_quantity": "125.00",
+        "unit_price": "100.00",
+        "material": "250.00",
+        "equipment": "100.00",
+        "material_markup_percent": "10.00",
+        "equipment_markup_percent": "5.00",
+        "tax_percent": "8.25",
+        "evaluation_date": "2026-08-29",
+        "notice_days": 30,
+        "allowance_remaining": "0.00",
+        "existing_change_order_coverage": false,
+        "item_mapping_verified": true,
+        "performed_work_verified": true,
+        "evidence_provenance_complete": true,
+        "rule_version": "RECOVERIES-DOMAIN-V1"
+      },
+      "expected": {"decision": "OPPORTUNITY", "total": "3117.60", "deadline": "2026-09-28"}
+    },
+    {
+      "case_id": "lifecycle-covered",
+      "flow": "recovery_lifecycle",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": false, "opportunity_positive": false},
+      "input": {
+        "baseline_quantity": "100.00",
+        "observed_quantity": "125.00",
+        "unit_price": "100.00",
+        "material": "0.00",
+        "equipment": "0.00",
+        "material_markup_percent": "0.00",
+        "equipment_markup_percent": "0.00",
+        "tax_percent": "0.00",
+        "evaluation_date": "2026-08-29",
+        "notice_days": 30,
+        "allowance_remaining": "0.00",
+        "existing_change_order_coverage": true,
+        "item_mapping_verified": true,
+        "performed_work_verified": true,
+        "evidence_provenance_complete": true,
+        "rule_version": "RECOVERIES-DOMAIN-V1"
+      },
+      "expected": {"decision": "NO_OPPORTUNITY", "reason": "EXISTING_CHANGE_ORDER_COVERAGE"}
+    },
+    {
+      "case_id": "lifecycle-contradictory",
+      "flow": "recovery_lifecycle",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": false, "opportunity_positive": false},
+      "input": {
+        "baseline_quantity": "100.00",
+        "observed_quantity": "125.00",
+        "unit_price": "100.00",
+        "material": "0.00",
+        "equipment": "0.00",
+        "material_markup_percent": "0.00",
+        "equipment_markup_percent": "0.00",
+        "tax_percent": "0.00",
+        "evaluation_date": "2026-08-29",
+        "notice_days": 30,
+        "allowance_remaining": "0.00",
+        "existing_change_order_coverage": false,
+        "item_mapping_verified": true,
+        "performed_work_verified": false,
+        "evidence_provenance_complete": true,
+        "contradictory_facts": true,
+        "rule_version": "RECOVERIES-DOMAIN-V1"
+      },
+      "expected": {"decision": "HOLD", "reason": "CONTRADICTORY_FACTS"}
+    },
+    {
+      "case_id": "lifecycle-missing-provenance",
+      "flow": "recovery_lifecycle",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {
+        "baseline_quantity": "100.00",
+        "observed_quantity": "125.00",
+        "unit_price": "100.00",
+        "material": "0.00",
+        "equipment": "0.00",
+        "material_markup_percent": "0.00",
+        "equipment_markup_percent": "0.00",
+        "tax_percent": "0.00",
+        "evaluation_date": "2026-08-29",
+        "notice_days": 30,
+        "allowance_remaining": "0.00",
+        "existing_change_order_coverage": false,
+        "item_mapping_verified": true,
+        "performed_work_verified": true,
+        "evidence_provenance_complete": false,
+        "rule_version": "RECOVERIES-DOMAIN-V1"
+      },
+      "expected": {"decision": "HOLD", "reason": "MISSING_EVIDENCE_PROVENANCE"}
+    },
+    {
+      "case_id": "provider-outage",
+      "flow": "recovery_lifecycle",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": false, "opportunity_positive": false},
+      "input": {"provider": "extraction", "failure_code": "PROVIDER_UNAVAILABLE"},
+      "expected": {"decision": "PROVIDER_FAILURE", "persisted_candidate_facts": 0, "persisted_verified_facts": 0}
+    },
+    {
+      "case_id": "action-allowed",
+      "flow": "authorized_action",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": true},
+      "input": {
+        "approval": true,
+        "tenant_matches": true,
+        "purpose_matches": true,
+        "capability_valid": true,
+        "payload_unchanged": true,
+        "action_payload": {"notice_type": "RECOVERY_NOTICE", "opportunity_id": "opp-pilot-001"}
+      },
+      "expected": {"decision": "ALLOW", "external_receipt": "counterparty-receipt-action-001"}
+    },
+    {
+      "case_id": "action-no-approval",
+      "flow": "authorized_action",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"approval": false, "tenant_matches": true, "purpose_matches": true, "capability_valid": true, "payload_unchanged": true},
+      "expected": {"decision": "DENY", "reason": "NO_APPROVAL"}
+    },
+    {
+      "case_id": "action-payload-mutation",
+      "flow": "authorized_action",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"approval": true, "tenant_matches": true, "purpose_matches": true, "capability_valid": true, "payload_unchanged": false},
+      "expected": {"decision": "DENY", "reason": "PAYLOAD_MUTATION"}
+    },
+    {
+      "case_id": "action-wrong-tenant",
+      "flow": "authorized_action",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"approval": true, "tenant_matches": false, "purpose_matches": true, "capability_valid": true, "payload_unchanged": true},
+      "expected": {"decision": "DENY", "reason": "TENANT_MISMATCH"}
+    },
+    {
+      "case_id": "action-wrong-purpose",
+      "flow": "authorized_action",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"approval": true, "tenant_matches": true, "purpose_matches": false, "capability_valid": true, "payload_unchanged": true},
+      "expected": {"decision": "DENY", "reason": "PURPOSE_MISMATCH"}
+    },
+    {
+      "case_id": "action-expired-capability",
+      "flow": "authorized_action",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"approval": true, "tenant_matches": true, "purpose_matches": true, "capability_valid": false, "payload_unchanged": true},
+      "expected": {"decision": "DENY", "reason": "EXPIRED_CAPABILITY"}
+    },
+    {
+      "case_id": "money-partial-multi-payment",
+      "flow": "cash_and_billing",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": true},
+      "input": {"attributable_ceiling": "3117.60", "payments": ["1000.00", "1200.00"], "requested_allocations": ["1000.00", "1200.00"], "fee_rate_percent": "10.00", "verification_only": false},
+      "expected": {"decision": "ALLOCATED", "attributable_cash": "2200.00", "success_fee": "220.00"}
+    },
+    {
+      "case_id": "money-overallocation",
+      "flow": "cash_and_billing",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"attributable_ceiling": "1000.00", "payments": ["600.00", "600.00"], "requested_allocations": ["600.00", "600.00"], "fee_rate_percent": "10.00", "verification_only": false},
+      "expected": {"decision": "DENY", "reason": "ALLOCATION_CEILING"}
+    },
+    {
+      "case_id": "money-verification-only",
+      "flow": "cash_and_billing",
+      "organization_id": "org-pilot-001",
+      "project_id": "project-pilot-001",
+      "label": {"candidate_positive": true, "opportunity_positive": false},
+      "input": {"attributable_ceiling": "500.00", "payments": ["500.00"], "requested_allocations": ["500.00"], "fee_rate_percent": "10.00", "verification_only": true},
+      "expected": {"decision": "ALLOCATED", "attributable_cash": "0.00", "success_fee": "0.00"}
+    }
+  ]
+}

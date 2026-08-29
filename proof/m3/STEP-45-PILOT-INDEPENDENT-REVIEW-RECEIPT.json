@@ -1,0 +1,35 @@
+{
+  "artifact_sha256": {
+    "docs/architecture/pilot-rehearsal.md": "78dc70c5bb827772a8fde0576b056d5c29210f357c7da8b6e6bad7295d03c9a9",
+    "fixtures/pilot/manifest.v1.json": "f6b1299b66926a92cf6525dcc3ddeed22923802351eb9c65dc28a970fd2706d2",
+    "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca",
+    "proof/m3/pilot-rehearsal/evidence-report.v1.json": "8ca465eab5c282d52104841265485248f1e9fa6de4cacbf668df25083a82e231",
+    "proof/m3/pilot-rehearsal/independent-review.v1.json": "de06a860df37e3d084ee2b684a0d58f6ab1528d8e847917644976b56f8e5d5dd",
+    "proof/m3/pilot-rehearsal/receipt-chain.v1.json": "97c670915511ab2ed4f5084c865cc5123f596bab1e14b1f868a9433156ae9912",
+    "proof/m3/pilot-rehearsal/run-manifest.v1.json": "1ca05d82836f4cae1d35dfe3ef3587aa4ce00f1845c701f3f5060e4524221dbe",
+    "tools/pilot/run_rehearsal.py": "c9769ed661032c5c9833dce22c2d6090ed57a055635c45b837afb272ff99c36a",
+    "tools/pilot/verify_pilot_rehearsal.py": "76aebf7924861679f5be2a805a336ead49291af530429810240ef63408fabdb4"
+  },
+  "authority": {
+    "live_services_contacted": false,
+    "production_mutated": false,
+    "release_authority": "none"
+  },
+  "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+  "open_items": [
+    "independent reviewer identity and acceptance are pending"
+  ],
+  "previous_receipt_sha256": "6403fa431f56ee2d76c8392e4df5ce1ce36b6d3726ff76a88c2e6b57d86ed62a",
+  "receipt_id": "RECOVERIES-STEP_45_PILOT_INDEPENDENT_REVIEW-pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
+  "receipt_sha256": "f4a7e62c6e78756bb709264d7cde404b31d17b8862fa35987ad6791271c1cb60",
+  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_45_PILOT_INDEPENDENT_REVIEW",
+  "transition": "independent evidence review checkpoint",
+  "verification": {
+    "release_authority": "NONE",
+    "review_decision": "PENDING"
+  }
+}

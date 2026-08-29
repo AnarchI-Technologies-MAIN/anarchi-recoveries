@@ -1,0 +1,38 @@
+{
+  "artifact_sha256": {
+    "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+    "fixtures/pilot/manifest.v1.json": "f6b1299b66926a92cf6525dcc3ddeed22923802351eb9c65dc28a970fd2706d2",
+    "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca"
+  },
+  "authority": {
+    "customer_data_loaded": false,
+    "live_services_contacted": false,
+    "production_mutated": false
+  },
+  "fixture_manifest_sha256": "6f29be12b26bf7391a57cde73dd1f3fc9bdb9e08f07b2b22ca7820d2f34aae17",
+  "receipt_chain_root_sha256": "2bfd7d783885351f96bb3cd70a00fe2f30e6e46c2b309e2fff9c177133c724a9",
+  "report_sha256": "d846e9703d1cba6e7e73e5610aa774d0f8922237438be9780404ef4474366b74",
+  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "run_manifest_sha256": "e5b726b66cd5fefaa57fc001a9c4fa4fa54d1db6ff073e9fce416b84cbe8c19c",
+  "schema": "anarchi.recoveries.pilot-rehearsal-run.v1",
+  "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "stack": {
+    "compose_config": "PASS",
+    "compose_path": "infra/compose/pilot-rehearsal.compose.yaml",
+    "compose_sha256": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca",
+    "loopback_ports": 6,
+    "network_internal": true,
+    "pinned_images": [
+      "postgres:18.1-bookworm@sha256:cc9f4143a8d2fa8cf3749d0cb4d26ecf2d53a77a2ac807e9ebd67ae22426221a",
+      "nats:2.14.5-alpine@sha256:d4ac35882ac65aff236cd65b9d3fa4d24332c681e1a85f94eedccd3cdd65b1da",
+      "minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e",
+      "postgres:18.1-bookworm@sha256:cc9f4143a8d2fa8cf3749d0cb4d26ecf2d53a77a2ac807e9ebd67ae22426221a",
+      "ghcr.io/zitadel/zitadel:v4.16.2@sha256:4b68a2106f60baa2895e5a00a77fcd915d29d0db3f0c011d3eb9f99f557b2b48"
+    ],
+    "production_endpoint_contact_count": 0,
+    "services_healthy": true,
+    "services_started": true,
+    "teardown": "PASS"
+  }
+}
