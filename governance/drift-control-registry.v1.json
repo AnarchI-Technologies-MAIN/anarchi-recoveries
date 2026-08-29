@@ -1,0 +1,462 @@
+{
+  "schema": "anarchi.recoveries.drift-control-registry.v1",
+  "status": "FROZEN",
+  "source": {
+    "path": "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md",
+    "heading": "### 68. Drift-control registry",
+    "sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
+  },
+  "rule_count": 90,
+  "rules": [
+    {
+      "id": "DRIFT-001",
+      "number": 1,
+      "text": "AI extracts; deterministic services make money decisions."
+    },
+    {
+      "id": "DRIFT-002",
+      "number": 2,
+      "text": "No conclusion without provenance."
+    },
+    {
+      "id": "DRIFT-003",
+      "number": 3,
+      "text": "No fee before attributable cash is received."
+    },
+    {
+      "id": "DRIFT-004",
+      "number": 4,
+      "text": "No fee for equal-value prior recognition."
+    },
+    {
+      "id": "DRIFT-005",
+      "number": 5,
+      "text": "Uplift fee applies only to incremental collected value."
+    },
+    {
+      "id": "DRIFT-006",
+      "number": 6,
+      "text": "Evidence is immutable/versioned."
+    },
+    {
+      "id": "DRIFT-007",
+      "number": 7,
+      "text": "Baselines are immutable/versioned."
+    },
+    {
+      "id": "DRIFT-008",
+      "number": 8,
+      "text": "Scope validity ranges never overlap."
+    },
+    {
+      "id": "DRIFT-009",
+      "number": 9,
+      "text": "Every financial line is reproducible."
+    },
+    {
+      "id": "DRIFT-010",
+      "number": 10,
+      "text": "Currency is never silent."
+    },
+    {
+      "id": "DRIFT-011",
+      "number": 11,
+      "text": "Rounding is versioned."
+    },
+    {
+      "id": "DRIFT-012",
+      "number": 12,
+      "text": "Tax is versioned."
+    },
+    {
+      "id": "DRIFT-013",
+      "number": 13,
+      "text": "Missing pricing fails closed."
+    },
+    {
+      "id": "DRIFT-014",
+      "number": 14,
+      "text": "Human approval is default."
+    },
+    {
+      "id": "DRIFT-015",
+      "number": 15,
+      "text": "Automation is explicit and policy-bound."
+    },
+    {
+      "id": "DRIFT-016",
+      "number": 16,
+      "text": "Dry run exists."
+    },
+    {
+      "id": "DRIFT-017",
+      "number": 17,
+      "text": "Postgres owns business state."
+    },
+    {
+      "id": "DRIFT-018",
+      "number": 18,
+      "text": "S3 owns binary evidence."
+    },
+    {
+      "id": "DRIFT-019",
+      "number": 19,
+      "text": "NATS is transport only."
+    },
+    {
+      "id": "DRIFT-020",
+      "number": 20,
+      "text": "Rust core is stateless and pure."
+    },
+    {
+      "id": "DRIFT-021",
+      "number": 21,
+      "text": "Vendor semantics terminate at adapters."
+    },
+    {
+      "id": "DRIFT-022",
+      "number": 22,
+      "text": "Durable inbox is required."
+    },
+    {
+      "id": "DRIFT-023",
+      "number": 23,
+      "text": "Transactional outbox is required."
+    },
+    {
+      "id": "DRIFT-024",
+      "number": 24,
+      "text": "Outbox leases are required."
+    },
+    {
+      "id": "DRIFT-025",
+      "number": 25,
+      "text": "Dead-letter state is explicit."
+    },
+    {
+      "id": "DRIFT-026",
+      "number": 26,
+      "text": "Tenant-aware composite FKs are required."
+    },
+    {
+      "id": "DRIFT-027",
+      "number": 27,
+      "text": "RLS uses internal organization UUID."
+    },
+    {
+      "id": "DRIFT-028",
+      "number": 28,
+      "text": "Runtime roles may not bypass RLS."
+    },
+    {
+      "id": "DRIFT-029",
+      "number": 29,
+      "text": "Allocation ceiling is enforced."
+    },
+    {
+      "id": "DRIFT-030",
+      "number": 30,
+      "text": "Payment reductions revalidate allocations."
+    },
+    {
+      "id": "DRIFT-031",
+      "number": 31,
+      "text": "Verification-only success fee is zero."
+    },
+    {
+      "id": "DRIFT-032",
+      "number": 32,
+      "text": "Electrical construction is the MVP vertical."
+    },
+    {
+      "id": "DRIFT-033",
+      "number": 33,
+      "text": "Collections are outside MVP."
+    },
+    {
+      "id": "DRIFT-034",
+      "number": 34,
+      "text": "Market benchmarking is outside MVP."
+    },
+    {
+      "id": "DRIFT-035",
+      "number": 35,
+      "text": "Golden financial values serialize as decimal strings."
+    },
+    {
+      "id": "DRIFT-036",
+      "number": 36,
+      "text": "IEEE-754 is forbidden at deterministic financial boundaries."
+    },
+    {
+      "id": "DRIFT-037",
+      "number": 37,
+      "text": "Full semantic equality is asserted before hash equality."
+    },
+    {
+      "id": "DRIFT-038",
+      "number": 38,
+      "text": "Canonical JSON version is pinned."
+    },
+    {
+      "id": "DRIFT-039",
+      "number": 39,
+      "text": "Fixture constants are not hardcoded into engine logic."
+    },
+    {
+      "id": "DRIFT-040",
+      "number": 40,
+      "text": "Valid no-opportunity decisions are not errors."
+    },
+    {
+      "id": "DRIFT-041",
+      "number": 41,
+      "text": "AI outage retains source evidence and deterministic state."
+    },
+    {
+      "id": "DRIFT-042",
+      "number": 42,
+      "text": "Same inputs yield the same evaluation."
+    },
+    {
+      "id": "DRIFT-043",
+      "number": 43,
+      "text": "Pilot precision is more important than recall."
+    },
+    {
+      "id": "DRIFT-044",
+      "number": 44,
+      "text": "Locked invariant changes require explicit spec revision."
+    },
+    {
+      "id": "DRIFT-045",
+      "number": 45,
+      "text": "Evidence Ledger is the primary UI theme."
+    },
+    {
+      "id": "DRIFT-046",
+      "number": 46,
+      "text": "Blacksite is a counterpart, not the primary app look."
+    },
+    {
+      "id": "DRIFT-047",
+      "number": 47,
+      "text": "AI is never the principal visual actor."
+    },
+    {
+      "id": "DRIFT-048",
+      "number": 48,
+      "text": "No opaque combined confidence score."
+    },
+    {
+      "id": "DRIFT-049",
+      "number": 49,
+      "text": "Every significant financial number must be inspectable to provenance."
+    },
+    {
+      "id": "DRIFT-050",
+      "number": 50,
+      "text": "Status may not depend on color alone."
+    },
+    {
+      "id": "DRIFT-051",
+      "number": 51,
+      "text": "Desktop, tablet, and phone layouts are intentional."
+    },
+    {
+      "id": "DRIFT-052",
+      "number": 52,
+      "text": "Server is authoritative for recovery evaluations."
+    },
+    {
+      "id": "DRIFT-053",
+      "number": 53,
+      "text": "Offline clients cannot create authoritative recovery determinations."
+    },
+    {
+      "id": "DRIFT-054",
+      "number": 54,
+      "text": "Offline actions are queued and revalidated before execution."
+    },
+    {
+      "id": "DRIFT-055",
+      "number": 55,
+      "text": "Native clients use secure OS credential stores."
+    },
+    {
+      "id": "DRIFT-056",
+      "number": 56,
+      "text": "Confidential contract detail is hidden from lock-screen notifications by default."
+    },
+    {
+      "id": "DRIFT-057",
+      "number": 57,
+      "text": "Web and Tauri clients share one component/token system."
+    },
+    {
+      "id": "DRIFT-058",
+      "number": 58,
+      "text": "iPad is a first-class field-review target."
+    },
+    {
+      "id": "DRIFT-059",
+      "number": 59,
+      "text": "Windows `.exe` is the first installed-client launch."
+    },
+    {
+      "id": "DRIFT-060",
+      "number": 60,
+      "text": "Canonical governance text is not runtime authority without enforcement binding."
+    },
+    {
+      "id": "DRIFT-061",
+      "number": 61,
+      "text": "Application services cannot create authority that contradicts Anar-Core."
+    },
+    {
+      "id": "DRIFT-062",
+      "number": 62,
+      "text": "Privileged decisions emit decision receipts."
+    },
+    {
+      "id": "DRIFT-063",
+      "number": 63,
+      "text": "Governance readiness requires executable proof."
+    },
+    {
+      "id": "DRIFT-064",
+      "number": 64,
+      "text": "Canonical metadata/body status may not conflict."
+    },
+    {
+      "id": "DRIFT-065",
+      "number": 65,
+      "text": "Secret references are not secrets."
+    },
+    {
+      "id": "DRIFT-066",
+      "number": 66,
+      "text": "Secret references are not authorization."
+    },
+    {
+      "id": "DRIFT-067",
+      "number": 67,
+      "text": "Vault resolution requires separate identity/authority/purpose validation."
+    },
+    {
+      "id": "DRIFT-068",
+      "number": 68,
+      "text": "Secrets never enter deterministic recovery core."
+    },
+    {
+      "id": "DRIFT-069",
+      "number": 69,
+      "text": "Cloudflare is a defense layer, not the sole security boundary."
+    },
+    {
+      "id": "DRIFT-070",
+      "number": 70,
+      "text": "Governance permanence does not imply customer-data permanence."
+    },
+    {
+      "id": "DRIFT-071",
+      "number": 71,
+      "text": "Customer data is not used for general-purpose model training by default."
+    },
+    {
+      "id": "DRIFT-072",
+      "number": 72,
+      "text": "External AI access is minimized, governed, and version-attributed."
+    },
+    {
+      "id": "DRIFT-073",
+      "number": 73,
+      "text": "Post-termination export window is 30 days."
+    },
+    {
+      "id": "DRIFT-074",
+      "number": 74,
+      "text": "Ordinary backups age out within 90 days."
+    },
+    {
+      "id": "DRIFT-075",
+      "number": 75,
+      "text": "PostgreSQL RPO target is ≤15 minutes."
+    },
+    {
+      "id": "DRIFT-076",
+      "number": 76,
+      "text": "Core RTO target is ≤4 hours."
+    },
+    {
+      "id": "DRIFT-077",
+      "number": 77,
+      "text": "Pilot/early access carries no service-credit SLA."
+    },
+    {
+      "id": "DRIFT-078",
+      "number": 78,
+      "text": "Kansas law/venue govern launch contracts."
+    },
+    {
+      "id": "DRIFT-079",
+      "number": 79,
+      "text": "MSA + Order Form is the launch contract structure."
+    },
+    {
+      "id": "DRIFT-080",
+      "number": 80,
+      "text": "Success-fee disputes have a 30-day dispute window."
+    },
+    {
+      "id": "DRIFT-081",
+      "number": 81,
+      "text": "Selected Recoveries mark is the Recovery Gate / Delta-Shard hybrid only."
+    },
+    {
+      "id": "DRIFT-082",
+      "number": 82,
+      "text": "Rejected logo branches are not part of the design system."
+    },
+    {
+      "id": "DRIFT-083",
+      "number": 83,
+      "text": "External side effects are visually explicit."
+    },
+    {
+      "id": "DRIFT-084",
+      "number": 84,
+      "text": "Action payload mutation invalidates approval."
+    },
+    {
+      "id": "DRIFT-085",
+      "number": 85,
+      "text": "Executor never regenerates business logic."
+    },
+    {
+      "id": "DRIFT-086",
+      "number": 86,
+      "text": "Secret broker workers are governed by Anar-Core."
+    },
+    {
+      "id": "DRIFT-087",
+      "number": 87,
+      "text": "Client-native Rust is not a second recovery authority."
+    },
+    {
+      "id": "DRIFT-088",
+      "number": 88,
+      "text": "All customer-facing policy promises must match actual implementation."
+    },
+    {
+      "id": "DRIFT-089",
+      "number": 89,
+      "text": "Retention is a lifecycle policy, not “keep everything.”"
+    },
+    {
+      "id": "DRIFT-090",
+      "number": 90,
+      "text": "Legal, privacy, security, policy, architecture, and runtime definitions must use the same financial/attribution vocabulary."
+    }
+  ]
+}

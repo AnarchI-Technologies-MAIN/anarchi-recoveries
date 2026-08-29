@@ -1,0 +1,44 @@
+{
+  "receipt_schema": "anarchi.recoveries.corrective-transition.v1",
+  "receipt_id": "RECOVERIES-M1-CORRECTION-20260829T043655Z",
+  "recorded_at": "2026-08-29T04:36:55Z",
+  "prior_commit": "4421b2c12a70c2a0266a7f05f7026ce878024ffc",
+  "observation": {
+    "classification": "SCOPE_OVERCLAIM",
+    "statement": "The M1 receipt treated repository-skeleton step 1 as complete after materializing only the paths needed for steps 1 through 5.",
+    "actual_state": "The frozen repository topology contained additional product, service, connector, infrastructure, fixture, documentation, and tool boundaries that were not yet materialized."
+  },
+  "correction": {
+    "action": "Materialize and verify the complete frozen repository map and generate the exact 90-rule drift-control registry from the frozen specification.",
+    "repository_paths_verified": 56,
+    "empty_boundaries_materialized": 48,
+    "drift_rules_verified": 90,
+    "repository_map_sha256": "4f96c2c817e9313185fc8b3f5ace2c69bb2fca903177d0e126e485c43991e64c",
+    "drift_registry_sha256": "5b222faa649dd203983c5111ad443deec42b277910730fd7b66972d2b2df60d7"
+  },
+  "claim_replacement": {
+    "withdrawn": "SPEC step 1 fully complete at M1 commit",
+    "replacement": "M1 implemented the deterministic subset; this corrective transition completes and machine-verifies the frozen repository topology while preserving explicit PARTIAL and SCAFFOLDED statuses."
+  },
+  "affected_drift_rules": [
+    "DRIFT-044",
+    "DRIFT-088",
+    "DRIFT-090"
+  ],
+  "verification": [
+    {
+      "gate": "generated drift rules are exactly sequential 1 through 90",
+      "result": "PASS"
+    },
+    {
+      "gate": "all frozen repository-map directories exist",
+      "result": "PASS",
+      "observed": 56
+    },
+    {
+      "gate": "repository statuses use the allowed explicit vocabulary",
+      "result": "PASS"
+    }
+  ],
+  "production_effects": false
+}
