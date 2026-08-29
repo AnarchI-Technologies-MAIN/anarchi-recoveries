@@ -1,0 +1,64 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "milestone": "M2_DATA_AND_APPLICATION_BOUNDARY_LOCAL_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T09:47:11Z",
+  "terminal_commit": "88dc5b85f65b0e94999c279150a79440b4984bdb",
+  "authority": {
+    "production_mutated": false,
+    "production_ready_claimed": false,
+    "local_m2_exit_criteria_satisfied": true,
+    "next_master_build_step": 15
+  },
+  "deliverables": {
+    "postgres_schema": "COMPLETE_FOR_M2",
+    "forced_tenant_rls": "COMPLETE_FOR_M2",
+    "evidence_storage": "COMPLETE_FOR_M2",
+    "durable_inbox_outbox": "COMPLETE_FOR_M2",
+    "ingestion": "COMPLETE_FOR_M2",
+    "candidate_extraction_boundary": "COMPLETE_FOR_M2",
+    "baseline_review_compiler": "COMPLETE_FOR_M2"
+  },
+  "exit_criteria": {
+    "tenant_isolation": "PASS",
+    "scope_overlap_prevention": "PASS",
+    "active_baseline_uniqueness": "PASS",
+    "outbox_stale_lease_test": "PASS",
+    "evidence_hash_replay": "PASS"
+  },
+  "additional_proofs": {
+    "fresh_migration_replay": "PASS_12_OF_12",
+    "migration_digest_ledger": "PASS",
+    "runtime_roles_non_bypass": "PASS",
+    "object_store_full_compatibility": "PASS",
+    "ingestion_evidence_outbox_atomic": "PASS",
+    "ai_candidate_only_authority": "PASS",
+    "baseline_golden_sha256": "86cad8649df353ee16f6598edd90d051a7f27d9f9d36d6c91c1d29f2678a5843",
+    "compiled_baseline_immutability": "PASS",
+    "all_90_anti_drift_controls_indexed": "PASS",
+    "all_56_repository_paths_verified": "PASS",
+    "secret_scan": "PASS"
+  },
+  "step_commits": {
+    "step_06": "1ea655a907521cb2d6a3a57c064cdf0afb4b9e49",
+    "step_07": "121c13612c7b6a6ad7941573b368b3b45444b8c9",
+    "step_08": "03e55a5826486492ada8c171df11102c6f94aea6",
+    "step_09": "2559a96bc65ce5dc31c9ca33c55ec7badcb9c22c",
+    "step_10": "8fb1af89ff7a2cac08c7d0094084ec57722ccae5",
+    "step_11": "9582d2db386dac2085b3ba30301ad84dbc65a217",
+    "step_12": "7823ca0312d25ec768f9899af7921b64bc79cefc",
+    "step_13": "dd04ec518f63b8c0f517207a23af14e9faf16569",
+    "step_14": "88dc5b85f65b0e94999c279150a79440b4984bdb"
+  },
+  "step_receipt_sha256": {
+    "STEP-06-DB-FOUNDATION-RECEIPT.json": "f35b9565dcdea2b737c2bedaecf7f3a4b2ff7be6e69510f49a1fe036153294da",
+    "STEP-07-TEMPORAL-MONEY-CURRENCY-RECEIPT.json": "f09d028c7585b762e8749d58a172257052fd1f5e9f45a94c42fee1e02a8431ad",
+    "STEP-08-RLS-RUNTIME-ROLES-RECEIPT.json": "c748f70e46d07fbad638e2f941a8eee4855c0780327a4171bd05a1832011fbbf",
+    "STEP-09-SELF-HOSTED-IDENTITY-RECEIPT.json": "cbf34bff4d0c1a2b3372e882fa37306ac66ee032245c969c6dd4bcadf0debfd2",
+    "STEP-10-DURABLE-INBOX-OUTBOX-RECEIPT.json": "f2abb298821b6a5acf87b000cd52af752f58883ff7d84f09e67474465ef12194",
+    "STEP-11-EVIDENCE-INTEGRITY-RECEIPT.json": "709c3f4cb5397ac350e0735061a8154199112af035e4b6655d5e9405249e5b84",
+    "STEP-12-INGESTION-RECEIPT.json": "aab6b4c17346c738ee27a814a5b0952d6be8626fca8548afe22199c12db0a399",
+    "STEP-13-EXTRACTION-BOUNDARY-RECEIPT.json": "661db4711e7ba7aedad67ee7560162e976766c8e440fa2932464bdee19f3e363",
+    "STEP-14-BASELINE-COMPILER-RECEIPT.json": "997b3f4b5222bd4a38549907ef330de36195156e5f3b8177cda7b22d6bfa52c0"
+  }
+}
