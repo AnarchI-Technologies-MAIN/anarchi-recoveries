@@ -8,6 +8,7 @@ fi
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 migration_root="$repo_root/infra/postgres/migrations"
+role_bootstrap="$repo_root/infra/postgres/bootstrap/service-roles.sql"
 
 while IFS= read -r migration; do
   version="$(basename "$migration" .sql)"
@@ -30,6 +31,8 @@ while IFS= read -r migration; do
     fi
     continue
   fi
+
+  psql "$RECOVERIES_TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f "$role_bootstrap"
 
   migration_role_exists="$(
     psql "$RECOVERIES_TEST_DATABASE_URL" -X -qAt \
