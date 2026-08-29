@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_37_IPAD_IPHONE_REVIEW_CONTRACT_COMPLETE",
-  "generated_at": "2026-08-29T12:36:07Z",
+  "generated_at": "2026-08-29T12:38:13Z",
   "from_commit": "3dea671b95729ebed37b6cdf8c6e619747ec02c2",
   "authority": {
     "production_mutated": false,
@@ -18,7 +18,7 @@
     "iphone_breakpoint_guard": "PASS",
     "ipad_breakpoint_guard": "PASS",
     "desktop_prompt_guard": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [

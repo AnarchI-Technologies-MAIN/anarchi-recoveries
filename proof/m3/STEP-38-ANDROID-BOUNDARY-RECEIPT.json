@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_38_ANDROID_CLIENT_BOUNDARY_BASELINE",
-  "generated_at": "2026-08-29T12:37:09Z",
+  "generated_at": "2026-08-29T12:38:13Z",
   "from_commit": "c1432955a0c06e76b7bc19829b7597274083ae60",
   "status": "SCAFFOLDED_NOT_RELEASED",
   "authority": {
@@ -18,7 +18,7 @@
     "ui_package_typecheck": "PASS",
     "reverse_domain_identity_guard": "PASS",
     "queued_offline_guard": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
