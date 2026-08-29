@@ -29,6 +29,17 @@ pub struct CachedItem {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct EncryptedCacheEntry {
+    pub kind: CacheKind,
+    pub item_id: String,
+    pub organization_id: String,
+    pub ciphertext: Vec<u8>,
+    pub key_handle: String,
+    pub captured_at: String,
+    pub expires_at: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ClientStatus {
     pub mode: ClientMode,
     pub last_sync: Option<String>,
@@ -71,6 +82,41 @@ pub enum ClientShellError {
     Required(&'static str),
     #[error("offline approval can only be queued, never executed")]
     OfflineExecutionForbidden,
+    #[error("encrypted cache entry is invalid: {0}")]
+    InvalidEncryptedCache(&'static str),
+}
+
+pub fn validate_encrypted_cache_entry(
+    entry: &EncryptedCacheEntry,
+    observed_at: &str,
+) -> Result<(), ClientShellError> {
+    let observed_owned = observed_at.to_owned();
+    for (value, field) in [
+        (&entry.item_id, "item_id"),
+        (&entry.organization_id, "organization_id"),
+        (&entry.key_handle, "key_handle"),
+        (&entry.captured_at, "captured_at"),
+        (&entry.expires_at, "expires_at"),
+        (&observed_owned, "observed_at"),
+    ] {
+        if value.trim().is_empty() {
+            return Err(ClientShellError::InvalidEncryptedCache(field));
+        }
+    }
+    if entry.ciphertext.is_empty() {
+        return Err(ClientShellError::InvalidEncryptedCache("ciphertext"));
+    }
+    if entry.expires_at <= entry.captured_at {
+        return Err(ClientShellError::InvalidEncryptedCache(
+            "expiry must be after capture",
+        ));
+    }
+    if observed_at >= entry.expires_at.as_str() {
+        return Err(ClientShellError::InvalidEncryptedCache(
+            "cache entry expired",
+        ));
+    }
+    Ok(())
 }
 
 pub fn queue_offline_approval(
@@ -177,6 +223,34 @@ mod tests {
         assert_eq!(
             queue_offline_approval("", "org-1", "hash", "time"),
             Err(ClientShellError::Required("recovery_id"))
+        );
+    }
+
+    #[test]
+    fn cache_requires_opaque_ciphertext_and_expiry() {
+        let entry = EncryptedCacheEntry {
+            kind: CacheKind::PreviouslyOpenedEvidence,
+            item_id: "evidence-1".to_owned(),
+            organization_id: "org-1".to_owned(),
+            ciphertext: vec![1, 2, 3],
+            key_handle: "windows-dpapi:cache-1".to_owned(),
+            captured_at: "2026-08-29T12:00:00Z".to_owned(),
+            expires_at: "2026-08-30T12:00:00Z".to_owned(),
+        };
+        assert!(validate_encrypted_cache_entry(&entry, "2026-08-29T12:01:00Z").is_ok());
+        assert_eq!(
+            validate_encrypted_cache_entry(&entry, "2026-08-31T00:00:00Z"),
+            Err(ClientShellError::InvalidEncryptedCache(
+                "cache entry expired"
+            ))
+        );
+        let empty = EncryptedCacheEntry {
+            ciphertext: Vec::new(),
+            ..entry
+        };
+        assert_eq!(
+            validate_encrypted_cache_entry(&empty, "2026-08-29T12:01:00Z"),
+            Err(ClientShellError::InvalidEncryptedCache("ciphertext"))
         );
     }
 }

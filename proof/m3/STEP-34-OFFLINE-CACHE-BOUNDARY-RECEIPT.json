@@ -1,0 +1,39 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_34_SECURE_OFFLINE_CACHE_BOUNDARY_BASELINE",
+  "generated_at": "2026-08-29T12:30:06Z",
+  "from_commit": "4aee9c1532e8b701389438ca58840109f7adb6dc",
+  "status": "BOUNDARY_BASELINE_NOT_OS_BACKED",
+  "authority": {
+    "production_mutated": false,
+    "allowed_cache_kinds": "recent opportunity summaries, opened evidence, deadlines, project metadata, draft comments",
+    "stored_payload": "opaque ciphertext only",
+    "key_material": "opaque OS key handle only",
+    "expiry": "explicit capture/expiry and observed-at fail-closed check",
+    "offline_authority": "cache does not grant evaluation, pricing, entitlement, or submission authority",
+    "plaintext_tokens": "not represented"
+  },
+  "verification": {
+    "client_shell_tests": "PASS_4",
+    "encrypted_cache_requires_ciphertext": "PASS",
+    "expired_cache_rejected": "PASS",
+    "cargo_fmt_clippy": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "Windows credential-store implementation",
+    "encrypted evidence cache persistence and cleanup",
+    "remote logout/revocation",
+    "independent storage and recovery tests"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "apps/client/src-tauri/src/lib.rs": "7fe031b28135ce68bcde1f1c998d96a46199a8fca87218188a3be96f9cc392ce",
+    "docs/architecture/secure-offline-cache-boundary.md": "563c3f6a89ac689044b953c69e87899ba9c5e50233ca9c9c9f1431e4b1bbe981"
+  }
+}
