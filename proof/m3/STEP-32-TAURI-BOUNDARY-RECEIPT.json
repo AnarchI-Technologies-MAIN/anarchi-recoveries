@@ -1,0 +1,43 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_32_TAURI_CLIENT_BOUNDARY_BASELINE",
+  "generated_at": "2026-08-29T12:24:23Z",
+  "from_commit": "48c8f91776438f790b91aa3f339a5abce02d8271",
+  "status": "BOUNDARY_BASELINE_NOT_PACKAGED",
+  "authority": {
+    "production_mutated": false,
+    "client_role": "networked client of authoritative server",
+    "offline_cache": "recent opportunity summaries, opened evidence, deadlines, project metadata, draft comments only",
+    "offline_approval": "QUEUED only",
+    "reconnect_gate": "opportunity, payload hash, policy, deadline, and authority all required",
+    "independent_authority": "forbidden",
+    "tauri_dependency": "intentionally deferred until shell packaging work"
+  },
+  "verification": {
+    "client_shell_crate_tests": "PASS_3",
+    "cargo_fmt": "PASS",
+    "offline_execution_denied": "PASS",
+    "reconnect_all_checks_required": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "actual Tauri 2 shell and webview adapter",
+    "Windows executable and installer (Step 33)",
+    "secure OS credential storage and encrypted cache (Step 34)",
+    "native notifications (Step 35)",
+    "live server adapter and package signing"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "Cargo.toml": "c4ea2b38c59ea8c49885d343a5a24fa0bd5f6b9c37de36a36d04a372c88c0f79",
+    "Cargo.lock": "3226cfafa9872bd3aed4c4b0c5440ad02ee8fb7f5e5e5592f05c6e10ce68984d",
+    "apps/client/src-tauri/Cargo.toml": "27d257bb2af171a1c6959399e21ac8c03f53b7c6eff1eda04461ed80f2024d2f",
+    "apps/client/src-tauri/src/lib.rs": "152b24cd5e8e561d4d942f0e42e7607181a6864a4b025e34699498b5dfd58eda",
+    "docs/architecture/tauri-client-boundary.md": "929453c26d7469b17a19c0214ba8c350c59aa5d0bc6a5e3dd1851317ac3082a2"
+  }
+}

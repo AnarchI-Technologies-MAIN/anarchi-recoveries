@@ -2,6 +2,7 @@
 members = [
   "crates/recovery-model",
   "crates/recovery-core",
+  "apps/client/src-tauri",
 ]
 resolver = "2"
 
