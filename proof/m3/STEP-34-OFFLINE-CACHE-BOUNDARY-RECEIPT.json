@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_34_SECURE_OFFLINE_CACHE_BOUNDARY_BASELINE",
-  "generated_at": "2026-08-29T12:30:06Z",
+  "generated_at": "2026-08-29T12:31:08Z",
   "from_commit": "4aee9c1532e8b701389438ca58840109f7adb6dc",
   "status": "BOUNDARY_BASELINE_NOT_OS_BACKED",
   "authority": {
@@ -19,7 +19,7 @@
     "encrypted_cache_requires_ciphertext": "PASS",
     "expired_cache_rejected": "PASS",
     "cargo_fmt_clippy": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
