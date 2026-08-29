@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anarchi.tech/schemas/extraction/fact-candidate.v1.schema.json",
+  "title": "Candidate fact extraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fact_id", "organization_id", "project_id", "fact_type", "subject",
+    "value", "source_evidence_id", "source_location", "extraction_method",
+    "model_or_parser_version", "candidate_confidence"
+  ],
+  "properties": {
+    "fact_id": {"type": "string", "format": "uuid"},
+    "organization_id": {"type": "string", "format": "uuid"},
+    "project_id": {"type": "string", "format": "uuid"},
+    "fact_type": {"type": "string", "minLength": 1},
+    "subject": {"type": "string", "minLength": 1},
+    "value": {"type": "object"},
+    "unit": {"type": ["string", "null"]},
+    "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+    "source_evidence_id": {"type": "string", "format": "uuid"},
+    "source_location": {"type": "string", "minLength": 1},
+    "extraction_method": {"type": "string", "minLength": 1},
+    "model_or_parser_version": {"type": "string", "minLength": 1},
+    "candidate_confidence": {
+      "type": "string",
+      "pattern": "^(0(\\.\\d{1,5})?|1(\\.0{1,5})?)$"
+    }
+  }
+}

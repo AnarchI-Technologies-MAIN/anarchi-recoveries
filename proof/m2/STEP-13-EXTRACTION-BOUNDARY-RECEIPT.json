@@ -1,0 +1,55 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "step": "STEP_13_EXTRACTION_BOUNDARY_LOCAL_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T09:39:19Z",
+  "from_commit": "7823ca0312d25ec768f9899af7921b64bc79cefc",
+  "authority": {
+    "production_mutated": false,
+    "ai_financial_authority": false,
+    "candidate_creation_only": true,
+    "m2_complete": false
+  },
+  "construction_findings": [
+    {
+      "id": "STEP13-FINDING-001",
+      "status": "corrected",
+      "detail": "The candidate schema initially represented confidence as a JSON number while the service used an exact bounded decimal string; the schema was aligned to the non-floating representation before commit."
+    },
+    {
+      "id": "STEP13-FINDING-002",
+      "status": "documented",
+      "detail": "Adding the extraction module caused Go workspace synchronization to align shared indirect dependency versions in the outbox publisher; the synchronized manifests were retested and are included in this receipt."
+    }
+  ],
+  "verification": {
+    "fresh_migration_replay": "PASS_11_OF_11",
+    "all_foundation_and_step_07_12_proofs": "PASS",
+    "candidate_only_persistence": "PASS",
+    "extraction_role_cannot_verify": "PASS",
+    "extraction_cross_tenant_denied": "PASS",
+    "candidate_event_atomic": "PASS",
+    "invalid_batch_mutates_nothing": "PASS",
+    "candidate_wire_has_no_verification_authority": "PASS",
+    "digest_pinned_model_provenance": "PASS",
+    "go_tests_race_vet": "PASS",
+    "rust_tests_fmt_clippy": "PASS",
+    "authz_typecheck_tests_audit": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "secret_scan": "PASS"
+  },
+  "drift_controls": ["DRIFT-001", "DRIFT-002", "DRIFT-006", "DRIFT-041", "DRIFT-044", "DRIFT-072"],
+  "artifact_sha256": {
+    "infra/postgres/bootstrap/service-roles.sql": "d6e68ff6b220da9caba184ee7c866abc8c8ddf76dcbabc3736ba3b5775b47bad",
+    "infra/postgres/migrations/000011_candidate_extraction_boundary.sql": "818dce5c1fb4162aec502ae8e55044837a0555cd10cc42928c304df7118b644a",
+    "tools/migration-check/verify-step-13.sql": "119f78524262f73d4c8dd385ba8c7b91901c2068f95a0e94aa5d240c53297e2a",
+    "schemas/extraction/fact-candidate.v1.schema.json": "12720cfa2c6b9f816b736de8f46c96aefd360bc30e87484e2ead66406b219719",
+    "services/extraction/go.mod": "51006b0595431341976b948ed53ccdef7f284aa7427b7cabe71fc30189b4eff9",
+    "services/extraction/internal/extraction/service.go": "a64e3348643ff97c13a8a430cbfc9799ca43ed98835a3af0c66579887e8a3a00",
+    "services/extraction/internal/extraction/service_test.go": "5af32fc8410ab6d5c7811e0c61a6855739307e8c69dc0d32a98ba472c777da1f",
+    "go.work": "d180d9a62e740a33cc3679015f6bb514e17d23bf571f0c7bfe49be104f45a7aa",
+    "go.work.sum": "308298752182f68ef707b63449ec9dcd50546f4e0ff957b25284d6d30e0e08ef",
+    "services/outbox-publisher/go.mod": "d514435b3bf8e63b8fcb933fd3d3d6d24cf6e5bfb623a2971c20cc403666c0f7",
+    "services/outbox-publisher/go.sum": "5d83e0a5d59d67e486b98153499f31fca378da03a599767f9573c1c57737f0ac",
+    "governance/repository-map.v1.json": "0a5c877b20f81e6928eef537db3eecfb8d8c8a6d71e9238535fb32e46740b3a8"
+  }
+}
