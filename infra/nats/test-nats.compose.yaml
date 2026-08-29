@@ -1,0 +1,15 @@
+services:
+  recoveries-test-nats:
+    image: nats:2.14.5-alpine@sha256:d4ac35882ac65aff236cd65b9d3fa4d24332c681e1a85f94eedccd3cdd65b1da
+    command: ["--jetstream", "--store_dir", "/data", "--http_port", "8222"]
+    ports:
+      - "127.0.0.1:54222:4222"
+      - "127.0.0.1:58222:8222"
+    tmpfs:
+      - /data:rw,noexec,nosuid,size=256m
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1:8222/healthz?js-enabled-only=true"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    restart: "no"

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/events/event-envelope.v1.schema.json",
+  "title": "AnarchI Recoveries Event Envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "organization_id",
+    "project_id",
+    "aggregate_id",
+    "occurred_at",
+    "causation_id",
+    "correlation_id",
+    "idempotency_key",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "event_id": { "type": "string", "format": "uuid" },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "ingest.received",
+        "evidence.persisted",
+        "evidence.normalize.requested",
+        "evidence.normalized",
+        "extraction.requested",
+        "extraction.completed",
+        "fact.candidate.created",
+        "fact.verified",
+        "baseline.activated",
+        "recovery.evaluate.requested",
+        "recovery.evaluated",
+        "opportunity.updated",
+        "action.requested",
+        "action.authorized",
+        "action.executed",
+        "payment.observed",
+        "attribution.reconciled",
+        "billing.success_fee.accrued"
+      ]
+    },
+    "organization_id": { "type": "string", "format": "uuid" },
+    "project_id": { "type": "string", "format": "uuid" },
+    "aggregate_id": { "type": "string", "format": "uuid" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "causation_id": {
+      "oneOf": [
+        { "type": "string", "format": "uuid" },
+        { "type": "null" }
+      ]
+    },
+    "correlation_id": { "type": "string", "format": "uuid" },
+    "idempotency_key": { "type": "string", "minLength": 1 },
+    "payload": { "type": "object" }
+  }
+}

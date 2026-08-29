@@ -1,0 +1,24 @@
+{
+  "schema": "anarchi.recoveries.event-subject-registry.v1",
+  "status": "FROZEN_TO_SPEC_1.6",
+  "subjects": [
+    "ingest.received.v1",
+    "evidence.persisted.v1",
+    "evidence.normalize.requested.v1",
+    "evidence.normalized.v1",
+    "extraction.requested.v1",
+    "extraction.completed.v1",
+    "fact.candidate.created.v1",
+    "fact.verified.v1",
+    "baseline.activated.v1",
+    "recovery.evaluate.requested.v1",
+    "recovery.evaluated.v1",
+    "opportunity.updated.v1",
+    "action.requested.v1",
+    "action.authorized.v1",
+    "action.executed.v1",
+    "payment.observed.v1",
+    "attribution.reconciled.v1",
+    "billing.success_fee.accrued.v1"
+  ]
+}

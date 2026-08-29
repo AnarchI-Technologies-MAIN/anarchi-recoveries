@@ -1,0 +1,50 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "step": "STEP_10_DURABLE_INBOX_OUTBOX_LOCAL_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T00:00:00Z",
+  "from_commit": "2559a96bc65ce5dc31c9ca33c55ec7badcb9c22c",
+  "authority": {
+    "production_mutated": false,
+    "disposable_services_only": true,
+    "m2_complete": false
+  },
+  "construction_findings": [
+    {"id":"STEP10-FINDING-001","status":"corrected","detail":"Publisher role creation cannot be performed by the non-CREATEROLE migration owner; moved idempotent role bootstrap to the privileged disposable-service bootstrap and retained migration consumption of that role."},
+    {"id":"STEP10-FINDING-002","status":"corrected","detail":"Envelope event_type validation was made deterministic by deriving the unversioned event type with left(subject, length(subject)-3), followed by a fresh replay."}
+  ],
+  "verification": {
+    "fresh_migration_replay": "PASS_8_OF_8",
+    "foundation_and_steps_07_09": "PASS",
+    "durable_inbox_dedupe": "PASS",
+    "claim_without_attempt_increment": "PASS",
+    "stale_lease_recovery": "PASS",
+    "stale_token_cas_rejected": "PASS",
+    "actual_publish_attempt_accounting": "PASS",
+    "explicit_dead_letter_with_audit": "PASS",
+    "concurrent_skip_locked": "PASS_SKIP_LOCKED_DISTINCT_CLAIMS",
+    "go_tests_race_vet": "PASS",
+    "rust_tests_fmt_clippy": "PASS",
+    "authz_typecheck_tests_audit": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "transport_duplicate_proof": "PASS_TRANSPORT_DEDUPE_ONLY",
+    "frozen_event_subject_count": 18
+  },
+  "drift_controls": ["DRIFT-019","DRIFT-022","DRIFT-023","DRIFT-024","DRIFT-025","DRIFT-026","DRIFT-044"],
+  "artifact_sha256": {
+    "infra/postgres/migrations/000008_durable_inbox_outbox.sql": "63b9cc070b962c53c83b5fa5b6b4b2253c9dfdd152fd370295a42d1f6525a09e",
+    "infra/postgres/bootstrap/service-roles.sql": "7715473907bfbc0d972f108689b75df2a9f4e00745424f7abb31df061f244d55",
+    "tools/migration-check/apply-migrations.sh": "b5fa984e025751c9424284b825b37bb7aa18e48b80f2845b82a340160fd1f677",
+    "tools/migration-check/verify-step-10.sql": "6288a91607fd832ef7375b4796798468e732873ef3d2b5f7df5b5f067b5da099",
+    "tools/migration-check/verify-step-10-concurrency.sh": "7367c699f89e87cf81324a13358b416dedb82faedbe9ebd8a72bbd716af0fcf0",
+    "schemas/events/event-envelope.v1.schema.json": "d4c705dd4e12992fd96e77280643d56f245ac1d8986eeaf4c48afa86832f7020",
+    "schemas/events/frozen-subjects.v1.json": "7428a0cf685feee2d07d1ffd8180227f0238fd3909709fede96689da2f73eca1",
+    "infra/nats/test-nats.compose.yaml": "f65662e753bbd4047a1d3f7bacc68226a26d678fefcb27b62907ae6c5311cb37",
+    "services/outbox-publisher/go.mod": "6ac081c760ffc6b806941d7e758b38c5fbc2a4ee9a70c1c02f075e32bf5c9458",
+    "services/outbox-publisher/go.sum": "f322f0a91c9d7de7cbc4573cc2333522784de34b347ca35f26f473291f686a08",
+    "services/outbox-publisher/internal/publisher/publisher.go": "5c8cab67e4a2a00d4d69f9d36d21181bde10c03ff8dc5fb163af81f025c62883",
+    "services/outbox-publisher/internal/store/postgres.go": "2322076a1cf90a8df1eacdddd404c0c1ac5c14cb4ce730738595d361b78bbd8e",
+    "services/outbox-publisher/internal/broker/nats.go": "35affd40a041cac7ae18a9d7b25b518a2a9bccbc7d4cb71beb52848ae91fb038",
+    "services/outbox-publisher/cmd/jetstream-proof/main.go": "adf514e4fb64b1200ebe8c848d782d14980c30e7bf5bc334fe9e444448a875a9",
+    "governance/repository-map.v1.json": "23c78a94086eb32389df52425f613e776759a129ff0655f068b35942867c68b3"
+  }
+}
