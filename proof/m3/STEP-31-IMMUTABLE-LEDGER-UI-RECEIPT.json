@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_31_IMMUTABLE_LEDGER_UI_COMPLETE",
-  "generated_at": "2026-08-29T12:21:21Z",
+  "generated_at": "2026-08-29T12:22:28Z",
   "from_commit": "ee01f233ca3dbd0a0e9a14efd266911e3c05b967",
   "authority": {
     "production_mutated": false,
@@ -25,11 +25,10 @@
     "action_without_receipt_denied": "PASS",
     "cross_tenant_event_denied": "PASS",
     "deterministic_ordering": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
-    "full repository gate after this receipt commit",
     "client renderers/adapters",
     "WCAG AA keyboard/focus audit",
     "visual regression evidence",
