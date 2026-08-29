@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_39_40_PRODUCTION_MIGRATION_AND_RPO_RTO_READINESS_BASELINE",
-  "generated_at": "2026-08-29T12:40:08Z",
+  "generated_at": "2026-08-29T12:41:29Z",
   "from_commit": "57653e6be9d64679220c812c6a246e50b0edd679",
   "status": "NOT_AUTHORIZED",
   "authority": {
@@ -26,7 +26,7 @@
     "production_readiness_tests": "PASS_3",
     "preflight_authorization_guard": "PASS",
     "workload_order_guard": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
