@@ -14,6 +14,12 @@ func (f extractorFake) Extract(context.Context, string) ([]Candidate, error) {
 	return f.candidates, nil
 }
 
+type outageExtractor struct{}
+
+func (outageExtractor) Extract(context.Context, string) ([]Candidate, error) {
+	return nil, errors.New("provider unavailable")
+}
+
 type repoFake struct{ calls int }
 
 func (f *repoFake) PersistCandidateBatch(context.Context, []Candidate) error { f.calls++; return nil }
@@ -57,5 +63,14 @@ func TestCandidateWireTypeHasNoVerificationAuthority(t *testing.T) {
 	}
 	if strings.Contains(string(wire), "verification") || strings.Contains(string(wire), "verified") {
 		t.Fatalf("candidate wire type leaked verification authority: %s", wire)
+	}
+}
+
+func TestProviderOutageDoesNotPersistFallbackFacts(t *testing.T) {
+	repo := &repoFake{}
+	service, _ := New(outageExtractor{}, repo)
+	_, err := service.ExtractCandidates(context.Background(), "s3://proof/evidence")
+	if err == nil || repo.calls != 0 {
+		t.Fatalf("expected provider error without fallback persistence, calls=%d err=%v", repo.calls, err)
 	}
 }

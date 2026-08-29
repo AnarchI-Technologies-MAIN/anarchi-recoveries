@@ -1,0 +1,61 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_22_PILOT_HARDENING_NON_PRODUCTION_READY",
+  "generated_at": "2026-08-29T11:41:34Z",
+  "from_commit": "03c07a24175b5d1b1800a84a02480aa90703dccb",
+  "authority": {
+    "production_mutated": false,
+    "pilot_activation": "not authorized by this receipt",
+    "observability_authority": "shared package validates required work context",
+    "ai_outage_behavior": "provider error returned; no fallback facts persisted",
+    "audit_authority": "Postgres audit ledger; logs remain diagnostic",
+    "external_side_effects": "none",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "required_context": "trace_id, correlation_id, organization_id, project_id, aggregate_id, event_id",
+    "metrics": "frozen Step 65 metric names are centralized and typed",
+    "provider_outage": "retained evidence and deterministic state remain outside extraction failure",
+    "test_policy": "mandatory families remain explicitly open until independently proven",
+    "release_scope": "non-production hardening only"
+  },
+  "verification": {
+    "observability_package_tests": "PASS_3",
+    "observability_package_typecheck": "PASS",
+    "authz_tests": "PASS_5",
+    "authz_typecheck": "PASS",
+    "extraction_provider_outage_no_fallback_persistence": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "DST and business-calendar fixtures",
+    "late-evidence and superseded-baseline fixtures",
+    "contradictory-fact and rejected-fact fixtures",
+    "FX replay fixture",
+    "offline revalidation fixture",
+    "secret-reference isolation fixture",
+    "backup restoration proof",
+    "pilot activation and customer data import"
+  ],
+  "drift_controls": [
+    "DRIFT-001", "DRIFT-002", "DRIFT-006", "DRIFT-007", "DRIFT-009",
+    "DRIFT-017", "DRIFT-020", "DRIFT-022", "DRIFT-023", "DRIFT-024",
+    "DRIFT-025", "DRIFT-027", "DRIFT-028", "DRIFT-040", "DRIFT-041",
+    "DRIFT-042", "DRIFT-043", "DRIFT-044", "DRIFT-052", "DRIFT-062",
+    "DRIFT-063", "DRIFT-067", "DRIFT-068", "DRIFT-072", "DRIFT-083",
+    "DRIFT-086", "DRIFT-088", "DRIFT-089", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/observability/package.json": "b6bbdc50709724fb4827445894e2a32dae2dca9e2368a294049b442a0a12cd82",
+    "packages/observability/tsconfig.json": "4a2c627a62f525defbf0d604e2d3c0d49694d2d857b17695066d3f18bec7ce8c",
+    "packages/observability/src/context.ts": "eac054da827a7e3e86b38aa4810890409269829385b72763759409915b97b174",
+    "packages/observability/test/context.test.ts": "e5491806812ef7f50782bb8d7e74247aabafe3bb2439b37a84d9e05a5dc1cee2",
+    "services/extraction/internal/extraction/service_test.go": "433373670248dd144a4bb8fa86a4caaecc0cebd5521c8b7c15fd2a148a764ba5",
+    "docs/runbooks/STEP-22-PILOT-HARDENING.md": "d42c3b48864c0d776a692eae7c2a95d7037322d75933379cca15888a6d20556e"
+  }
+}
