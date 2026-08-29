@@ -26,7 +26,7 @@
     "result": "ALLOW",
     "subject": "pilot-reviewer-001"
   },
-  "authority_transition_receipt_sha256": "06f1d023514256ce9d80351733c36949b04d69e343e3967a70755e55556dda3b",
+  "authority_transition_receipt_sha256": "01c76f9ed568818bb270fb85b38c45004e1a0967124c37531d72d9750bae0bb9",
   "calculation_trace": [
     {
       "case_id": "lifecycle-opportunity",
@@ -65,7 +65,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "785104de1d2d34940365d468c6b0596770f8c52e2a4657772333336421fd356d",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "eef42020ff2de64dff430f55cd7ce0fbddbb53b36585e531e8e709aed254b001"
+      "receipt_sha256": "e0ffb0aeb49b77676801d123c0a63c1a8abb0ed44d35cc37240afddcf74e9164"
     },
     {
       "case_id": "lifecycle-covered",
@@ -78,7 +78,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "f8a2afffe8ab33b218de257698ecc9c04dda5793d7cd8a80cd9498f46178e622"
+      "receipt_sha256": "ef6b9a5e766b77e46e7875be8a8331bbfa283b5e32387b62e93f1e10cb32842e"
     },
     {
       "case_id": "lifecycle-contradictory",
@@ -91,7 +91,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "cbc71f67df47cc4071f9acb3f91590714d25e1e3b729b549112de4ad0d42e7e3"
+      "receipt_sha256": "d732262b91d1cb6e11352669c154f0868f6553b303d39c3f85a2ea5aa9792e84"
     },
     {
       "case_id": "lifecycle-missing-provenance",
@@ -104,7 +104,59 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "48592ee8a7b2e9b970c4bd8961f86adb2b6e18d53bc6ef0bf4277e15904afbb0"
+      "receipt_sha256": "0168c7226bbbe9fdd87a7d75da43c4b56b0bd9048503dcb7364f719e88155d82"
+    },
+    {
+      "case_id": "lifecycle-tm-slip",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "5085c538ea8135891f2a5c8dca2b17f8ba5f43be51628e9397afd5690299ae5a",
+      "observed": {
+        "decision": "HOLD",
+        "reason": "UNCONVERTED_T_AND_M"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "da3be9ded84fb072850596099e70dda49faffa0f754d83a27ee2932dac5087bb",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "c65a6c65bc3dd76f25fc2e225909918e6613224717e1bf80906285a1f4c2da12"
+    },
+    {
+      "case_id": "lifecycle-duplicate-chain",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "b4913db5a452164d39703a410c8c41b07429f5a6beb475fa2ae7f0dc4c633cb6",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "DUPLICATE_EVIDENCE_CHAIN"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "2cc0c49c1fdd70eba85620dbc1c806c9509306209b468fd005a846a88eb32b0d",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "7c67e5e241500a889cfcfd882f571989db5e86cfbc1a1b0803177e859f96fef0"
+    },
+    {
+      "case_id": "lifecycle-irrelevant-change",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "c68d7374058bd65973f1436a1dba3ea886ca04063fa2c8e28053d43488ae00c0",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "IRRELEVANT_FIELD_CHANGE"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "d95e68f0e4819dd4a0d343b2ab9082e692d121478765e77f43718ffe3cea520f",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "afe3ed2633b937e9376db2eb5b837ec5c50b3faa1281c87d966152e380176a57"
+    },
+    {
+      "case_id": "lifecycle-already-paid",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "05456f864149efe2807e0ce06cfc879b70edb3f17c661630269794a2ec19315b",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "ALREADY_PAID"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "09de7130c09a4d42be0424b2808bb9d161d738ea586721e9f47fc148ad72e324",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "916a4e73e35be6522337548cd4532ae1769f1a90a92003d2cfd037bd7475548b"
     },
     {
       "case_id": "provider-outage",
@@ -119,7 +171,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "55bbe525bc894aa95b85b87d9c9dbb583a300c2e20641d3d76f9e73c0df07a15",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "2ff0cb71f71802a6708619988495802f98f76810b26ac6cd85c588e6deda82f1"
+      "receipt_sha256": "087dd3edeaae954dafd23b30f3158711391fcc7383f12319634363d4d136043e"
     },
     {
       "case_id": "action-allowed",
@@ -160,7 +212,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "ef66075c7fbcf4a83fb791fe1fb74f32201e09807fb9d592f797b53a237274d3",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "06f1d023514256ce9d80351733c36949b04d69e343e3967a70755e55556dda3b"
+      "receipt_sha256": "01c76f9ed568818bb270fb85b38c45004e1a0967124c37531d72d9750bae0bb9"
     },
     {
       "case_id": "action-no-approval",
@@ -174,7 +226,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "2fa72d71b2c242ccf134004278d82f003bd064ddd3c4c7065f7ce259b288ba4f",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "150df4f96dfb06918ff1f8529ae66184bd229e99463a6be5f8e419f5ffb905e5"
+      "receipt_sha256": "9f363860dc56a8725f86ee865fe9568d14a1985a0d653047c72e11f2869de002"
     },
     {
       "case_id": "action-payload-mutation",
@@ -188,7 +240,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "56182f9759d3ce0ea73d6c9e5f9056f9b009d8fdf2ac8e570a7635036a6a3b62"
+      "receipt_sha256": "5f197b2d862b7b3af0b265ad2fac0617e9cdea17b3cf2d97144da74a761ac639"
     },
     {
       "case_id": "action-wrong-tenant",
@@ -202,7 +254,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "73410b89b8fb89132b4eea82538a3170e7d77677fab064627deaf342ad90a3ac"
+      "receipt_sha256": "dac7bb13d6a3bee790e6c5c95fc3d3558d05d01593fe345cfd2d4c39c9ab375a"
     },
     {
       "case_id": "action-wrong-purpose",
@@ -216,7 +268,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "33bfa76ede8f9a2cdac753d3bba449d9ee112a1e2e8642051af2a3c5981bb177"
+      "receipt_sha256": "74240ea34055c06d142891365e43fdba2f2fce5aea2ebe8fee61268bde5a54ac"
     },
     {
       "case_id": "action-expired-capability",
@@ -230,7 +282,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "e1292fbe604675b0a0344185904b04dc02e76a8a5ad2504e173b135d304221fc",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "0e1420e04257d1cbf4c8ab6676209609a2565b194bb175771ee3ed831777fd4d"
+      "receipt_sha256": "f29dfe3c309c0355dba868f7ed33ed7900fbbe8c00a8d1e38546918f751c1bc5"
     },
     {
       "case_id": "money-partial-multi-payment",
@@ -263,7 +315,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "56075540496a9060423b3113c73eea5b3cd7481154291de792144d06b59011f2"
+      "receipt_sha256": "8217f42c4401683a11a1f1574a9ece3b68c1f9b850a3252a60ffe17f42a68abc"
     },
     {
       "case_id": "money-overallocation",
@@ -277,7 +329,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "4caeeeca0e5df4b9848d56c084461dec555a8af78eb51d634a2c9032ec40f459"
+      "receipt_sha256": "da499d13771ac392d1773837e4106d14ca5fc0b2d105dce05164019d4b735403"
     },
     {
       "case_id": "money-verification-only",
@@ -292,7 +344,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "3739c2d1cb5daa07ece50c3c61829ff37d92812baab21f22ce7d17d82fd688a5"
+      "receipt_sha256": "94178d1a839afed69216ee869767d9215b5f5883d06b027300cf426d6f969748"
     }
   ],
   "denials": [
@@ -310,6 +362,26 @@
       "case_id": "lifecycle-missing-provenance",
       "decision": "HOLD",
       "reason": "MISSING_EVIDENCE_PROVENANCE"
+    },
+    {
+      "case_id": "lifecycle-tm-slip",
+      "decision": "HOLD",
+      "reason": "UNCONVERTED_T_AND_M"
+    },
+    {
+      "case_id": "lifecycle-duplicate-chain",
+      "decision": "NO_OPPORTUNITY",
+      "reason": "DUPLICATE_EVIDENCE_CHAIN"
+    },
+    {
+      "case_id": "lifecycle-irrelevant-change",
+      "decision": "NO_OPPORTUNITY",
+      "reason": "IRRELEVANT_FIELD_CHANGE"
+    },
+    {
+      "case_id": "lifecycle-already-paid",
+      "decision": "NO_OPPORTUNITY",
+      "reason": "ALREADY_PAID"
     },
     {
       "case_id": "provider-outage",
@@ -355,10 +427,14 @@
       "action-payload-mutation": "1039ab268700c112655f1ed479e14c43eb6178e0a40c7d480e7a7cfd03460297",
       "action-wrong-purpose": "cff17df96a12ef375f41e5d5703c32a6c525d92513190cf789e0646802c3682e",
       "action-wrong-tenant": "bdeeb21b101f0833b34d9bf0c522cab1d2e27457e8309ed271f3473cfb97cf3a",
+      "lifecycle-already-paid": "05456f864149efe2807e0ce06cfc879b70edb3f17c661630269794a2ec19315b",
       "lifecycle-contradictory": "3fbb7303626aa7f585147f6a7e84e2a991e783d14a6e4cfd2eea808242abc9f3",
       "lifecycle-covered": "2ef380a49eae5d46e50a11b55e5a5180f37f69f630ef436763c21a1fd5472b56",
+      "lifecycle-duplicate-chain": "b4913db5a452164d39703a410c8c41b07429f5a6beb475fa2ae7f0dc4c633cb6",
+      "lifecycle-irrelevant-change": "c68d7374058bd65973f1436a1dba3ea886ca04063fa2c8e28053d43488ae00c0",
       "lifecycle-missing-provenance": "5cb7c8939eb47b59906556f8537f4d32a3a04abcc62cdffb51b37f6cfc59e175",
       "lifecycle-opportunity": "4c33ed2cfedef4020e76ff3e5f775f4af9c49c14693e9103ca4836be1bffa61b",
+      "lifecycle-tm-slip": "5085c538ea8135891f2a5c8dca2b17f8ba5f43be51628e9397afd5690299ae5a",
       "money-overallocation": "254949ec2c2bc68a6a731e8d8e6403db4b6adb27d692921d57732a48aada432f",
       "money-partial-multi-payment": "c8f64e44603a13f779b6f8d780b3c3127ec67f4d89ddbb942e0e64aa4c1b9eb6",
       "money-verification-only": "5036919e93d7da005c8526697b6e6db10e2cfdbcae162c410496881bcabbe527",
@@ -371,10 +447,14 @@
       "action-payload-mutation": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
       "action-wrong-purpose": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
       "action-wrong-tenant": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
+      "lifecycle-already-paid": "09de7130c09a4d42be0424b2808bb9d161d738ea586721e9f47fc148ad72e324",
       "lifecycle-contradictory": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
       "lifecycle-covered": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
+      "lifecycle-duplicate-chain": "2cc0c49c1fdd70eba85620dbc1c806c9509306209b468fd005a846a88eb32b0d",
+      "lifecycle-irrelevant-change": "d95e68f0e4819dd4a0d343b2ab9082e692d121478765e77f43718ffe3cea520f",
       "lifecycle-missing-provenance": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
       "lifecycle-opportunity": "785104de1d2d34940365d468c6b0596770f8c52e2a4657772333336421fd356d",
+      "lifecycle-tm-slip": "da3be9ded84fb072850596099e70dda49faffa0f754d83a27ee2932dac5087bb",
       "money-overallocation": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
       "money-partial-multi-payment": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
       "money-verification-only": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
@@ -418,7 +498,7 @@
     "independent_review": "PENDING",
     "pilot_recommendation": "HOLD",
     "production_mutated": false,
-    "receipt_chain_root_sha256": "3739c2d1cb5daa07ece50c3c61829ff37d92812baab21f22ce7d17d82fd688a5",
+    "receipt_chain_root_sha256": "94178d1a839afed69216ee869767d9215b5f5883d06b027300cf426d6f969748",
     "replay_identity": "PASS"
   },
   "human_adjudication": {
@@ -430,15 +510,15 @@
     "status": "PENDING"
   },
   "input_corpus_manifest": {
-    "canonical_sha256": "8b3becb82956a6d35bb5bd296125c0ce6084ec306c8dfa2b4b7aac8aff1b46bc",
+    "canonical_sha256": "bd6a141541ffb8e115c11eb3cfdff179f809450526833b312c8f29cac98ee8a0",
     "corpus_version": "pilot-synthetic-2026-08-29.v1",
     "path": "fixtures/pilot/manifest.v1.json",
     "project_universe_canonical_sha256": "d22b0a262860d0693a5a6f00b70687d576242f3807f67f95a831794b25152a5b",
     "project_universe_path": "fixtures/pilot/project-falcon.v1.json",
     "project_universe_sha256": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
-    "sha256": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8"
+    "sha256": "c53a3fd7206faa52683341dd77d3e12c9da14f5fab174b20810951625fdb6207"
   },
-  "packet_sha256": "5e245c9808265131eca374825d9633f4ca6b16fa4c79128fa8b69c60a43ec2c6",
+  "packet_sha256": "092be9b2cca620259429a6a3146af1cbcaec4e52c51b0672ade43dc4c38bde01",
   "packet_version": "court-record-1",
   "payment_evidence": [
     {
@@ -509,7 +589,7 @@
     "status": "RECONCILED",
     "verification_only_fee_violations": 0
   },
-  "repository_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+  "repository_commit": "63402798f1274520aeebf6a49689d47777639c10",
   "review_purpose": "independent adjudication without expected labels",
   "rule_registry_digest": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
   "schema": "anarchi.recoveries.pilot-blind-review-packet.v1",

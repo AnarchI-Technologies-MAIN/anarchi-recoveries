@@ -1,5 +1,5 @@
 {
-  "blind_packet_sha256": "5e245c9808265131eca374825d9633f4ca6b16fa4c79128fa8b69c60a43ec2c6",
+  "blind_packet_sha256": "092be9b2cca620259429a6a3146af1cbcaec4e52c51b0672ade43dc4c38bde01",
   "cases": [
     {
       "case_id": "lifecycle-opportunity",
@@ -48,6 +48,66 @@
     },
     {
       "case_id": "lifecycle-missing-provenance",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-tm-slip",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-duplicate-chain",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-irrelevant-change",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-already-paid",
       "dimensions": {
         "action_integrity": null,
         "attribution_correctness": null,
@@ -214,6 +274,6 @@
   ],
   "reviewed_at": null,
   "reviewer_id": null,
-  "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
+  "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
   "schema": "anarchi.recoveries.independent-adjudication.v1"
 }

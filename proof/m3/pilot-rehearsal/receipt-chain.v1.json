@@ -19,9 +19,9 @@
       "previous_receipt_sha256": "",
       "receipt_id": "RECOVERIES-PILOT-lifecycle-opportunity-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "eef42020ff2de64dff430f55cd7ce0fbddbb53b36585e531e8e709aed254b001",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "e0ffb0aeb49b77676801d123c0a63c1a8abb0ed44d35cc37240afddcf74e9164",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -46,12 +46,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
-      "previous_receipt_sha256": "eef42020ff2de64dff430f55cd7ce0fbddbb53b36585e531e8e709aed254b001",
+      "previous_receipt_sha256": "e0ffb0aeb49b77676801d123c0a63c1a8abb0ed44d35cc37240afddcf74e9164",
       "receipt_id": "RECOVERIES-PILOT-lifecycle-covered-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "f8a2afffe8ab33b218de257698ecc9c04dda5793d7cd8a80cd9498f46178e622",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "ef6b9a5e766b77e46e7875be8a8331bbfa283b5e32387b62e93f1e10cb32842e",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -76,12 +76,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
-      "previous_receipt_sha256": "f8a2afffe8ab33b218de257698ecc9c04dda5793d7cd8a80cd9498f46178e622",
+      "previous_receipt_sha256": "ef6b9a5e766b77e46e7875be8a8331bbfa283b5e32387b62e93f1e10cb32842e",
       "receipt_id": "RECOVERIES-PILOT-lifecycle-contradictory-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "cbc71f67df47cc4071f9acb3f91590714d25e1e3b729b549112de4ad0d42e7e3",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "d732262b91d1cb6e11352669c154f0868f6553b303d39c3f85a2ea5aa9792e84",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -106,12 +106,132 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
-      "previous_receipt_sha256": "cbc71f67df47cc4071f9acb3f91590714d25e1e3b729b549112de4ad0d42e7e3",
+      "previous_receipt_sha256": "d732262b91d1cb6e11352669c154f0868f6553b303d39c3f85a2ea5aa9792e84",
       "receipt_id": "RECOVERIES-PILOT-lifecycle-missing-provenance-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "48592ee8a7b2e9b970c4bd8961f86adb2b6e18d53bc6ef0bf4277e15904afbb0",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "0168c7226bbbe9fdd87a7d75da43c4b56b0bd9048503dcb7364f719e88155d82",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-tm-slip",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "d7247e4965a881090b42c9dd844d3118fa2f9d6bc50d3516e9b34bf4613477cc",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "da3be9ded84fb072850596099e70dda49faffa0f754d83a27ee2932dac5087bb",
+      "previous_receipt_sha256": "0168c7226bbbe9fdd87a7d75da43c4b56b0bd9048503dcb7364f719e88155d82",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-tm-slip-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "c65a6c65bc3dd76f25fc2e225909918e6613224717e1bf80906285a1f4c2da12",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-duplicate-chain",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "6ad0dbc5673b2a9b750dc77aab7e4fe6af2e577940769cbaa6a1d37952957c58",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "2cc0c49c1fdd70eba85620dbc1c806c9509306209b468fd005a846a88eb32b0d",
+      "previous_receipt_sha256": "c65a6c65bc3dd76f25fc2e225909918e6613224717e1bf80906285a1f4c2da12",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-duplicate-chain-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "7c67e5e241500a889cfcfd882f571989db5e86cfbc1a1b0803177e859f96fef0",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-irrelevant-change",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "9cfd2dc8d4d181535c16e4019d002551a08908d1192e785c17e6577a139b5384",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "d95e68f0e4819dd4a0d343b2ab9082e692d121478765e77f43718ffe3cea520f",
+      "previous_receipt_sha256": "7c67e5e241500a889cfcfd882f571989db5e86cfbc1a1b0803177e859f96fef0",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-irrelevant-change-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "afe3ed2633b937e9376db2eb5b837ec5c50b3faa1281c87d966152e380176a57",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
+      "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+      "transition": "CASE_EVALUATION",
+      "verification": {
+        "expected_match": true,
+        "replayable": true,
+        "tenant_boundary": "PASS"
+      }
+    },
+    {
+      "authority": {
+        "live_services_contacted": false,
+        "production_mutated": false,
+        "release_authority": "none",
+        "secret_material_persisted": false
+      },
+      "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+      "case_id": "lifecycle-already-paid",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "a8b21cc13cf1aaef79ce7edaeb1f542a538653e47c6d8ff4442af7f29d000c1e",
+      "open_items": [
+        "independent reviewer threshold acceptance is pending",
+        "live HTTP and production migration proof remain out of scope"
+      ],
+      "output_sha256": "09de7130c09a4d42be0424b2808bb9d161d738ea586721e9f47fc148ad72e324",
+      "previous_receipt_sha256": "afe3ed2633b937e9376db2eb5b837ec5c50b3faa1281c87d966152e380176a57",
+      "receipt_id": "RECOVERIES-PILOT-lifecycle-already-paid-CASE_EVALUATION",
+      "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
+      "receipt_sha256": "916a4e73e35be6522337548cd4532ae1769f1a90a92003d2cfd037bd7475548b",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -136,12 +256,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "55bbe525bc894aa95b85b87d9c9dbb583a300c2e20641d3d76f9e73c0df07a15",
-      "previous_receipt_sha256": "48592ee8a7b2e9b970c4bd8961f86adb2b6e18d53bc6ef0bf4277e15904afbb0",
+      "previous_receipt_sha256": "916a4e73e35be6522337548cd4532ae1769f1a90a92003d2cfd037bd7475548b",
       "receipt_id": "RECOVERIES-PILOT-provider-outage-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "2ff0cb71f71802a6708619988495802f98f76810b26ac6cd85c588e6deda82f1",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "087dd3edeaae954dafd23b30f3158711391fcc7383f12319634363d4d136043e",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -166,12 +286,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "ef66075c7fbcf4a83fb791fe1fb74f32201e09807fb9d592f797b53a237274d3",
-      "previous_receipt_sha256": "2ff0cb71f71802a6708619988495802f98f76810b26ac6cd85c588e6deda82f1",
+      "previous_receipt_sha256": "087dd3edeaae954dafd23b30f3158711391fcc7383f12319634363d4d136043e",
       "receipt_id": "RECOVERIES-PILOT-action-allowed-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "06f1d023514256ce9d80351733c36949b04d69e343e3967a70755e55556dda3b",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "01c76f9ed568818bb270fb85b38c45004e1a0967124c37531d72d9750bae0bb9",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -196,12 +316,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "2fa72d71b2c242ccf134004278d82f003bd064ddd3c4c7065f7ce259b288ba4f",
-      "previous_receipt_sha256": "06f1d023514256ce9d80351733c36949b04d69e343e3967a70755e55556dda3b",
+      "previous_receipt_sha256": "01c76f9ed568818bb270fb85b38c45004e1a0967124c37531d72d9750bae0bb9",
       "receipt_id": "RECOVERIES-PILOT-action-no-approval-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "150df4f96dfb06918ff1f8529ae66184bd229e99463a6be5f8e419f5ffb905e5",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "9f363860dc56a8725f86ee865fe9568d14a1985a0d653047c72e11f2869de002",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -226,12 +346,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
-      "previous_receipt_sha256": "150df4f96dfb06918ff1f8529ae66184bd229e99463a6be5f8e419f5ffb905e5",
+      "previous_receipt_sha256": "9f363860dc56a8725f86ee865fe9568d14a1985a0d653047c72e11f2869de002",
       "receipt_id": "RECOVERIES-PILOT-action-payload-mutation-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "56182f9759d3ce0ea73d6c9e5f9056f9b009d8fdf2ac8e570a7635036a6a3b62",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "5f197b2d862b7b3af0b265ad2fac0617e9cdea17b3cf2d97144da74a761ac639",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -256,12 +376,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
-      "previous_receipt_sha256": "56182f9759d3ce0ea73d6c9e5f9056f9b009d8fdf2ac8e570a7635036a6a3b62",
+      "previous_receipt_sha256": "5f197b2d862b7b3af0b265ad2fac0617e9cdea17b3cf2d97144da74a761ac639",
       "receipt_id": "RECOVERIES-PILOT-action-wrong-tenant-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "73410b89b8fb89132b4eea82538a3170e7d77677fab064627deaf342ad90a3ac",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "dac7bb13d6a3bee790e6c5c95fc3d3558d05d01593fe345cfd2d4c39c9ab375a",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -286,12 +406,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
-      "previous_receipt_sha256": "73410b89b8fb89132b4eea82538a3170e7d77677fab064627deaf342ad90a3ac",
+      "previous_receipt_sha256": "dac7bb13d6a3bee790e6c5c95fc3d3558d05d01593fe345cfd2d4c39c9ab375a",
       "receipt_id": "RECOVERIES-PILOT-action-wrong-purpose-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "33bfa76ede8f9a2cdac753d3bba449d9ee112a1e2e8642051af2a3c5981bb177",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "74240ea34055c06d142891365e43fdba2f2fce5aea2ebe8fee61268bde5a54ac",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -316,12 +436,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "e1292fbe604675b0a0344185904b04dc02e76a8a5ad2504e173b135d304221fc",
-      "previous_receipt_sha256": "33bfa76ede8f9a2cdac753d3bba449d9ee112a1e2e8642051af2a3c5981bb177",
+      "previous_receipt_sha256": "74240ea34055c06d142891365e43fdba2f2fce5aea2ebe8fee61268bde5a54ac",
       "receipt_id": "RECOVERIES-PILOT-action-expired-capability-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "0e1420e04257d1cbf4c8ab6676209609a2565b194bb175771ee3ed831777fd4d",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "f29dfe3c309c0355dba868f7ed33ed7900fbbe8c00a8d1e38546918f751c1bc5",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -346,12 +466,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
-      "previous_receipt_sha256": "0e1420e04257d1cbf4c8ab6676209609a2565b194bb175771ee3ed831777fd4d",
+      "previous_receipt_sha256": "f29dfe3c309c0355dba868f7ed33ed7900fbbe8c00a8d1e38546918f751c1bc5",
       "receipt_id": "RECOVERIES-PILOT-money-partial-multi-payment-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "56075540496a9060423b3113c73eea5b3cd7481154291de792144d06b59011f2",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "8217f42c4401683a11a1f1574a9ece3b68c1f9b850a3252a60ffe17f42a68abc",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -376,12 +496,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
-      "previous_receipt_sha256": "56075540496a9060423b3113c73eea5b3cd7481154291de792144d06b59011f2",
+      "previous_receipt_sha256": "8217f42c4401683a11a1f1574a9ece3b68c1f9b850a3252a60ffe17f42a68abc",
       "receipt_id": "RECOVERIES-PILOT-money-overallocation-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "4caeeeca0e5df4b9848d56c084461dec555a8af78eb51d634a2c9032ec40f459",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "da499d13771ac392d1773837e4106d14ca5fc0b2d105dce05164019d4b735403",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {
@@ -406,12 +526,12 @@
         "live HTTP and production migration proof remain out of scope"
       ],
       "output_sha256": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
-      "previous_receipt_sha256": "4caeeeca0e5df4b9848d56c084461dec555a8af78eb51d634a2c9032ec40f459",
+      "previous_receipt_sha256": "da499d13771ac392d1773837e4106d14ca5fc0b2d105dce05164019d4b735403",
       "receipt_id": "RECOVERIES-PILOT-money-verification-only-CASE_EVALUATION",
       "receipt_schema": "anarchi.recoveries.pilot-rehearsal-transition.v1",
-      "receipt_sha256": "3739c2d1cb5daa07ece50c3c61829ff37d92812baab21f22ce7d17d82fd688a5",
-      "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-      "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+      "receipt_sha256": "94178d1a839afed69216ee869767d9215b5f5883d06b027300cf426d6f969748",
+      "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+      "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
       "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
       "transition": "CASE_EVALUATION",
       "verification": {

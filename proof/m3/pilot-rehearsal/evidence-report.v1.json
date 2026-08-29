@@ -1,6 +1,6 @@
 {
   "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
-  "case_count": 14,
+  "case_count": 18,
   "case_results": [
     {
       "candidate_label": true,
@@ -93,6 +93,90 @@
       "opportunity_prediction": false,
       "organization_id": "org-pilot-001",
       "output_sha256": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
+      "project_id": "project-pilot-001"
+    },
+    {
+      "candidate_label": true,
+      "candidate_prediction": true,
+      "case_id": "lifecycle-tm-slip",
+      "expected": {
+        "decision": "HOLD",
+        "reason": "UNCONVERTED_T_AND_M"
+      },
+      "expected_match": true,
+      "flow": "recovery_lifecycle",
+      "input_sha256": "5085c538ea8135891f2a5c8dca2b17f8ba5f43be51628e9397afd5690299ae5a",
+      "observed": {
+        "decision": "HOLD",
+        "reason": "UNCONVERTED_T_AND_M"
+      },
+      "opportunity_label": false,
+      "opportunity_prediction": false,
+      "organization_id": "org-pilot-001",
+      "output_sha256": "da3be9ded84fb072850596099e70dda49faffa0f754d83a27ee2932dac5087bb",
+      "project_id": "project-pilot-001"
+    },
+    {
+      "candidate_label": false,
+      "candidate_prediction": false,
+      "case_id": "lifecycle-duplicate-chain",
+      "expected": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "DUPLICATE_EVIDENCE_CHAIN"
+      },
+      "expected_match": true,
+      "flow": "recovery_lifecycle",
+      "input_sha256": "b4913db5a452164d39703a410c8c41b07429f5a6beb475fa2ae7f0dc4c633cb6",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "DUPLICATE_EVIDENCE_CHAIN"
+      },
+      "opportunity_label": false,
+      "opportunity_prediction": false,
+      "organization_id": "org-pilot-001",
+      "output_sha256": "2cc0c49c1fdd70eba85620dbc1c806c9509306209b468fd005a846a88eb32b0d",
+      "project_id": "project-pilot-001"
+    },
+    {
+      "candidate_label": false,
+      "candidate_prediction": false,
+      "case_id": "lifecycle-irrelevant-change",
+      "expected": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "IRRELEVANT_FIELD_CHANGE"
+      },
+      "expected_match": true,
+      "flow": "recovery_lifecycle",
+      "input_sha256": "c68d7374058bd65973f1436a1dba3ea886ca04063fa2c8e28053d43488ae00c0",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "IRRELEVANT_FIELD_CHANGE"
+      },
+      "opportunity_label": false,
+      "opportunity_prediction": false,
+      "organization_id": "org-pilot-001",
+      "output_sha256": "d95e68f0e4819dd4a0d343b2ab9082e692d121478765e77f43718ffe3cea520f",
+      "project_id": "project-pilot-001"
+    },
+    {
+      "candidate_label": true,
+      "candidate_prediction": true,
+      "case_id": "lifecycle-already-paid",
+      "expected": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "ALREADY_PAID"
+      },
+      "expected_match": true,
+      "flow": "recovery_lifecycle",
+      "input_sha256": "05456f864149efe2807e0ce06cfc879b70edb3f17c661630269794a2ec19315b",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "ALREADY_PAID"
+      },
+      "opportunity_label": false,
+      "opportunity_prediction": false,
+      "organization_id": "org-pilot-001",
+      "output_sha256": "09de7130c09a4d42be0424b2808bb9d161d738ea586721e9f47fc148ad72e324",
       "project_id": "project-pilot-001"
     },
     {
@@ -367,7 +451,7 @@
       "project_id": "project-pilot-001"
     }
   ],
-  "fixture_manifest_sha256": "8b3becb82956a6d35bb5bd296125c0ce6084ec306c8dfa2b4b7aac8aff1b46bc",
+  "fixture_manifest_sha256": "bd6a141541ffb8e115c11eb3cfdff179f809450526833b312c8f29cac98ee8a0",
   "flows": [
     "recovery_lifecycle",
     "authorized_action",
@@ -383,10 +467,10 @@
     "candidate_extraction": {
       "false_negative": 0,
       "false_positive": 2,
-      "precision": 0.8461538461538461,
+      "precision": 0.8666666666666667,
       "recall": 1.0,
-      "true_negative": 1,
-      "true_positive": 11
+      "true_negative": 3,
+      "true_positive": 13
     },
     "concurrent_allocation": "NOT_COVERED_BY_THIS_CORPUS",
     "deadline_replay": "PASS",
@@ -399,7 +483,7 @@
       "false_positive": 0,
       "precision": 1.0,
       "recall": 1.0,
-      "true_negative": 11,
+      "true_negative": 15,
       "true_positive": 3
     },
     "opportunity_precision": 1.0,
@@ -423,9 +507,9 @@
   ],
   "pilot_recommendation": "HOLD",
   "precision_threshold": "NOT_SET_BY_IMPLEMENTATION",
-  "report_sha256": "c54b009ce8119a579952f57ed01b82876135ba1f4bc352533d43097c7b38da4a",
-  "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
+  "report_sha256": "93ca37943afa6d6c8bf3bf96f3ae5996e5ea00c87a71e77087f2e35ce555df5b",
+  "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
   "schema": "anarchi.recoveries.pilot-evidence-report.v1",
-  "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+  "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
 }

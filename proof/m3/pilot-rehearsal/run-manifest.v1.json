@@ -2,7 +2,7 @@
   "artifact_sha256": {
     "docs/policies/policy-manifest.v1.json": "af3d7e2336af88234db8440c99babf75c096fe77d18c8d7ec37def6c4594e2f8",
     "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
-    "fixtures/pilot/manifest.v1.json": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8",
+    "fixtures/pilot/manifest.v1.json": "c53a3fd7206faa52683341dd77d3e12c9da14f5fab174b20810951625fdb6207",
     "fixtures/pilot/project-falcon.v1.json": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
     "governance/enforcement-binding-registry.v1.json": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
     "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca"
@@ -12,18 +12,18 @@
     "live_services_contacted": false,
     "production_mutated": false
   },
-  "blind_packet_sha256": "5e245c9808265131eca374825d9633f4ca6b16fa4c79128fa8b69c60a43ec2c6",
-  "fixture_manifest_file_sha256": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8",
-  "fixture_manifest_sha256": "8b3becb82956a6d35bb5bd296125c0ce6084ec306c8dfa2b4b7aac8aff1b46bc",
-  "packet_sha256": "ac5b873e497ecb832d47f872df27cb649e101fc97e4632dc70a254927e3a1d2c",
+  "blind_packet_sha256": "092be9b2cca620259429a6a3146af1cbcaec4e52c51b0672ade43dc4c38bde01",
+  "fixture_manifest_file_sha256": "c53a3fd7206faa52683341dd77d3e12c9da14f5fab174b20810951625fdb6207",
+  "fixture_manifest_sha256": "bd6a141541ffb8e115c11eb3cfdff179f809450526833b312c8f29cac98ee8a0",
+  "packet_sha256": "8a43833aae4c17f73405537aad87178e19b6c5c7398945db1ec09c256956f5d0",
   "project_universe_file_sha256": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
   "project_universe_sha256": "d22b0a262860d0693a5a6f00b70687d576242f3807f67f95a831794b25152a5b",
-  "receipt_chain_root_sha256": "3739c2d1cb5daa07ece50c3c61829ff37d92812baab21f22ce7d17d82fd688a5",
-  "report_sha256": "c54b009ce8119a579952f57ed01b82876135ba1f4bc352533d43097c7b38da4a",
-  "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
-  "run_manifest_sha256": "c663f743bcc29821323155cbd45de261bc4ff601df152689abc1c0d580d3935e",
+  "receipt_chain_root_sha256": "94178d1a839afed69216ee869767d9215b5f5883d06b027300cf426d6f969748",
+  "report_sha256": "93ca37943afa6d6c8bf3bf96f3ae5996e5ea00c87a71e77087f2e35ce555df5b",
+  "run_id": "pilot-63402798f127-bd6a141541ffb8e1",
+  "run_manifest_sha256": "0ea998794fce98ab18e949ac07f6fd885214116bed7047c54a9b66c62d2ded26",
   "schema": "anarchi.recoveries.pilot-rehearsal-run.v1",
-  "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
+  "source_commit": "63402798f1274520aeebf6a49689d47777639c10",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "stack": {
     "compose_config": "PASS",
@@ -39,7 +39,7 @@
       "ghcr.io/zitadel/zitadel:v4.16.2@sha256:4b68a2106f60baa2895e5a00a77fcd915d29d0db3f0c011d3eb9f99f557b2b48"
     ],
     "production_endpoint_contact_count": 0,
-    "rendered_config_sha256": "2c52a1cf231eb848292184655643f13e350bf67fefa3feb69d28124b6d29e09b",
+    "rendered_config_sha256": "55f29bdff320b7ad218db2d63dfc52bb8074a72d284457fd4f2531429bc9dee8",
     "services_healthy": true,
     "services_started": true,
     "teardown": "PASS"
