@@ -1,0 +1,55 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_19_PAYMENT_AND_SUCCESS_FEE_BILLING_COMPLETE",
+  "generated_at": "2026-08-29T11:27:42Z",
+  "from_commit": "349060d8edbd5febf7b217ff8659b2f1280bd3e7",
+  "authority": {
+    "production_mutated": false,
+    "payment_state_authority": "postgres.recoveries.payments",
+    "allocation_state_authority": "postgres.recoveries.recovery_payment_allocations",
+    "fee_state_authority": "postgres.recoveries.success_fee_accruals",
+    "attribution_authority": "rust-recovery-core-record",
+    "billing_role": "recoveries_billing_role",
+    "runtime_direct_writes": false,
+    "external_charge_provider": "not connected; Stripe details not requested or stored",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "payment_amount": "strictly positive decimal with explicit ISO currency",
+    "allocation_amount": "non-negative decimal, same currency as payment",
+    "allocation_ceiling": "sum allocations for a payment <= payment amount",
+    "allocation_trigger": "deferred constraint trigger with parent payment lock",
+    "fee_source": "Rust attribution record; SQL recomputation is validation only",
+    "fee_event": "emitted only for a positive fee after attributable cash",
+    "event_atomicity": "business row, audit receipt, and outbox event commit together"
+  },
+  "verification": {
+    "fresh_migration_replay": "PASS_14_OF_14",
+    "payment_observed_atomic": "PASS",
+    "attribution_allocation_and_fee_atomic": "PASS",
+    "exact_payment_event_retry_without_duplication": "PASS",
+    "success_fee_partial_cash_4000_at_15_percent": "PASS_600.00",
+    "runtime_payment_write_denied": "PASS",
+    "allocation_ceiling_deferred_trigger": "PASS",
+    "payment_reduction_revalidated": "PASS",
+    "outbox_envelope_hash_replay": "PASS",
+    "currency_and_decimal_validation": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-003", "DRIFT-004", "DRIFT-005", "DRIFT-009", "DRIFT-010",
+    "DRIFT-011", "DRIFT-017", "DRIFT-020", "DRIFT-023", "DRIFT-026",
+    "DRIFT-029", "DRIFT-030", "DRIFT-031", "DRIFT-035", "DRIFT-036",
+    "DRIFT-037", "DRIFT-038", "DRIFT-042", "DRIFT-044"
+  ],
+  "artifact_sha256": {
+    "infra/postgres/bootstrap/service-roles.sql": "ab21f7bc44297792ad2faeea7a4ecef5245ed27893bd2f7b6f15a1a38ff11615",
+    "infra/postgres/migrations/000014_payment_billing_boundary.sql": "4f2309bc8a110204fd49d302c37bc60bcfef10e23d2025b78f30c36f66711f94",
+    "tools/migration-check/verify-step-19.sql": "01ce9a10f5630bf72f20bcc1436b043e0051fbd099ecb609384fd97d5a9ec322"
+  }
+}
