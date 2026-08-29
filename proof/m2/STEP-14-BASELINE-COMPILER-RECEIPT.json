@@ -1,0 +1,49 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "step": "STEP_14_BASELINE_REVIEW_COMPILER_LOCAL_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T09:46:32Z",
+  "from_commit": "dd04ec518f63b8c0f517207a23af14e9faf16569",
+  "authority": {
+    "production_mutated": false,
+    "human_review_required": true,
+    "candidate_activation_allowed": false,
+    "m2_complete": true
+  },
+  "construction_findings": [
+    {
+      "id": "STEP14-FINDING-001",
+      "status": "corrected",
+      "detail": "The compiler was initially placed in an unlisted crate path; it was moved into the frozen crates/recovery-core authority boundary and the extra path was removed before commit."
+    }
+  ],
+  "verification": {
+    "fresh_migration_replay": "PASS_12_OF_12",
+    "all_foundation_and_step_07_13_proofs": "PASS",
+    "reviewed_baseline_activation": "PASS",
+    "compiled_baseline_immutable": "PASS",
+    "compiled_links_immutable": "PASS",
+    "scope_history_append_only": "ENFORCED",
+    "runtime_direct_update_denied": "PASS",
+    "baseline_activation_event_atomic": "PASS",
+    "candidate_fact_compile_rejected": "PASS",
+    "missing_source_evidence_rejected": "PASS",
+    "input_order_independent": "PASS",
+    "golden_compiler_sha256": "86cad8649df353ee16f6598edd90d051a7f27d9f9d36d6c91c1d29f2678a5843",
+    "full_go_race_vet": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "authz_typecheck_tests_audit": "PASS",
+    "object_store_compatibility": "PASS",
+    "ingestion_adapter": "PASS_INGESTION_ADAPTER_PROOF",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "secret_scan": "PASS"
+  },
+  "drift_controls": ["DRIFT-002", "DRIFT-007", "DRIFT-008", "DRIFT-039", "DRIFT-042", "DRIFT-044"],
+  "artifact_sha256": {
+    "infra/postgres/migrations/000012_baseline_review_activation.sql": "05be86898889c123bf36a0eb615ecd46a7779fb19a1af37b32a3ab55e708858c",
+    "tools/migration-check/verify-step-14.sql": "991c4ddd665a285b44981425190385b80c9f92f61e6d6bfce7efd5724c27cc0d",
+    "crates/recovery-core/src/baseline.rs": "a1a6e3130414da32a72056158ff6e2f273f8ed1cdc07def0d068da2f25b85494",
+    "crates/recovery-core/src/lib.rs": "fb9c009788bbf0927308becff91748fff295d150b50fc0e99121e038de79c15b",
+    "Cargo.toml": "f271cdd2db80be413624926cb44a29669d47782191e3786fe2eca53a34ea4218",
+    "Cargo.lock": "a95cf46fbaa458488c3fc2228672281fbc1f29a975d2818ab4a52d076056a2d1"
+  }
+}
