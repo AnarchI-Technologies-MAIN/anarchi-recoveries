@@ -1,0 +1,41 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_38_ANDROID_CLIENT_BOUNDARY_BASELINE",
+  "generated_at": "2026-08-29T12:37:09Z",
+  "from_commit": "c1432955a0c06e76b7bc19829b7597274083ae60",
+  "status": "SCAFFOLDED_NOT_RELEASED",
+  "authority": {
+    "production_mutated": false,
+    "distribution_artifacts": ["apk", "aab"],
+    "credential_storage": "Android Keystore",
+    "local_storage_tokens": false,
+    "offline_approval": "QUEUED",
+    "store_or_signing": "not performed"
+  },
+  "verification": {
+    "ui_package_tests": "PASS_18",
+    "ui_package_typecheck": "PASS",
+    "reverse_domain_identity_guard": "PASS",
+    "queued_offline_guard": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "Android project and device adapter",
+    "APK/AAB signing and store release proof",
+    "push delivery and token revocation",
+    "Android accessibility/visual regression audit",
+    "full repository gate after receipt commit"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/ui/src/index.ts": "02f25c6580b70907a169c530b8fe40f514a939c7b364664af272decdbcd85d3b",
+    "packages/ui/src/android.ts": "9e07e18cc88785f5a6cbec23a04ac24cdd740ac0f959b37d4828ad1fb516f272",
+    "packages/ui/test/android.test.ts": "57415b7d9dca6fd3ca6a5e0e25dbc13d795efe838cd4ca85d669ee9ea90774a0",
+    "docs/architecture/android-client-boundary.md": "2e7301584434186b76943fcb9f05f1ad926d10960039d8c293a563614e963d7b"
+  }
+}
