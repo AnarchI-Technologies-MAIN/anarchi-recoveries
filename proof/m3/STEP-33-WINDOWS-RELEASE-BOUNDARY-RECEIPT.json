@@ -1,0 +1,41 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_33_WINDOWS_RELEASE_MANIFEST_BASELINE",
+  "generated_at": "2026-08-29T12:26:57Z",
+  "from_commit": "9df3571136efab3c87ae0ab105d37ceda0f4ce27",
+  "status": "NOT_RELEASED",
+  "authority": {
+    "production_mutated": false,
+    "target": "Windows x64 user-level install",
+    "installer_name": "AnarchI-Recoveries-x64-Setup.exe",
+    "update_channel": "disabled_until_signed",
+    "release_claims": "forbidden without real artifact, Authenticode proof, and release receipt",
+    "signing_or_publish": "not performed"
+  },
+  "verification": {
+    "release_manifest_validator": "PASS",
+    "release_manifest_tests": "PASS_3",
+    "unreleased_artifact_claim_rejected": "PASS",
+    "unsigned_release_rejected": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "real Windows executable",
+    "Authenticode signing and certificate receipt",
+    "installer build and independent install test",
+    "signed update channel",
+    "full repository gate after receipt commit"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "apps/client/release-manifest.v1.json": "34717844e2b06015fc343ddaecbeb0c0e3762313bbcd234bcd897eda8fae1ff3",
+    "tools/client/verify_release_manifest.py": "06df27d5f9f6f3bd7e5651a4f2493300ecd36e1ee0a484a81a9c6f11e8d723f8",
+    "tools/client/test_verify_release_manifest.py": "a3355ac29505d5bba716bb014dff188a07b37bc061816ee3f824074b7bd6b1f7",
+    "docs/architecture/windows-release-boundary.md": "83e6d21090808b9f29a39c80de6d1eccd8021bbddb851d85143b0a5cdd241d01"
+  }
+}
