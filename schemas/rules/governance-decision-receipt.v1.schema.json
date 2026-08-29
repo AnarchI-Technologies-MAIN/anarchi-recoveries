@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/governance-decision-receipt.v1.schema.json",
+  "title": "Anar-Core governance decision receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "canonicalization", "decision_id", "subject", "organization_id", "operation",
+    "resource", "purpose", "result", "authority_class", "policy_version",
+    "binding_id", "expires_at", "payload_hash", "decision_hash"
+  ],
+  "properties": {
+    "canonicalization": { "const": "ANARCHI-JCS-COMPATIBLE-V1" },
+    "decision_id": { "type": "string", "minLength": 1 },
+    "subject": { "type": "string", "minLength": 1 },
+    "organization_id": { "type": "string", "minLength": 1 },
+    "operation": { "type": "string", "minLength": 1 },
+    "resource": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "result": { "enum": ["ALLOW", "DENY"] },
+    "authority_class": { "type": "string", "minLength": 1 },
+    "policy_version": { "type": "string", "minLength": 1 },
+    "binding_id": { "type": "string", "pattern": "^ENF-[A-Z0-9-]+$" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "payload_hash": { "type": "string", "minLength": 1 },
+    "decision_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

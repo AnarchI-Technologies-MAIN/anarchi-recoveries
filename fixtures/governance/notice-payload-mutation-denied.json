@@ -1,0 +1,10 @@
+{
+  "fixture": "notice-payload-mutation-denied",
+  "rule_id": "RULE-AUTH-RECOVERIES-001",
+  "approved_payload_hash": "sha256:payload-1",
+  "mutated_payload_hash": "sha256:payload-mutated",
+  "expected": {
+    "result": "DENY",
+    "reason_code": "PAYLOAD_MUTATION"
+  }
+}

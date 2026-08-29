@@ -2,6 +2,7 @@ mod attribution;
 mod automation;
 mod baseline;
 mod canonical;
+mod decision_receipt;
 mod engine;
 mod governance;
 mod historical;
@@ -20,6 +21,9 @@ pub use baseline::{
     VerificationStatus as BaselineVerificationStatus, compile as compile_baseline,
 };
 pub use canonical::{canonical_json, decision_hash};
+pub use decision_receipt::{
+    DecisionReceipt, DecisionReceiptError, issue_decision_receipt, verify_decision_receipt,
+};
 pub use engine::{EngineError, evaluate_recovery};
 pub use governance::{
     AUTHORITY_CLASS, BINDING_ID, CANONICAL_RULE_ID, GovernanceDecision, GovernanceError,
