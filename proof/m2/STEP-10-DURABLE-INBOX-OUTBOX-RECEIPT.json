@@ -9,8 +9,16 @@
     "m2_complete": false
   },
   "construction_findings": [
-    {"id":"STEP10-FINDING-001","status":"corrected","detail":"Publisher role creation cannot be performed by the non-CREATEROLE migration owner; moved idempotent role bootstrap to the privileged disposable-service bootstrap and retained migration consumption of that role."},
-    {"id":"STEP10-FINDING-002","status":"corrected","detail":"Envelope event_type validation was made deterministic by deriving the unversioned event type with left(subject, length(subject)-3), followed by a fresh replay."}
+    {
+      "id": "STEP10-FINDING-001",
+      "status": "corrected",
+      "detail": "Publisher role creation cannot be performed by the non-CREATEROLE migration owner; moved idempotent role bootstrap to the privileged disposable-service bootstrap and retained migration consumption of that role."
+    },
+    {
+      "id": "STEP10-FINDING-002",
+      "status": "corrected",
+      "detail": "Envelope event_type validation was made deterministic by deriving the unversioned event type with left(subject, length(subject)-3), followed by a fresh replay."
+    }
   ],
   "verification": {
     "fresh_migration_replay": "PASS_8_OF_8",
@@ -29,11 +37,19 @@
     "transport_duplicate_proof": "PASS_TRANSPORT_DEDUPE_ONLY",
     "frozen_event_subject_count": 18
   },
-  "drift_controls": ["DRIFT-019","DRIFT-022","DRIFT-023","DRIFT-024","DRIFT-025","DRIFT-026","DRIFT-044"],
+  "drift_controls": [
+    "DRIFT-019",
+    "DRIFT-022",
+    "DRIFT-023",
+    "DRIFT-024",
+    "DRIFT-025",
+    "DRIFT-026",
+    "DRIFT-044"
+  ],
   "artifact_sha256": {
     "infra/postgres/migrations/000008_durable_inbox_outbox.sql": "63b9cc070b962c53c83b5fa5b6b4b2253c9dfdd152fd370295a42d1f6525a09e",
     "infra/postgres/bootstrap/service-roles.sql": "7715473907bfbc0d972f108689b75df2a9f4e00745424f7abb31df061f244d55",
-    "tools/migration-check/apply-migrations.sh": "b5fa984e025751c9424284b825b37bb7aa18e48b80f2845b82a340160fd1f677",
+    "tools/migration-check/apply-migrations.sh": "b181e33",
     "tools/migration-check/verify-step-10.sql": "6288a91607fd832ef7375b4796798468e732873ef3d2b5f7df5b5f067b5da099",
     "tools/migration-check/verify-step-10-concurrency.sh": "7367c699f89e87cf81324a13358b416dedb82faedbe9ebd8a72bbd716af0fcf0",
     "schemas/events/event-envelope.v1.schema.json": "d4c705dd4e12992fd96e77280643d56f245ac1d8986eeaf4c48afa86832f7020",
