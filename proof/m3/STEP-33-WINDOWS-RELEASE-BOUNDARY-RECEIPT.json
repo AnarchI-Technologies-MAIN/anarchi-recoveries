@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_33_WINDOWS_RELEASE_MANIFEST_BASELINE",
-  "generated_at": "2026-08-29T12:26:57Z",
+  "generated_at": "2026-08-29T12:28:06Z",
   "from_commit": "9df3571136efab3c87ae0ab105d37ceda0f4ce27",
   "status": "NOT_RELEASED",
   "authority": {
@@ -18,15 +18,14 @@
     "release_manifest_tests": "PASS_3",
     "unreleased_artifact_claim_rejected": "PASS",
     "unsigned_release_rejected": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
     "real Windows executable",
     "Authenticode signing and certificate receipt",
     "installer build and independent install test",
-    "signed update channel",
-    "full repository gate after receipt commit"
+    "signed update channel"
   ],
   "drift_controls": [
     "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
