@@ -1,0 +1,48 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_31_IMMUTABLE_LEDGER_UI_COMPLETE",
+  "generated_at": "2026-08-29T12:21:21Z",
+  "from_commit": "ee01f233ca3dbd0a0e9a14efd266911e3c05b967",
+  "authority": {
+    "production_mutated": false,
+    "ledger_authority": "server-side immutable ledger; @anarchi/ui is display-only",
+    "append_or_mutate": "not permitted by this layer",
+    "authorization": "APPROVED and ACTION_EXECUTED require a decision receipt",
+    "tenant_boundary": "event organization must match screen organization",
+    "ordering": "occurredAt then eventId; deterministic",
+    "blockchain_presentation": "explicitly not used"
+  },
+  "contract": {
+    "event_vocabulary": "ten frozen immutable-ledger event types",
+    "event_fields": "timestamp, organization/project/aggregate, summary, core/policy versions, evaluation hash, source refs",
+    "decision_receipt": "operation, resource, result, authority class, policy, binding, expiry, hash, receipt ref",
+    "proof_adapter": "ledger event to shared ProofChainItem without dropping receipt reference"
+  },
+  "verification": {
+    "ui_package_tests": "PASS_12",
+    "ui_package_typecheck": "PASS",
+    "action_without_receipt_denied": "PASS",
+    "cross_tenant_event_denied": "PASS",
+    "deterministic_ordering": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "full repository gate after this receipt commit",
+    "client renderers/adapters",
+    "WCAG AA keyboard/focus audit",
+    "visual regression evidence",
+    "server API wiring and live ledger receipts"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/ui/src/index.ts": "da674dac382f05cbe49798a2f87b2fc2a7aa99fe0006f08c78c6a2c91696c49b",
+    "packages/ui/src/ledger.ts": "bf36e3fc094a5949bce5b634e5b9c02c2e82e8ef86ef8c8eafb1d207d63a7de0",
+    "packages/ui/test/ledger.test.ts": "7a0d0cc4695456abb62745a7ee626ba87cc58ea7d08dead2283160d76170ac38",
+    "docs/architecture/immutable-ledger-ui-contract.md": "094d3b2bf4c4763905a96b87af1d441e17e67e5e6673b29ab9993bb664f85b26"
+  }
+}
