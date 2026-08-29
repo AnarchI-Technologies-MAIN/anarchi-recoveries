@@ -1,0 +1,54 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_30_EVIDENCE_LEDGER_SCREENS_COMPLETE",
+  "generated_at": "2026-08-29T12:17:57Z",
+  "from_commit": "9b38d2a4664e94bc8816206361844bd3ddad5440",
+  "authority": {
+    "production_mutated": false,
+    "screen_authority": "framework-neutral @anarchi/ui view-model contracts",
+    "server_authority_preserved": true,
+    "data_acquisition": "none",
+    "external_actions": "named and confirmation-gated; Send Notice is separate from preparation",
+    "illustrative_values": "not accepted without decimal amount and provenance reference",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "rescue_overview": "six fixed metrics and four allowed chart forms with numeric provenance-backed amounts",
+    "recovery_queue": "VALUE, FINDING, ENTITLEMENT, PROOF, DEADLINE; no opaque confidence field",
+    "recovery_detail": "finding, proof, deadline, financial model, and Reject/Request Evidence/Approve & Prepare Notice actions",
+    "proof_viewer": "source region, facts, verification identity/time, relationships, hash, and proof chain",
+    "proof_chain": "verified/candidate/historical/contradiction edge semantics plus generated accessible linear order",
+    "cash_attribution": "supported, prior, ceiling, cash, incremental, rate, fee, retained, and verification-only state",
+    "status_semantics": "visible text plus ARIA label; never color-only"
+  },
+  "verification": {
+    "ui_package_tests": "PASS_9",
+    "ui_package_typecheck": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "full_node_tests_typecheck": "PASS",
+    "policy_and_governance_validators": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "git_diff_check": "PASS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "client renderers and adapters for web, Tauri, iPad/iPhone, and Android",
+    "WCAG AA keyboard/focus audit",
+    "visual regression evidence",
+    "server API wiring and live data receipts",
+    "immutable Ledger UI (Step 31)"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/ui/src/index.ts": "c11d078f0f61c531651b4b7571d88b036efa7ab627c866f48aad96cbd5e9a86c",
+    "packages/ui/src/screens.ts": "f8a06309d30abe4d10a93e669600cc905e84897e34a61e2c3886bd954f3d09be",
+    "packages/ui/test/screens.test.ts": "c2032af89b9005f70f45cbb0115586ecf4631dc7472f43cd6d950414fc8e9312",
+    "docs/architecture/evidence-ledger-screen-contracts.md": "a1d9a3985886d3766080ca1cb3cb1b82088fc0d20badfc7a3b19cb87c8963882"
+  }
+}
