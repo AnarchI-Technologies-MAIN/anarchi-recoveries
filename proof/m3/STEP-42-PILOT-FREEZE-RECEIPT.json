@@ -1,0 +1,41 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_42_PILOT_RELEASE_FREEZE_HOLD",
+  "generated_at": "2026-08-29T12:44:42Z",
+  "from_commit": "6195b48758b3f8f63ba7e5708e6be64f903b8a68",
+  "status": "HOLD_NOT_READY",
+  "release_decision": "HOLD",
+  "authority": {
+    "production_mutated": false,
+    "pilot_gate_count": "2/15 proven locally",
+    "release_enablement": "forbidden",
+    "hold_reasons": "explicit in manifest",
+    "live_services": "not contacted"
+  },
+  "verification": {
+    "pilot_freeze_validator": "PASS",
+    "pilot_freeze_tests": "PASS_3",
+    "ready_without_all_gates_rejected": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "independent precision and pilot evidence baseline",
+    "legal/policy publication and support operations",
+    "incident response, restore, and security review proof",
+    "authorized production migration",
+    "signed client artifacts",
+    "live HTTP/action/reconciliation proof"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "docs/runbooks/pilot-release-freeze.v1.json": "2b082529b9ba74ce29b74990b55687dd70185a5b029be8efe0a336796455d153",
+    "tools/pilot/verify_release_freeze.py": "8561e560b0465e7dc39fede600d4b482dac39e10ce0c0c687db5cf6cf37e95b2",
+    "tools/pilot/test_verify_release_freeze.py": "bed2a55ddf343a8f41038f9b550e7955f39ba4b621b0e4259d86961e1f191652",
+    "docs/architecture/pilot-release-freeze.md": "1ee86adec00edec79da03dfbb6267053374fefbf11109980a459dba760838889"
+  }
+}

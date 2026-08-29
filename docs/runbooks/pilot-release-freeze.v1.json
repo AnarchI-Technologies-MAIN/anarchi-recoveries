@@ -1,0 +1,31 @@
+{
+  "schema": "anarchi.recoveries.pilot-release-freeze.v1",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "status": "HOLD_NOT_READY",
+  "release_decision": "HOLD",
+  "production_mutated": false,
+  "gates": {
+    "precision_baseline_proven": false,
+    "tenant_security_incidents_zero_proven": false,
+    "evidence_backed_explanations_proven": false,
+    "action_reconciliation_loop_proven": false,
+    "policy_legal_docs_published": false,
+    "support_process_operational": false,
+    "incident_response_tested": false,
+    "restore_tested": false,
+    "security_review_complete": false,
+    "governance_required_bindings_proven": true,
+    "customer_export_delete_tested": false,
+    "billing_attribution_tested": true,
+    "production_migration_authorized": false,
+    "client_release_artifacts_signed": false,
+    "live_http_proof": false
+  },
+  "hold_reasons": [
+    "pilot has no independent precision baseline",
+    "production migration is not authorized",
+    "client artifacts are not signed or released",
+    "live HTTP/action/reconciliation proof does not exist",
+    "restore, security, support, and incident gates are not independently receipted"
+  ]
+}
