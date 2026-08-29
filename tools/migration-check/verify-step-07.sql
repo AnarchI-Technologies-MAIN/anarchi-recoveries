@@ -23,7 +23,9 @@ BEGIN
         source_observed_at, object_uri, original_filename, mime_type, size_bytes, sha256
     ) VALUES (
         org_id, project_id, evidence_id, 'PROOF', 'v1',
-        '2026-08-29T00:00:00Z', 's3://proof/step-07', 'proof.txt', 'text/plain', 1,
+        '2026-08-29T00:00:00Z',
+        's3://proof/org/00000000-0000-4000-8000-000000000701/project/00000000-0000-4000-8000-000000000702/evidence/00000000-0000-4000-8000-000000000703/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/proof.txt',
+        'proof.txt', 'text/plain', 1,
         repeat('a', 64)
     );
 

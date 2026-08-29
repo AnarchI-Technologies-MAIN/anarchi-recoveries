@@ -1,0 +1,65 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "step": "STEP_11_EVIDENCE_INTEGRITY_LOCAL_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T09:25:52Z",
+  "from_commit": "0b63ef0bff7e8595fbbc8047ce7391c40cb6c961",
+  "authority": {
+    "production_mutated": false,
+    "object_store": "disposable_loopback_tmpfs_only",
+    "postgres": "disposable_loopback_only",
+    "m2_complete": false
+  },
+  "construction_findings": [
+    {
+      "id": "STEP11-FINDING-001",
+      "status": "corrected",
+      "detail": "PostgreSQL rejects NUL construction in text, so an explicit chr(0) filename predicate was invalid and redundant; it was removed before migration commit."
+    },
+    {
+      "id": "STEP11-FINDING-002",
+      "status": "corrected",
+      "detail": "Older Step 7 and Step 8 fixtures used placeholder object URIs; they were upgraded to canonical tenant/project/evidence/hash/filename URIs so the earlier invariants remain reachable under the stronger evidence constraint."
+    },
+    {
+      "id": "STEP11-FINDING-003",
+      "status": "corrected",
+      "detail": "The first range assertion and an invalid client flag combination were corrected before any compatibility result was accepted."
+    },
+    {
+      "id": "STEP11-FINDING-004",
+      "status": "corrected",
+      "detail": "Disposable object-store credentials were removed from committed compose and proof files and replaced with required environment inputs before the checkpoint was committed."
+    }
+  ],
+  "verification": {
+    "fresh_migration_replay": "PASS_9_OF_9",
+    "all_foundation_and_step_07_10_proofs": "PASS",
+    "evidence_object_identity_binding": "PASS",
+    "unsafe_filename_rejected": "PASS",
+    "ingestion_go_race_and_vet": "PASS",
+    "put_get": "PASS",
+    "head_metadata_and_size": "PASS",
+    "multipart": "PASS",
+    "presigned_put_get": "PASS",
+    "range_reads": "PASS",
+    "versioning": "PASS",
+    "conditional_requests": "PASS",
+    "policy_driven_object_lock": "PASS",
+    "evidence_hash_replay": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS"
+  },
+  "drift_controls": ["DRIFT-017", "DRIFT-018", "DRIFT-026", "DRIFT-044"],
+  "artifact_sha256": {
+    "infra/postgres/migrations/000009_evidence_object_integrity.sql": "d6ced6a95f6de629ad8739fc92157ad002d3e975168be7fc147751d7562af54a",
+    "tools/migration-check/verify-step-11.sql": "63c2b9e12e27563cf1960f386194528ffcb9310ddfadda2a9eb93c35da661d70",
+    "tools/migration-check/verify-step-07.sql": "b57b4b7f404c4d377742e98bfaee71102af4d65588a8405ed737e1e08404f106",
+    "tools/migration-check/verify-step-08.sql": "422762c8dd177130a1960b25480ef698f1740129cf11035c453d7f87c1ebbac4",
+    "tools/object-store/verify-step-11-minio.sh": "541449fdb30249ca2d57a78da812907baa019f7fce859881cc24916abffe75e8",
+    "infra/object-store/test-minio.compose.yaml": "48a70046b21cf77e5baa1f8af1b99d5a7e6e18ea58765912fa7c1e82859da3d9",
+    "services/ingestion/go.mod": "4cadf01e147f5fb4e35ec891565db2fdba689628b35cf40d319b0b6ff9c5bd05",
+    "services/ingestion/internal/evidence/integrity.go": "fdc48f1f5a90de62d7c7ef5811ce7d38fc3e39fca80ab7396aa610d3351ea26f",
+    "services/ingestion/internal/evidence/integrity_test.go": "c60b25bea3f177a418f09fc8e1d288ef23ee7fbea49faf741b4c1d1f5bdffb56",
+    "go.work": "bc38aff6a73b1ed33b3eb1b49b6c28ab44503d603270564fa744dfb91d197f36",
+    "governance/repository-map.v1.json": "b5da3739899a863a6567cf02d4a8b10b395de4046e293dcba51fa7e120893903"
+  }
+}

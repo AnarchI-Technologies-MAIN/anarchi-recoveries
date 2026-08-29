@@ -174,12 +174,14 @@ DO $composite_fk_proof$
 BEGIN
     BEGIN
         INSERT INTO recoveries.evidence (
-            organization_id, project_id, source_system, source_version,
+            organization_id, project_id, id, source_system, source_version,
             source_observed_at, object_uri, original_filename, mime_type, size_bytes, sha256
         ) VALUES (
             '00000000-0000-4000-8000-000000000801',
             '00000000-0000-4000-8000-000000000812',
-            'PROOF', 'v1', '2026-08-29T00:00:00Z', 's3://proof/cross-tenant',
+            '00000000-0000-4000-8000-000000000815',
+            'PROOF', 'v1', '2026-08-29T00:00:00Z',
+            's3://proof/org/00000000-0000-4000-8000-000000000801/project/00000000-0000-4000-8000-000000000812/evidence/00000000-0000-4000-8000-000000000815/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cross.txt',
             'cross.txt', 'text/plain', 1, repeat('a', 64)
         );
         RAISE EXCEPTION 'cross-tenant composite foreign key accepted mismatched project authority';
