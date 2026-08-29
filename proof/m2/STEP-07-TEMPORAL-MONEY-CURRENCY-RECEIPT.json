@@ -1,0 +1,122 @@
+{
+  "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
+  "receipt_id": "RECOVERIES-STEP-07-20260829T044938Z",
+  "recorded_at": "2026-08-29T04:49:38Z",
+  "repository": "/home/alexg-anarchi/anarchi-recoveries",
+  "branch": "main",
+  "transition": {
+    "from_commit": "1ea655a907521cb2d6a3a57c064cdf0afb4b9e49",
+    "from": "STEP_06_DB_FOUNDATION_LOCAL_PROOF_COMPLETE",
+    "to": "STEP_07_TEMPORAL_MONEY_CURRENCY_LOCAL_PROOF_COMPLETE",
+    "spec_step": 7,
+    "spec_methods": [9, 16, 18],
+    "scope": [
+      "one active baseline per organization and project",
+      "non-overlapping inclusive scope validity ranges",
+      "nonnegative exact numeric pricing lines",
+      "pricing line and calculation currency equality",
+      "versioned evidence-backed FX conversions"
+    ]
+  },
+  "authority_limits": {
+    "production_mutated": false,
+    "production_database_contacted": false,
+    "services_activated": false,
+    "payment_allocation_integrity_claimed": false,
+    "m2_completion_claimed": false
+  },
+  "artifacts": [
+    {
+      "path": "infra/postgres/migrations/000005_temporal_money_currency.sql",
+      "sha256": "429fbfff4dee0f926ed1f911bf6f30b2bc6aaf85f1d78f46f545f764d357390e",
+      "stored_ledger_sha256": "429fbfff4dee0f926ed1f911bf6f30b2bc6aaf85f1d78f46f545f764d357390e"
+    },
+    {
+      "path": "tools/migration-check/verify-step-07.sql",
+      "sha256": "810e2634b7151fcd6afd0869403a28fb95d5b91bb01cea0fd2148f204f4472a3"
+    }
+  ],
+  "verification": [
+    {
+      "gate": "fresh five-migration disposable database replay",
+      "result": "PASS",
+      "ledger_rows": 5,
+      "distinct_versions": 5
+    },
+    {
+      "gate": "second active baseline rejected",
+      "result": "PASS",
+      "enforcement": "partial unique index"
+    },
+    {
+      "gate": "inclusive scope overlap rejected",
+      "result": "PASS",
+      "enforcement": "GiST exclusion constraint over int4range"
+    },
+    {
+      "gate": "adjacent non-overlapping scope range accepted",
+      "result": "PASS"
+    },
+    {
+      "gate": "pricing line currency mismatch rejected",
+      "result": "PASS",
+      "enforcement": "tenant-project-calculation-currency foreign key"
+    },
+    {
+      "gate": "exact numeric 0.10 + 0.20 = 0.30",
+      "result": "PASS"
+    },
+    {
+      "gate": "no IEEE-754 money columns",
+      "result": "PASS"
+    },
+    {
+      "gate": "same-currency FX record rejected",
+      "result": "PASS"
+    },
+    {
+      "gate": "versioned evidence-backed cross-currency FX record accepted",
+      "result": "PASS"
+    }
+  ],
+  "construction_findings": [
+    {
+      "sequence": 1,
+      "result": "SCOPE_CORRECTION",
+      "finding": "the working plan had grouped payment allocation invariants into Step 7",
+      "correction": "constrain Step 7 to frozen Methods 9, 16, and 18; reserve allocation ceilings, deferred triggers, and concurrency proof for Step 19 and Methods 29-30"
+    }
+  ],
+  "drift_controls_addressed": [
+    {
+      "id": "DRIFT-008",
+      "claim": "scope validity overlap is rejected by an exclusion constraint"
+    },
+    {
+      "id": "DRIFT-010",
+      "claim": "pricing and FX currency is explicit and pricing-line mismatch is rejected"
+    },
+    {
+      "id": "DRIFT-026",
+      "claim": "new FX and pricing relationships preserve organization and project identity"
+    },
+    {
+      "id": "DRIFT-035",
+      "claim": "database financial values use exact numeric columns"
+    },
+    {
+      "id": "DRIFT-036",
+      "claim": "the Step 7 database money boundary has no IEEE-754 column type"
+    },
+    {
+      "id": "DRIFT-044",
+      "claim": "the transition is limited to frozen SPEC 1.6 step 7 methods"
+    }
+  ],
+  "acceptance": {
+    "status": "PASS",
+    "claim": "SPEC 1.6 step 7 local temporal, money, and currency invariants only",
+    "next_spec_step": 8,
+    "next_step_name": "Add RLS/runtime roles"
+  }
+}
