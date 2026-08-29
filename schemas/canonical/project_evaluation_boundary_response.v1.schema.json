@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/project_evaluation_boundary_response.v1.schema.json",
+  "title": "AnarchI Recoveries core boundary response v1",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "record"],
+      "properties": {
+        "status": {"const": "SUCCESS"},
+        "record": {"$ref": "project_evaluation_output.v1.schema.json"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "code"],
+      "properties": {
+        "status": {"const": "ERROR"},
+        "code": {
+          "enum": [
+            "INPUT_IO_ERROR", "INVALID_INPUT", "ORGANIZATION_BOUNDARY_MISMATCH",
+            "PROJECT_BOUNDARY_MISMATCH", "INACTIVE_BASELINE", "MISSING_EVALUATION_TIME",
+            "MISSING_VERSION", "MISSING_FACT_PROVENANCE", "MISSING_PRICING_RULE_VERSION",
+            "MISSING_MATERIAL_COST", "MISSING_EQUIPMENT_COST", "MISSING_MATERIAL_MARKUP_RULE",
+            "MISSING_EQUIPMENT_MARKUP_RULE", "MISSING_TAX_RULE", "UNSUPPORTED_MONEY_SCALE",
+            "UNSUPPORTED_ROUNDING_RULE", "INVALID_CURRENCY", "CURRENCY_MISMATCH",
+            "SERIALIZATION_FAILED"
+          ]
+        }
+      }
+    }
+  ]
+}

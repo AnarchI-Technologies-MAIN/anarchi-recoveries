@@ -3,5 +3,6 @@ go 1.26.0
 use (
 	./services/extraction
 	./services/ingestion
+	./services/normalization
 	./services/outbox-publisher
 )

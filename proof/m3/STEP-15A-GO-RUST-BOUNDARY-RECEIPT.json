@@ -1,0 +1,39 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "step": "STEP_15A_GO_WORKER_RUST_CORE_BOUNDARY_COMPLETE",
+  "generated_at": "2026-08-29T09:51:38Z",
+  "from_commit": "3cdfd746a23617319ff987e529e88e4877bba3a9",
+  "authority": {
+    "production_mutated": false,
+    "step_15_complete": false,
+    "rust_core_network_access": false,
+    "rust_core_database_access": false,
+    "implicit_clock": false
+  },
+  "verification": {
+    "go_worker_to_rust_process": "PASS",
+    "golden_semantic_equality": "PASS",
+    "evaluation_hash": "d1a50ea8564eb00191ab1484cb90c218c692f2370b60bb5b0c0b3058dd6df344",
+    "structured_invalid_input": "PASS",
+    "unknown_boundary_status_fails_closed": "PASS",
+    "go_tests_race_vet": "PASS",
+    "rust_tests_fmt_clippy": "PASS"
+  },
+  "open_boundary": {
+    "id": "STEP15-BOUNDARY-001",
+    "detail": "The frozen relational entity list has no evaluation receipt table although the sequence requires persistence of evaluation and hash. Cross-language evaluation is complete; durable evaluation receipt placement remains unclaimed."
+  },
+  "drift_controls": ["DRIFT-001", "DRIFT-002", "DRIFT-020", "DRIFT-039", "DRIFT-042", "DRIFT-044"],
+  "artifact_sha256": {
+    "crates/recovery-core/src/engine.rs": "0d50ed23ff27d29c5816e5e403660e022570a1e71db2401e6eee6bd9611a6b68",
+    "crates/recovery-core/src/bin/recovery-core-runner.rs": "1f4f6694a9e0e9c31b6c9d8c52164f1cd9fbb2831bd7783a48ec2ba030eae130",
+    "services/normalization/go.mod": "dcb60c906d1dc1164a0208caf05f213d38a450c240a6d9c96647bc06a2e77743",
+    "services/normalization/internal/core/process.go": "f7ecf7633356ad8c87f60cb57de9afc164d9ffc275cc8ba2632adbbd7e7000b9",
+    "services/normalization/internal/core/process_test.go": "2798d8430f1550606bb499885c6599da12ccccaa39ec145fdcdc1f73774ce117",
+    "services/normalization/cmd/core-boundary-proof/main.go": "ada830aa0b3ff65375d2753ede60a3d9a6e06820a12a30e316478525ca58a931",
+    "tools/replay/verify-step-15-core-boundary.sh": "6140bf1f51b220cb8b175d53ece9658e5919226681bb27e36ff2828d7dfb2488",
+    "schemas/canonical/project_evaluation_boundary_response.v1.schema.json": "9040a29bc196689fdb7398f9769d29a61f16956165dbec0b9df684aef798d40c",
+    "governance/repository-map.v1.json": "eb89c8ef35ea0a727937482b9d238263efb47fa6fa5818a6261124fb2e3a34be",
+    "go.work": "594791ddf46dc9f16130fde9f8c560b42af674954dee7a7a5ca1b2f11014cc66"
+  }
+}

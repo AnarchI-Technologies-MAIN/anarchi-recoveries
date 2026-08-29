@@ -46,6 +46,30 @@ pub enum EngineError {
     Serialization(serde_json::Error),
 }
 
+impl EngineError {
+    pub const fn code(&self) -> &'static str {
+        match self {
+            Self::OrganizationBoundaryMismatch => "ORGANIZATION_BOUNDARY_MISMATCH",
+            Self::ProjectBoundaryMismatch => "PROJECT_BOUNDARY_MISMATCH",
+            Self::InactiveBaseline => "INACTIVE_BASELINE",
+            Self::MissingEvaluationTime => "MISSING_EVALUATION_TIME",
+            Self::MissingVersion(_) => "MISSING_VERSION",
+            Self::MissingFactProvenance => "MISSING_FACT_PROVENANCE",
+            Self::MissingPricingRuleVersion => "MISSING_PRICING_RULE_VERSION",
+            Self::MissingMaterialCost => "MISSING_MATERIAL_COST",
+            Self::MissingEquipmentCost => "MISSING_EQUIPMENT_COST",
+            Self::MissingMaterialMarkupRule => "MISSING_MATERIAL_MARKUP_RULE",
+            Self::MissingEquipmentMarkupRule => "MISSING_EQUIPMENT_MARKUP_RULE",
+            Self::MissingTaxRule => "MISSING_TAX_RULE",
+            Self::UnsupportedMoneyScale(_) => "UNSUPPORTED_MONEY_SCALE",
+            Self::UnsupportedRoundingRule => "UNSUPPORTED_ROUNDING_RULE",
+            Self::InvalidCurrency(_) => "INVALID_CURRENCY",
+            Self::CurrencyMismatch { .. } => "CURRENCY_MISMATCH",
+            Self::Serialization(_) => "SERIALIZATION_FAILED",
+        }
+    }
+}
+
 pub fn evaluate_recovery(input: &EvaluationInput) -> Result<EvaluationRecord, EngineError> {
     validate_boundary(input)?;
 

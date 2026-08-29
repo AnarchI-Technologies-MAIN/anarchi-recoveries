@@ -12,7 +12,7 @@
     { "path": "apps/client/ios", "status": "SCAFFOLDED" },
     { "path": "services/outbox-publisher", "status": "PARTIAL" },
     { "path": "services/ingestion", "status": "PARTIAL" },
-    { "path": "services/normalization", "status": "SCAFFOLDED" },
+    { "path": "services/normalization", "status": "PARTIAL" },
     { "path": "services/extraction", "status": "PARTIAL" },
     { "path": "services/action-runner", "status": "SCAFFOLDED" },
     { "path": "services/reconciliation", "status": "SCAFFOLDED" },
@@ -55,7 +55,7 @@
     { "path": "docs/rules", "status": "SCAFFOLDED" },
     { "path": "docs/integrations", "status": "SCAFFOLDED" },
     { "path": "docs/runbooks", "status": "SCAFFOLDED" },
-    { "path": "tools/replay", "status": "SCAFFOLDED" },
+    { "path": "tools/replay", "status": "PARTIAL" },
     { "path": "tools/seed", "status": "SCAFFOLDED" },
     { "path": "tools/fixture-generator", "status": "SCAFFOLDED" },
     { "path": "tools/migration-check", "status": "PARTIAL" }
