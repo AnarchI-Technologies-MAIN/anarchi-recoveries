@@ -150,13 +150,22 @@
         },
         "decision": "ALLOW",
         "external_receipt": "counterparty-receipt-action-001",
+        "external_receipt_record": {
+          "counterparty": "local-counterparty-simulator",
+          "network_contact_count": 0,
+          "payload_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+          "receipt_id": "counterparty-receipt-action-001",
+          "receipt_material": "synthetic-only",
+          "receipt_sha256": "9d32a680df28b0b04c589c6e61093f5e05f218bd71dcd733597e2634aeac3e44",
+          "status": "ACCEPTED"
+        },
         "secret_material_persisted": false,
         "secret_resolution": "REFERENCE_ONLY"
       },
       "opportunity_label": true,
       "opportunity_prediction": true,
       "organization_id": "org-pilot-001",
-      "output_sha256": "ace78eff3e493b02c3cc987c20b67f99ad3418a22a2e82984ea7770bbfe960a1",
+      "output_sha256": "ef66075c7fbcf4a83fb791fe1fb74f32201e09807fb9d592f797b53a237274d3",
       "project_id": "project-pilot-001"
     },
     {
@@ -414,9 +423,9 @@
   ],
   "pilot_recommendation": "HOLD",
   "precision_threshold": "NOT_SET_BY_IMPLEMENTATION",
-  "report_sha256": "8e517006c1860d9b8eaab92f4401a30fc6aa7bd0db92effd059f6eaaaada1918",
-  "run_id": "pilot-43ea4ae19029-8b3becb82956a6d3",
+  "report_sha256": "207c1f708d77d79abe14444b30a7aff4a6719771bbb01921b485793f1ec8317a",
+  "run_id": "pilot-184dc455a1f4-8b3becb82956a6d3",
   "schema": "anarchi.recoveries.pilot-evidence-report.v1",
-  "source_commit": "43ea4ae19029b467df0ce796810c072883155336",
+  "source_commit": "184dc455a1f4e58037ef358ee69257f4d1fde7d1",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
 }

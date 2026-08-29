@@ -7,8 +7,8 @@
     "governance/enforcement-binding-registry.v1.json": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
     "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca",
     "tools/pilot/payment_boundary.py": "89b29955d53de1cfdf6de8a3d851384e3aaea10cd1e03a25f980cf9b43334cb6",
-    "tools/pilot/run_rehearsal.py": "ef5e3c802d16f17e9b2dbe0f51679baf429556280f1b800c295e2296bf54ecff",
-    "tools/pilot/verify_pilot_rehearsal.py": "3b488496fd69201ff97719798f864fe2f23b7e8bf2a24dc5c665fb10c14ce98f"
+    "tools/pilot/run_rehearsal.py": "4e1dbd27f6c894a42d67090c7cc652787bc94f8269d68c20fcb809f45976e635",
+    "tools/pilot/verify_pilot_rehearsal.py": "89cd829790183529bcd792df91fdd44e1c791631b57bfce430c9c775fc4de872"
   },
   "authority": {
     "live_services_contacted": false,
@@ -20,11 +20,11 @@
     "service-backed business API proof remains a later increment"
   ],
   "previous_receipt_sha256": "",
-  "receipt_id": "RECOVERIES-STEP_43_PILOT_TEST_STACK_REHEARSAL-pilot-43ea4ae19029-8b3becb82956a6d3",
+  "receipt_id": "RECOVERIES-STEP_43_PILOT_TEST_STACK_REHEARSAL-pilot-184dc455a1f4-8b3becb82956a6d3",
   "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
-  "receipt_sha256": "2e3e7bbfc5e1809becc75eab8cdbe1fa514f307e95da11303c6012f9e8ed6818",
-  "run_id": "pilot-43ea4ae19029-8b3becb82956a6d3",
-  "source_commit": "43ea4ae19029b467df0ce796810c072883155336",
+  "receipt_sha256": "7b394149084bdb9465230e3ab67827b886cf2dbd5b9aa1e58df59d50ab1d6c25",
+  "run_id": "pilot-184dc455a1f4-8b3becb82956a6d3",
+  "source_commit": "184dc455a1f4e58037ef358ee69257f4d1fde7d1",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_43_PILOT_TEST_STACK_REHEARSAL",
   "transition": "isolated test-stack rehearsal",

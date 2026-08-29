@@ -37,6 +37,8 @@ class PilotRehearsalTests(unittest.TestCase):
             packet = read_json(Path(directory) / "pilot-evidence-packet.v1.json")
             blind = read_json(Path(directory) / "blind-review-packet.v1.json")
             self.assertEqual(packet["final_state"]["pilot_recommendation"], "HOLD")
+            self.assertEqual(packet["external_action_receipt"]["status"], "ACCEPTED")
+            self.assertEqual(packet["external_action_receipt"]["network_contact_count"], 0)
             blind_text = json.dumps(blind, sort_keys=True)
             self.assertNotIn('"expected":', blind_text)
             self.assertNotIn('"label":', blind_text)

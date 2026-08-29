@@ -152,6 +152,15 @@ def validate(bundle_dir: Path) -> dict[str, Any]:
         supplied_authority_hash = authority_unsigned.pop("decision_hash", None)
         if not isinstance(supplied_authority_hash, str) or digest(authority_unsigned) != supplied_authority_hash:
             raise VerificationError("authority decision receipt hash mismatch")
+    external = packet.get("external_action_receipt")
+    if not isinstance(external, dict):
+        raise VerificationError("external action receipt record is missing")
+    external_unsigned = dict(external)
+    supplied_external_hash = external_unsigned.pop("receipt_sha256", None)
+    if not isinstance(supplied_external_hash, str) or digest(external_unsigned) != supplied_external_hash:
+        raise VerificationError("external action receipt hash mismatch")
+    if external.get("payload_hash") != packet.get("action_payload_hash") or external.get("network_contact_count") != 0:
+        raise VerificationError("external action receipt payload or network boundary mismatch")
     if run_manifest.get("report_sha256") != report.get("report_sha256"):
         raise VerificationError("run manifest report hash mismatch")
     if review.get("reviewed_receipt_chain_root_sha256") != previous:

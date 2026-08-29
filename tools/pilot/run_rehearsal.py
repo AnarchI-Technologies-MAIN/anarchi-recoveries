@@ -275,13 +275,23 @@ def evaluate_action(case: dict[str, Any]) -> tuple[dict[str, Any], bool, bool]:
     }
     authority_receipt = dict(authority_unsigned)
     authority_receipt["decision_hash"] = digest(authority_unsigned)
+    external_receipt = {
+        "receipt_id": "counterparty-receipt-action-001",
+        "counterparty": "local-counterparty-simulator",
+        "status": "ACCEPTED",
+        "payload_hash": payload_hash,
+        "network_contact_count": 0,
+        "receipt_material": "synthetic-only",
+    }
+    external_receipt["receipt_sha256"] = digest(external_receipt)
     observed = {
         "decision": "ALLOW",
         "action_plan_hash": payload_hash,
         "authority_receipt": authority_receipt,
         "secret_resolution": "REFERENCE_ONLY",
         "secret_material_persisted": False,
-        "external_receipt": "counterparty-receipt-action-001",
+        "external_receipt": external_receipt["receipt_id"],
+        "external_receipt_record": external_receipt,
     }
     return observed, True, True
 
@@ -441,7 +451,7 @@ def build_evidence_packet(
                 action_receipt = receipt_by_case[result["case_id"]]
                 authority_decision_receipt = result["observed"].get("authority_receipt")
                 action_payload_hash = result["observed"].get("action_plan_hash")
-                external_action_receipt = result["observed"].get("external_receipt")
+                external_action_receipt = result["observed"].get("external_receipt_record") or result["observed"].get("external_receipt")
         if result["flow"] == "cash_and_billing":
             payment_evidence.append({"case_id": result["case_id"], "evidence": result["observed"]})
             if "attributable_cash" in result["observed"]:
