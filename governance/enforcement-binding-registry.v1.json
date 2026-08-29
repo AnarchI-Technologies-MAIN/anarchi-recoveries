@@ -1,0 +1,10 @@
+{
+  "schema": "anarchi.recoveries.enforcement-binding-registry.v1",
+  "status": "NOT_READY",
+  "source": {
+    "path": "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md",
+    "heading": "### 23. Enforcement Binding Registry",
+    "sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
+  },
+  "bindings": []
+}

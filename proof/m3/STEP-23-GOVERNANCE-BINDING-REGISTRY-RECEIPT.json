@@ -1,0 +1,47 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_23_ENFORCEMENT_BINDING_REGISTRY_COMPLETE",
+  "generated_at": "2026-08-29T11:44:54Z",
+  "from_commit": "d5e3b4ab02dfd0a47bba158ca0197c2fdafcd700",
+  "authority": {
+    "production_mutated": false,
+    "registry_authority": "machine-enforcement bridge only",
+    "registry_status": "NOT_READY",
+    "active_bindings": 0,
+    "authority_granted": false,
+    "first_recoveries_binding": "deferred to Step 24",
+    "fail_mode": "DENY",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "binding_fields": "canonical rule, rule version, authority class, component, operation, enforcement point, implementation, test, proof, fail mode, lifecycle status",
+    "implementation_ref": "git commit reference with 7-64 lowercase hexadecimal characters",
+    "active_binding_gate": "ACTIVE requires real test and proof files",
+    "readiness": "canonical rule + authority classification + runtime binding + test proof + release provenance",
+    "status_lifecycle": "PUBLISHED -> STAGED -> SIMULATED -> APPROVED -> ACTIVE -> SUPERSEDED/REVOKED"
+  },
+  "verification": {
+    "registry_json": "PASS",
+    "binding_schema_json": "PASS",
+    "empty_registry_validator": "PASS",
+    "duplicate_binding_rejection": "PASS",
+    "active_missing_proof_rejection": "PASS",
+    "non_deny_fail_mode_rejection": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-060", "DRIFT-061", "DRIFT-062", "DRIFT-063", "DRIFT-064",
+    "DRIFT-083", "DRIFT-084", "DRIFT-085", "DRIFT-088", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "schemas/rules/enforcement-binding.v1.schema.json": "8c83f750d9cc9e0af6b4535ecdafe562021a15156213cee88dbc8664ab38d3aa",
+    "governance/enforcement-binding-registry.v1.json": "8840a0d0b7080d8aa5350b6c9e7db837824f1ce76dfdd7d95190626af1399084",
+    "tools/governance/verify_binding_registry.py": "625f935f51bb9a5f5231c3790d14d1ce1648bbeb3b5b3c5472827dbd97e5c311",
+    "tools/governance/test_verify_binding_registry.py": "b4e18738f6a4d80cb7fc482e1ae75392541298bff2dd6d514fa18a528496fa15",
+    "docs/ADR/ADR-003-enforcement-binding-registry.md": "f8028560feccc5dc12e6b89df4ce876abe8382e9d575b7f23a57f5626d14f666",
+    "governance/repository-map.v1.json": "bc47120d88c464710b0474b3a4990ffc045091f7f1d9f83352fea36e5db45564"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/enforcement-binding.v1.schema.json",
+  "title": "AnarchI Recoveries enforcement binding v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "binding_id",
+    "canonical_rule_id",
+    "rule_version",
+    "authority_class",
+    "system",
+    "component",
+    "operation",
+    "enforcement_point",
+    "implementation_ref",
+    "test_ref",
+    "proof_fixture",
+    "fail_mode",
+    "status"
+  ],
+  "properties": {
+    "binding_id": { "type": "string", "pattern": "^ENF-[A-Z0-9-]+$" },
+    "canonical_rule_id": { "type": "string", "pattern": "^RULE-[A-Z0-9-]+$" },
+    "rule_version": { "type": "string", "minLength": 1 },
+    "authority_class": { "type": "string", "minLength": 1 },
+    "system": { "type": "string", "minLength": 1 },
+    "component": { "type": "string", "minLength": 1 },
+    "operation": { "type": "string", "minLength": 1 },
+    "enforcement_point": { "type": "string", "minLength": 1 },
+    "implementation_ref": { "type": "string", "pattern": "^git:[0-9a-f]{7,64}$" },
+    "test_ref": { "type": "string", "minLength": 1 },
+    "proof_fixture": { "type": "string", "minLength": 1 },
+    "fail_mode": { "enum": ["DENY"] },
+    "status": {
+      "enum": ["PUBLISHED", "STAGED", "SIMULATED", "APPROVED", "ACTIVE", "SUPERSEDED", "REVOKED"]
+    }
+  }
+}
