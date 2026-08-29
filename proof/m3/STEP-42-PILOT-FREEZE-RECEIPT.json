@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_42_PILOT_RELEASE_FREEZE_HOLD",
-  "generated_at": "2026-08-29T12:44:42Z",
+  "generated_at": "2026-08-29T12:45:52Z",
   "from_commit": "6195b48758b3f8f63ba7e5708e6be64f903b8a68",
   "status": "HOLD_NOT_READY",
   "release_decision": "HOLD",
@@ -17,7 +17,7 @@
     "pilot_freeze_validator": "PASS",
     "pilot_freeze_tests": "PASS_3",
     "ready_without_all_gates_rejected": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [

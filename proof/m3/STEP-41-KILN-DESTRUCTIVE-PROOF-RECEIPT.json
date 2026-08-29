@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_41_KILN_DESTRUCTIVE_PROOF_HARNESS_COMPLETE",
-  "generated_at": "2026-08-29T12:42:58Z",
+  "generated_at": "2026-08-29T12:45:52Z",
   "from_commit": "7264fa78ad65b8e36ca84aa527e343af9e02ae13",
   "authority": {
     "production_mutated": false,
@@ -18,7 +18,7 @@
     "survivor_fields": "PASS",
     "restoration_digest": "PASS",
     "forbidden_authority_actions": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
