@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_36_RECOVERY_DOCK_CONTRACT_COMPLETE",
-  "generated_at": "2026-08-29T12:33:27Z",
+  "generated_at": "2026-08-29T12:34:37Z",
   "from_commit": "49af6d681d665b3a01dc83031b7d98f11eac87b0",
   "authority": {
     "production_mutated": false,
@@ -22,14 +22,13 @@
     "ui_package_typecheck": "PASS",
     "duplicate_urgent_ids_rejected": "PASS",
     "untraceable_amount_rejected": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
     "actual desktop window adapter",
     "live server data wiring",
-    "desktop focus/keyboard and visual regression audit",
-    "full repository gate after receipt commit"
+    "desktop focus/keyboard and visual regression audit"
   ],
   "drift_controls": [
     "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
