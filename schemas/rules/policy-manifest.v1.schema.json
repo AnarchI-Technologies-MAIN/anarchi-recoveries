@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/policy-manifest.v1.schema.json",
+  "title": "AnarchI Recoveries policy manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "status", "spec", "spec_sha256", "production_activation", "documents", "privacy", "retention", "support", "security_functions", "required_reviews", "activation_gate"],
+  "properties": {
+    "schema": { "const": "anarchi.recoveries.policy-manifest.v1" },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "const": "DRAFT_FOR_REVIEW" },
+    "spec": { "const": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN" },
+    "spec_sha256": { "const": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869" },
+    "production_activation": { "const": false },
+    "documents": { "type": "array", "minItems": 9 },
+    "privacy": { "type": "object" },
+    "retention": { "type": "object" },
+    "support": { "type": "object" },
+    "security_functions": { "type": "array", "minItems": 6 },
+    "required_reviews": { "type": "array", "minItems": 1 },
+    "activation_gate": { "type": "string", "minLength": 1 }
+  }
+}

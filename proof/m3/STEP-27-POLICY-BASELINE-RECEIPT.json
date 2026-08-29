@@ -1,0 +1,60 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_27_LEGAL_PRIVACY_SECURITY_POLICY_BASELINE_COMPLETE",
+  "generated_at": "2026-08-29T12:00:38Z",
+  "from_commit": "d08997baaac57cd39538f03a52e255f1d586e761",
+  "authority": {
+    "production_mutated": false,
+    "policy_status": "DRAFT_FOR_REVIEW",
+    "legal_status": "not legal advice; counsel review required",
+    "privacy_status": "review baseline only",
+    "security_status": "control inventory only; no certification claim",
+    "customer_data_activation": false,
+    "signed_contracts": false,
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "customer_data": "customer owns data and evidence; limited operational license",
+    "ai": "no general-purpose training by default; minimum evidence; policy-authorized and version-attributed",
+    "retention": "30-day post-termination export window; ordinary backups age out within 90 days; lifecycle deletion",
+    "commercial": "United States launch, Kansas law and venue, signed MSA plus Order Form, 30-day fee dispute window",
+    "service_boundary": "software-assisted recovery workflow, not legal advice, representation, guaranteed recovery, or final contract interpretation",
+    "pilot_support": "commercially reasonable availability, severity response, no service-credit SLA",
+    "security": "GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER control inventory"
+  },
+  "verification": {
+    "policy_manifest": "PASS",
+    "required_document_set": "PASS_9_REVIEW_ONLY_DOCUMENTS",
+    "customer_ownership_guard": "PASS",
+    "ai_training_default_guard": "PASS",
+    "retention_guard": "PASS_30_90_LIFECYCLE",
+    "pilot_support_guard": "PASS_NO_SERVICE_CREDIT_SLA",
+    "active_policy_rejection": "PASS",
+    "missing_document_rejection": "PASS",
+    "unsafe_retention_rejection": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "legal counsel review and signed MSA/Order Form",
+    "Privacy Policy and DPA publication",
+    "subprocessor agreements and notice process",
+    "security control implementation and independent review",
+    "customer export/deletion execution proof",
+    "incident, vulnerability, backup, and restore operational drills"
+  ],
+  "drift_controls": [
+    "DRIFT-060", "DRIFT-064", "DRIFT-069", "DRIFT-070", "DRIFT-071",
+    "DRIFT-072", "DRIFT-073", "DRIFT-074", "DRIFT-077", "DRIFT-078",
+    "DRIFT-079", "DRIFT-080", "DRIFT-088", "DRIFT-089", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "docs/policies/STEP-27-POLICY-BASELINE.md": "5786b6be74fd9a6ff352b0aca236a514bd725721f12a47f259b6f28afede16b2",
+    "docs/policies/policy-manifest.v1.json": "af3d7e2336af88234db8440c99babf75c096fe77d18c8d7ec37def6c4594e2f8",
+    "schemas/rules/policy-manifest.v1.schema.json": "847d230953f8d486bd14f0a242183da3ae6d83b5b622140c92faeca947a71f22",
+    "tools/policy/verify_policy_baseline.py": "03151d2253a9de89bf65d7ede6b56462c813a4ca92d19b1bd92bc964d7a86838",
+    "tools/policy/test_verify_policy_baseline.py": "5424a958733c0e23060de9174d430c6c684a93b272dcebdda31b5c304d13e355"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "anarchi.recoveries.policy-manifest.v1",
+  "version": "0.1.0",
+  "status": "DRAFT_FOR_REVIEW",
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "production_activation": false,
+  "jurisdiction": "UNITED_STATES",
+  "governing_law": "KANSAS",
+  "venue": "KANSAS",
+  "contract_structure": "MSA_PLUS_ORDER_FORM",
+  "documents": [
+    { "id": "MSA", "title": "Master Services Agreement", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "ORDER_FORM", "title": "Order Form", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "SUCCESS_FEE_SCHEDULE", "title": "Success Fee Schedule", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "PRIVACY_POLICY", "title": "Privacy Policy", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "DPA", "title": "Data Processing Addendum", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "ACCEPTABLE_USE", "title": "Acceptable Use Policy", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "SECURITY_OVERVIEW", "title": "Security Overview", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "SUBPROCESSOR_LIST", "title": "Subprocessor List", "status": "DRAFT_FOR_REVIEW" },
+    { "id": "SUPPORT_POLICY", "title": "Service Level and Support Policy", "status": "DRAFT_FOR_REVIEW" }
+  ],
+  "privacy": {
+    "customer_owns_data": true,
+    "limited_operational_license": true,
+    "general_purpose_model_training_default": false,
+    "external_ai_minimum_evidence": true,
+    "external_ai_policy_authorized": true,
+    "ai_receives_secrets_or_raw_tokens": false,
+    "customer_can_disable_external_ai": true,
+    "subprocessor_notice_required": true
+  },
+  "retention": {
+    "termination_export_days": 30,
+    "ordinary_backup_age_out_days": 90,
+    "deletion_is_lifecycle_state": true,
+    "customer_evidence_longer_retention_requires_selection_or_contract": true,
+    "governance_canon_institutional_retention": true
+  },
+  "support": {
+    "pilot_commercially_reasonable_availability": true,
+    "pilot_service_credit_sla": false,
+    "initial_response_hours": { "SEV_1": 1, "SEV_2": 4, "SEV_3": 24, "SEV_4": 48 }
+  },
+  "security_functions": ["GOVERN", "IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"],
+  "required_reviews": ["LEGAL_COUNSEL", "PRIVACY_REVIEW", "SECURITY_REVIEW", "CUSTOMER_DATA_FLOW_REVIEW"],
+  "activation_gate": "no production activation until all required reviews and signed customer-facing documents exist"
+}
