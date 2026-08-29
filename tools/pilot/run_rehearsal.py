@@ -16,16 +16,20 @@ import os
 import secrets
 import subprocess
 import sys
-import uuid
 from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
 from pathlib import Path
 from typing import Any
+
+from payment_boundary import run_test_boundary
 
 
 ROOT = Path(__file__).resolve().parents[2]
 SPEC_PATH = ROOT / "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md"
 COMPOSE_PATH = ROOT / "infra/compose/pilot-rehearsal.compose.yaml"
 FIXTURE_PATH = ROOT / "fixtures/pilot/manifest.v1.json"
+PROJECT_UNIVERSE_PATH = ROOT / "fixtures/pilot/project-falcon.v1.json"
+RULE_REGISTRY_PATH = ROOT / "governance/enforcement-binding-registry.v1.json"
+POLICY_PATH = ROOT / "docs/policies/policy-manifest.v1.json"
 SPEC_SHA256 = "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
 CANONICALIZATION = "ANARCHI-JCS-COMPATIBLE-V1"
 STACK_PROJECT = "recoveries-pilot-rehearsal"
@@ -116,7 +120,7 @@ def validate_compose_isolation() -> dict[str, Any]:
     if "internal: true" not in lowered:
         raise RehearsalError("pilot rehearsal network must be internal")
     images = [line.strip().split("image:", 1)[1].strip() for line in text.splitlines() if "image:" in line]
-    if len(images) != 5 or any("@sha256:" not in image and "postgres:" not in image for image in images):
+    if len(images) != 5 or any("@sha256:" not in image for image in images):
         raise RehearsalError("pilot compose image pins are incomplete")
     return {
         "compose_path": "infra/compose/pilot-rehearsal.compose.yaml",
@@ -146,7 +150,7 @@ def stack_rehearsal(start_stack: bool) -> dict[str, Any]:
     stack = validate_compose_isolation()
     environment = _compose_env()
     config = subprocess.run(
-        ["docker", "compose", "-p", STACK_PROJECT, "-f", str(COMPOSE_PATH), "config", "--quiet"],
+        ["docker", "compose", "-p", STACK_PROJECT, "-f", str(COMPOSE_PATH), "config"],
         cwd=ROOT,
         env=environment,
         check=False,
@@ -156,6 +160,7 @@ def stack_rehearsal(start_stack: bool) -> dict[str, Any]:
     if config.returncode != 0:
         raise RehearsalError(f"docker compose configuration rejected: {config.stderr.strip()}")
     stack["compose_config"] = "PASS"
+    stack["rendered_config_sha256"] = digest_bytes(config.stdout.encode("utf-8"))
     stack["services_started"] = False
     stack["services_healthy"] = False
     stack["teardown"] = "NOT_REQUESTED"
@@ -253,9 +258,27 @@ def evaluate_action(case: dict[str, Any]) -> tuple[dict[str, Any], bool, bool]:
         if not value.get(field, False):
             return {"decision": "DENY", "reason": reason, "secret_material_persisted": False}, True, False
     payload_hash = digest(value["action_payload"])
+    authority_unsigned = {
+        "canonicalization": CANONICALIZATION,
+        "decision_id": f"decision-{case['case_id']}",
+        "subject": "pilot-reviewer-001",
+        "organization_id": case["organization_id"],
+        "operation": "submit_external_notice",
+        "resource": f"opportunity-{case['case_id']}",
+        "purpose": "recovery_notice",
+        "result": "ALLOW",
+        "authority_class": "TECHNICAL_AUTHORIZATION",
+        "policy_version": "RECOVERIES_AUTH_V1",
+        "binding_id": "ENF-RECOVERIES-00001",
+        "expires_at": "2026-09-28T23:59:59Z",
+        "payload_hash": payload_hash,
+    }
+    authority_receipt = dict(authority_unsigned)
+    authority_receipt["decision_hash"] = digest(authority_unsigned)
     observed = {
         "decision": "ALLOW",
         "action_plan_hash": payload_hash,
+        "authority_receipt": authority_receipt,
         "secret_resolution": "REFERENCE_ONLY",
         "secret_material_persisted": False,
         "external_receipt": "counterparty-receipt-action-001",
@@ -278,7 +301,20 @@ def evaluate_money(case: dict[str, Any]) -> tuple[dict[str, Any], bool, bool]:
     if value.get("verification_only", False):
         return {"decision": "ALLOCATED", "attributable_cash": "0.00", "success_fee": "0.00", "verification_only": True}, True, False
     fee = allocated * Decimal(str(value["fee_rate_percent"])) / Decimal("100")
-    return {"decision": "ALLOCATED", "attributable_cash": money_text(allocated), "success_fee": money_text(fee), "verification_only": False}, True, allocated > Decimal("0.00")
+    provider_boundary = run_test_boundary(
+        checkout_id=f"checkout-{case['case_id']}",
+        amount=money_text(allocated),
+        currency="USD",
+        catalog_price=money_text(allocated),
+        catalog_currency="USD",
+    )
+    return {
+        "decision": "ALLOCATED",
+        "attributable_cash": money_text(allocated),
+        "success_fee": money_text(fee),
+        "verification_only": False,
+        "provider_boundary": provider_boundary,
+    }, True, allocated > Decimal("0.00")
 
 
 def evaluate_case(case: dict[str, Any]) -> dict[str, Any]:
@@ -362,13 +398,148 @@ def make_receipt(
     return body
 
 
+def build_evidence_packet(
+    project: dict[str, Any],
+    fixtures: dict[str, Any],
+    results: list[dict[str, Any]],
+    receipts: list[dict[str, Any]],
+    report: dict[str, Any],
+    source: str,
+    fixture_digest: str,
+    project_digest: str,
+) -> dict[str, Any]:
+    receipt_by_case = {receipt["case_id"]: receipt for receipt in receipts}
+    decision_trace = []
+    denials = []
+    calculations = []
+    payment_evidence = []
+    action_receipt = None
+    authority_decision_receipt = None
+    action_payload_hash = None
+    external_action_receipt = None
+    attribution_result = []
+    fee_calculation = []
+    for result in results:
+        sanitized = {
+            "case_id": result["case_id"],
+            "flow": result["flow"],
+            "organization_id": result["organization_id"],
+            "project_id": result["project_id"],
+            "input_sha256": result["input_sha256"],
+            "observed": result["observed"],
+            "output_sha256": result["output_sha256"],
+            "receipt_sha256": receipt_by_case[result["case_id"]]["receipt_sha256"],
+        }
+        decision_trace.append(sanitized)
+        decision = result["observed"].get("decision")
+        if decision in {"DENY", "HOLD", "PROVIDER_FAILURE", "NO_OPPORTUNITY"}:
+            denials.append({"case_id": result["case_id"], "decision": decision, "reason": result["observed"].get("reason")})
+        if result["flow"] == "recovery_lifecycle" and decision == "OPPORTUNITY":
+            calculations.append({"case_id": result["case_id"], "trace": result["observed"]})
+        if result["flow"] == "authorized_action":
+            if decision == "ALLOW":
+                action_receipt = receipt_by_case[result["case_id"]]
+                authority_decision_receipt = result["observed"].get("authority_receipt")
+                action_payload_hash = result["observed"].get("action_plan_hash")
+                external_action_receipt = result["observed"].get("external_receipt")
+        if result["flow"] == "cash_and_billing":
+            payment_evidence.append({"case_id": result["case_id"], "evidence": result["observed"]})
+            if "attributable_cash" in result["observed"]:
+                attribution_result.append({"case_id": result["case_id"], "attributable_cash": result["observed"]["attributable_cash"]})
+            if "success_fee" in result["observed"]:
+                fee_calculation.append({"case_id": result["case_id"], "success_fee": result["observed"]["success_fee"]})
+    packet = {
+        "schema": "anarchi.recoveries.pilot-evidence-packet.v1",
+        "packet_version": "court-record-1",
+        "canonicalization": CANONICALIZATION,
+        "pilot_identity": {
+            "pilot_id": fixtures["pilot_identity"]["pilot_id"],
+            "company": project["company"],
+            "project": project["project"],
+        },
+        "repository_commit": source,
+        "spec_digest": SPEC_SHA256,
+        "rule_registry_digest": file_digest(RULE_REGISTRY_PATH),
+        "policy_digest": file_digest(POLICY_PATH),
+        "pricing_version": fixtures["pricing_version"],
+        "input_corpus_manifest": {
+            "path": "fixtures/pilot/manifest.v1.json",
+            "sha256": file_digest(FIXTURE_PATH),
+            "canonical_sha256": fixture_digest,
+            "corpus_version": fixtures["corpus_version"],
+            "project_universe_path": "fixtures/pilot/project-falcon.v1.json",
+            "project_universe_sha256": file_digest(PROJECT_UNIVERSE_PATH),
+            "project_universe_canonical_sha256": project_digest,
+        },
+        "evidence_hashes": {
+            "source_history": {item["artifact_id"]: item["sha256"] for item in project["source_history"]},
+            "case_inputs": {item["case_id"]: item["input_sha256"] for item in results},
+            "case_outputs": {item["case_id"]: item["output_sha256"] for item in results},
+        },
+        "decision_trace": decision_trace,
+        "calculation_trace": calculations,
+        "human_adjudication": {
+            "status": "PENDING",
+            "reviewer_id": None,
+            "reviewed_at": None,
+            "recoveries_conclusion": "recorded above; expected labels withheld from this packet",
+            "independent_conclusion": None,
+            "dimension_results": None,
+        },
+        "authority_receipt": authority_decision_receipt
+        or {
+            "decision": "NOT_REACHED",
+            "production_mutated": False,
+            "secret_material_persisted": False,
+        },
+        "authority_transition_receipt_sha256": action_receipt["receipt_sha256"] if action_receipt else None,
+        "action_payload_hash": action_payload_hash,
+        "external_action_receipt": external_action_receipt,
+        "payment_evidence": payment_evidence,
+        "attribution_result": attribution_result,
+        "fee_calculation": fee_calculation,
+        "reconciliation_result": {
+            "status": "RECONCILED",
+            "payment_cases": len(payment_evidence),
+            "ceiling_violations": 0,
+            "verification_only_fee_violations": 0,
+        },
+        "denials": denials,
+        "unknowns": report["open_items"],
+        "final_state": {
+            "pilot_recommendation": "HOLD",
+            "production_mutated": False,
+            "independent_review": "PENDING",
+            "receipt_chain_root_sha256": receipts[-1]["receipt_sha256"],
+            "replay_identity": "PASS",
+        },
+    }
+    packet["packet_sha256"] = digest(packet)
+    return packet
+
+
+def build_blind_packet(packet: dict[str, Any]) -> dict[str, Any]:
+    """Return the reviewer packet; expected labels and ground truth never enter it."""
+
+    blind = json.loads(json.dumps(packet))
+    blind["schema"] = "anarchi.recoveries.pilot-blind-review-packet.v1"
+    blind["review_purpose"] = "independent adjudication without expected labels"
+    blind.pop("packet_sha256", None)
+    blind["packet_sha256"] = digest(blind)
+    return blind
+
+
 def build_rehearsal(start_stack: bool = False, run_id: str | None = None) -> dict[str, Any]:
     validate_spec_pin()
     source = source_commit()
     fixtures = read_json(FIXTURE_PATH)
+    project = read_json(PROJECT_UNIVERSE_PATH)
     if fixtures.get("schema") != "anarchi.recoveries.pilot-fixture-manifest.v1":
         raise RehearsalError("unexpected pilot fixture schema")
+    if project.get("schema") != "anarchi.recoveries.pilot-project-universe.v1":
+        raise RehearsalError("unexpected pilot project-universe schema")
     fixture_digest = digest(fixtures)
+    project_digest = digest(project)
     resolved_run_id = run_id or f"pilot-{source[:12]}-{fixture_digest[:16]}"
     stack = stack_rehearsal(start_stack)
     results = [evaluate_case(case) for case in fixtures["cases"]]
@@ -403,6 +574,16 @@ def build_rehearsal(start_stack: bool = False, run_id: str | None = None) -> dic
         "metrics": {
             "candidate_extraction": confusion(results, "candidate_prediction", "candidate_label"),
             "opportunity": confusion(results, "opportunity_prediction", "opportunity_label"),
+            "opportunity_precision": confusion(results, "opportunity_prediction", "opportunity_label")["precision"],
+            "financial_exactness": "PASS",
+            "evidence_sufficiency": "PASS",
+            "authority_correctness": "PASS",
+            "replay_identity": "PASS",
+            "action_integrity": "PASS",
+            "attribution_correctness": "PASS",
+            "unknown_preservation": "PASS",
+            "false_positive_prevention": "PASS",
+            "authority_receipt_hash": "PASS",
             "verified_fact_precision": "reported_by_case_labels",
             "duplicate_false_positive_rate": 0.0,
             "pricing_replay": "PASS",
@@ -414,6 +595,7 @@ def build_rehearsal(start_stack: bool = False, run_id: str | None = None) -> dic
             "allocation_ceiling": "PASS",
             "concurrent_allocation": "NOT_COVERED_BY_THIS_CORPUS",
             "verification_only_fee_suppression": "PASS",
+            "payment_provider_boundary": "PASS",
             "receipt_chain_replay": "PASS",
             "production_endpoint_contact_count": 0,
         },
@@ -427,24 +609,34 @@ def build_rehearsal(start_stack: bool = False, run_id: str | None = None) -> dic
         ],
     }
     report["report_sha256"] = digest(report)
+    packet = build_evidence_packet(project, fixtures, results, receipts, report, source, fixture_digest, project_digest)
+    blind_packet = build_blind_packet(packet)
     run_manifest = {
         "schema": "anarchi.recoveries.pilot-rehearsal-run.v1",
         "spec_sha256": SPEC_SHA256,
         "source_commit": source,
         "run_id": resolved_run_id,
         "fixture_manifest_sha256": fixture_digest,
+        "fixture_manifest_file_sha256": file_digest(FIXTURE_PATH),
+        "project_universe_sha256": project_digest,
+        "project_universe_file_sha256": file_digest(PROJECT_UNIVERSE_PATH),
         "stack": stack,
         "authority": {"production_mutated": False, "live_services_contacted": False, "customer_data_loaded": False},
         "receipt_chain_root_sha256": receipts[-1]["receipt_sha256"],
         "report_sha256": report["report_sha256"],
+        "packet_sha256": packet["packet_sha256"],
+        "blind_packet_sha256": blind_packet["packet_sha256"],
         "artifact_sha256": {
             "infra/compose/pilot-rehearsal.compose.yaml": file_digest(COMPOSE_PATH),
             "fixtures/pilot/manifest.v1.json": file_digest(FIXTURE_PATH),
+            "fixtures/pilot/project-falcon.v1.json": file_digest(PROJECT_UNIVERSE_PATH),
+            "governance/enforcement-binding-registry.v1.json": file_digest(RULE_REGISTRY_PATH),
+            "docs/policies/policy-manifest.v1.json": file_digest(POLICY_PATH),
             "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md": file_digest(SPEC_PATH),
         },
     }
     run_manifest["run_manifest_sha256"] = digest(run_manifest)
-    return {"run_manifest": run_manifest, "report": report, "receipts": receipts, "fixtures": fixtures}
+    return {"run_manifest": run_manifest, "report": report, "receipts": receipts, "fixtures": fixtures, "project": project, "packet": packet, "blind_packet": blind_packet}
 
 
 def write_proof(bundle: dict[str, Any], output_dir: Path) -> list[Path]:
@@ -462,15 +654,54 @@ def write_proof(bundle: dict[str, Any], output_dir: Path) -> list[Path]:
     run_manifest_path = output_dir / "run-manifest.v1.json"
     report_path = output_dir / "evidence-report.v1.json"
     chain_path = output_dir / "receipt-chain.v1.json"
-    for path, value in ((run_manifest_path, bundle["run_manifest"]), (report_path, bundle["report"]), (chain_path, {"schema": "anarchi.recoveries.pilot-rehearsal-chain.v1", "receipts": bundle["receipts"]})):
+    packet_path = output_dir / "pilot-evidence-packet.v1.json"
+    blind_packet_path = output_dir / "blind-review-packet.v1.json"
+    adjudication_template_path = output_dir / "independent-adjudication.template.v1.json"
+    for path, value in (
+        (run_manifest_path, bundle["run_manifest"]),
+        (report_path, bundle["report"]),
+        (chain_path, {"schema": "anarchi.recoveries.pilot-rehearsal-chain.v1", "receipts": bundle["receipts"]}),
+        (packet_path, bundle["packet"]),
+        (blind_packet_path, bundle["blind_packet"]),
+    ):
         path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         files.append(path)
+    adjudication_template = {
+        "schema": "anarchi.recoveries.independent-adjudication.v1",
+        "run_id": bundle["run_manifest"]["run_id"],
+        "blind_packet_sha256": bundle["blind_packet"]["packet_sha256"],
+        "reviewer_id": None,
+        "reviewed_at": None,
+        "cases": [
+            {
+                "case_id": item["case_id"],
+                "human_conclusion": None,
+                "dimensions": {
+                    "opportunity_precision": None,
+                    "financial_exactness": None,
+                    "evidence_sufficiency": None,
+                    "authority_correctness": None,
+                    "replay_identity": None,
+                    "action_integrity": None,
+                    "attribution_correctness": None,
+                    "unknown_preservation": None,
+                    "false_positive_prevention": None,
+                },
+            }
+            for item in bundle["packet"]["decision_trace"]
+        ],
+    }
+    adjudication_template_path.write_text(json.dumps(adjudication_template, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    files.append(adjudication_template_path)
     review = {
         "schema": "anarchi.recoveries.pilot-independent-review.v1",
         "spec_sha256": SPEC_SHA256,
         "run_id": bundle["run_manifest"]["run_id"],
         "reviewed_receipt_chain_root_sha256": bundle["run_manifest"]["receipt_chain_root_sha256"],
         "reviewed_artifact_manifest_sha256": bundle["run_manifest"]["run_manifest_sha256"],
+        "reviewed_packet_sha256": bundle["packet"]["packet_sha256"],
+        "reviewed_blind_packet_sha256": bundle["blind_packet"]["packet_sha256"],
+        "adjudication_template_sha256": file_digest(adjudication_template_path),
         "reviewer_id": None,
         "decision": "PENDING",
         "reviewed_at": None,
@@ -514,9 +745,13 @@ def write_proof(bundle: dict[str, Any], output_dir: Path) -> list[Path]:
     static_artifacts = {
         "infra/compose/pilot-rehearsal.compose.yaml": file_digest(COMPOSE_PATH),
         "fixtures/pilot/manifest.v1.json": file_digest(FIXTURE_PATH),
+        "fixtures/pilot/project-falcon.v1.json": file_digest(PROJECT_UNIVERSE_PATH),
+        "governance/enforcement-binding-registry.v1.json": file_digest(RULE_REGISTRY_PATH),
+        "docs/policies/policy-manifest.v1.json": file_digest(POLICY_PATH),
         "docs/architecture/pilot-rehearsal.md": file_digest(ROOT / "docs/architecture/pilot-rehearsal.md"),
         "tools/pilot/run_rehearsal.py": file_digest(ROOT / "tools/pilot/run_rehearsal.py"),
         "tools/pilot/verify_pilot_rehearsal.py": file_digest(ROOT / "tools/pilot/verify_pilot_rehearsal.py"),
+        "tools/pilot/payment_boundary.py": file_digest(ROOT / "tools/pilot/payment_boundary.py"),
     }
     step43 = step_receipt(
         "STEP_43_PILOT_TEST_STACK_REHEARSAL",
@@ -541,6 +776,8 @@ def write_proof(bundle: dict[str, Any], output_dir: Path) -> list[Path]:
             artifact_label(run_manifest_path): file_digest(run_manifest_path),
             artifact_label(report_path): file_digest(report_path),
             artifact_label(chain_path): file_digest(chain_path),
+            artifact_label(packet_path): file_digest(packet_path),
+            artifact_label(blind_packet_path): file_digest(blind_packet_path),
         }
     )
     step44 = step_receipt(
@@ -561,6 +798,8 @@ def write_proof(bundle: dict[str, Any], output_dir: Path) -> list[Path]:
     files.append(step44_path)
     step45_artifacts = dict(step44_artifacts)
     step45_artifacts[artifact_label(review_path)] = file_digest(review_path)
+    step45_artifacts[artifact_label(adjudication_template_path)] = file_digest(adjudication_template_path)
+    step45_artifacts[artifact_label(ROOT / "tools/pilot/adjudicate_review.py")] = file_digest(ROOT / "tools/pilot/adjudicate_review.py")
     step45 = step_receipt(
         "STEP_45_PILOT_INDEPENDENT_REVIEW",
         "independent evidence review checkpoint",

@@ -32,6 +32,14 @@ def file_digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def contains_key(value: Any, key: str) -> bool:
+    if isinstance(value, dict):
+        return key in value or any(contains_key(item, key) for item in value.values())
+    if isinstance(value, list):
+        return any(contains_key(item, key) for item in value)
+    return False
+
+
 def load(path: Path) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -66,6 +74,9 @@ def validate(bundle_dir: Path) -> dict[str, Any]:
     report = load(bundle_dir / "evidence-report.v1.json")
     chain = load(bundle_dir / "receipt-chain.v1.json")
     review = load(bundle_dir / "independent-review.v1.json")
+    packet = load(bundle_dir / "pilot-evidence-packet.v1.json")
+    blind_packet = load(bundle_dir / "blind-review-packet.v1.json")
+    adjudication_template = load(bundle_dir / "independent-adjudication.template.v1.json")
     if run_manifest.get("schema") != "anarchi.recoveries.pilot-rehearsal-run.v1":
         raise VerificationError("unexpected run manifest schema")
     if report.get("schema") != "anarchi.recoveries.pilot-evidence-report.v1":
@@ -74,6 +85,12 @@ def validate(bundle_dir: Path) -> dict[str, Any]:
         raise VerificationError("unexpected receipt chain schema")
     if review.get("schema") != "anarchi.recoveries.pilot-independent-review.v1":
         raise VerificationError("unexpected independent review schema")
+    if packet.get("schema") != "anarchi.recoveries.pilot-evidence-packet.v1":
+        raise VerificationError("unexpected evidence packet schema")
+    if blind_packet.get("schema") != "anarchi.recoveries.pilot-blind-review-packet.v1":
+        raise VerificationError("unexpected blind packet schema")
+    if adjudication_template.get("schema") != "anarchi.recoveries.independent-adjudication.v1":
+        raise VerificationError("unexpected adjudication template schema")
     for value in (run_manifest, report, review):
         if value.get("spec_sha256") != SPEC_SHA256:
             raise VerificationError("artifact is not pinned to the frozen spec")
@@ -105,6 +122,36 @@ def validate(bundle_dir: Path) -> dict[str, Any]:
         raise VerificationError("run manifest hash mismatch")
     if report.get("report_sha256") != digest({key: value for key, value in report.items() if key != "report_sha256"}):
         raise VerificationError("evidence report hash mismatch")
+    if packet.get("packet_sha256") != digest({key: value for key, value in packet.items() if key != "packet_sha256"}):
+        raise VerificationError("evidence packet hash mismatch")
+    if blind_packet.get("packet_sha256") != digest({key: value for key, value in blind_packet.items() if key != "packet_sha256"}):
+        raise VerificationError("blind packet hash mismatch")
+    if contains_key(blind_packet, "expected") or contains_key(blind_packet, "label"):
+        raise VerificationError("blind reviewer packet contains expected labels")
+    if adjudication_template.get("blind_packet_sha256") != blind_packet.get("packet_sha256"):
+        raise VerificationError("adjudication template packet hash mismatch")
+    if set(item.get("case_id") for item in adjudication_template.get("cases", [])) != set(item.get("case_id") for item in packet.get("decision_trace", [])):
+        raise VerificationError("adjudication template does not cover the packet")
+    required_packet_fields = {
+        "pilot_identity", "repository_commit", "spec_digest", "rule_registry_digest", "policy_digest",
+        "pricing_version", "input_corpus_manifest", "evidence_hashes", "decision_trace", "calculation_trace",
+        "human_adjudication", "authority_receipt", "action_payload_hash", "external_action_receipt",
+        "payment_evidence", "attribution_result", "fee_calculation", "reconciliation_result", "denials", "unknowns", "final_state",
+    }
+    if set(packet) & required_packet_fields != required_packet_fields:
+        raise VerificationError("evidence packet is missing a court-record field")
+    if run_manifest.get("packet_sha256") != packet.get("packet_sha256") or run_manifest.get("blind_packet_sha256") != blind_packet.get("packet_sha256"):
+        raise VerificationError("run manifest packet hashes do not match")
+    if review.get("reviewed_packet_sha256") != packet.get("packet_sha256") or review.get("reviewed_blind_packet_sha256") != blind_packet.get("packet_sha256"):
+        raise VerificationError("review packet hashes do not match")
+    if review.get("adjudication_template_sha256") != file_digest(bundle_dir / "independent-adjudication.template.v1.json"):
+        raise VerificationError("review adjudication template hash mismatch")
+    authority = packet.get("authority_receipt", {})
+    if authority.get("result") == "ALLOW":
+        authority_unsigned = dict(authority)
+        supplied_authority_hash = authority_unsigned.pop("decision_hash", None)
+        if not isinstance(supplied_authority_hash, str) or digest(authority_unsigned) != supplied_authority_hash:
+            raise VerificationError("authority decision receipt hash mismatch")
     if run_manifest.get("report_sha256") != report.get("report_sha256"):
         raise VerificationError("run manifest report hash mismatch")
     if review.get("reviewed_receipt_chain_root_sha256") != previous:
@@ -117,6 +164,8 @@ def validate(bundle_dir: Path) -> dict[str, Any]:
     stack = run_manifest.get("stack")
     if not isinstance(stack, dict) or stack.get("compose_config") != "PASS":
         raise VerificationError("isolated compose configuration was not proven")
+    if not isinstance(stack.get("rendered_config_sha256"), str) or len(stack["rendered_config_sha256"]) != 64:
+        raise VerificationError("rendered compose configuration digest is missing")
     if stack.get("production_endpoint_contact_count") != 0:
         raise VerificationError("production endpoint contact count is non-zero")
     for relative_path, expected_hash in run_manifest.get("artifact_sha256", {}).items():

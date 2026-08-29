@@ -37,6 +37,36 @@ hashes.
 case expectations, isolation claims, separate precision metrics, and the
 explicit pending independent-review record. It cannot mark a release ready.
 
+## Pilot Evidence Packet (court record)
+
+Each run also emits `pilot-evidence-packet.v1.json`. This is the consumable
+financial proof artifact. It carries the pilot identity, repository/spec/rule/
+policy/pricing provenance, input-corpus and evidence hashes, decision and
+calculation traces, authority receipt, action payload hash, external-action
+receipt, payment evidence, attribution and fee results, reconciliation result,
+all denials, all unknowns, and the final held state. A reviewer can answer the
+economic and authority questions from this packet without querying a running
+service.
+
+`blind-review-packet.v1.json` is derived from the same packet and contains no
+expected labels or ground-truth fields. The verifier rejects a blind packet that
+contains those keys. The independent reviewer receives only this blind packet;
+their adjudication is recorded separately and compared dimension by dimension:
+opportunity precision, financial exactness, evidence sufficiency, authority
+correctness, replay identity, action integrity, attribution correctness,
+unknown preservation, and false-positive prevention. No threshold is chosen
+after observing the measurements.
+
+## Payment-provider boundary
+
+`tools/pilot/payment_boundary.py` exercises the provider-shaped sequence locally:
+checkout requested, payment initiated, webhook received, signature verified,
+event deduplicated, amount/currency/catalog matched, business state changed, and
+receipt persisted. The simulator uses an in-process test secret, reports zero
+network contacts, and never loads Stripe credentials. A real Stripe account is a
+later credentialed deployment transition after this boundary is independently
+accepted.
+
 ## Evidence posture
 
 The evidence report keeps candidate extraction, verified facts, and opportunity

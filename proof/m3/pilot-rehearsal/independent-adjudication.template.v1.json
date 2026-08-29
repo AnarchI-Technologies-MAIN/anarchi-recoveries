@@ -1,0 +1,219 @@
+{
+  "blind_packet_sha256": "6b55b04088e6c3b4e0dd4b224ece64a3466ef538379f6445a66ced55f8369d9f",
+  "cases": [
+    {
+      "case_id": "lifecycle-opportunity",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-covered",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-contradictory",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "lifecycle-missing-provenance",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "provider-outage",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "action-allowed",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "action-no-approval",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "action-payload-mutation",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "action-wrong-tenant",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "action-wrong-purpose",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "action-expired-capability",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "money-partial-multi-payment",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "money-overallocation",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    },
+    {
+      "case_id": "money-verification-only",
+      "dimensions": {
+        "action_integrity": null,
+        "attribution_correctness": null,
+        "authority_correctness": null,
+        "evidence_sufficiency": null,
+        "false_positive_prevention": null,
+        "financial_exactness": null,
+        "opportunity_precision": null,
+        "replay_identity": null,
+        "unknown_preservation": null
+      },
+      "human_conclusion": null
+    }
+  ],
+  "reviewed_at": null,
+  "reviewer_id": null,
+  "run_id": "pilot-12497a4e1c59-8b3becb82956a6d3",
+  "schema": "anarchi.recoveries.independent-adjudication.v1"
+}

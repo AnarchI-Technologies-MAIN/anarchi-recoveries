@@ -132,6 +132,22 @@
       "input_sha256": "0ddd28a97ab045a248bded8684b1899921c71becf8d255dc380856c17a53063b",
       "observed": {
         "action_plan_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+        "authority_receipt": {
+          "authority_class": "TECHNICAL_AUTHORIZATION",
+          "binding_id": "ENF-RECOVERIES-00001",
+          "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+          "decision_hash": "868fa603dcab2be452b10ca2224e1f9d3a21cc3b614df792ab9c670abba75075",
+          "decision_id": "decision-action-allowed",
+          "expires_at": "2026-09-28T23:59:59Z",
+          "operation": "submit_external_notice",
+          "organization_id": "org-pilot-001",
+          "payload_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+          "policy_version": "RECOVERIES_AUTH_V1",
+          "purpose": "recovery_notice",
+          "resource": "opportunity-action-allowed",
+          "result": "ALLOW",
+          "subject": "pilot-reviewer-001"
+        },
         "decision": "ALLOW",
         "external_receipt": "counterparty-receipt-action-001",
         "secret_material_persisted": false,
@@ -140,7 +156,7 @@
       "opportunity_label": true,
       "opportunity_prediction": true,
       "organization_id": "org-pilot-001",
-      "output_sha256": "c569b92a3d325d8934061988f841158e4ce5d382f17e99586ba534d441af461a",
+      "output_sha256": "ace78eff3e493b02c3cc987c20b67f99ad3418a22a2e82984ea7770bbfe960a1",
       "project_id": "project-pilot-001"
     },
     {
@@ -268,13 +284,31 @@
       "observed": {
         "attributable_cash": "2200.00",
         "decision": "ALLOCATED",
+        "provider_boundary": {
+          "amount": "2200.00",
+          "amount_currency_catalog_matched": true,
+          "business_state": "PAID",
+          "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+          "checkout_requested": true,
+          "credentials_loaded": false,
+          "currency": "USD",
+          "event_deduplicated": true,
+          "event_id": "evt_checkout-money-partial-multi-payment",
+          "network_contact_count": 0,
+          "payload_sha256": "4be42503dcb2efbc76dcbaf6088cb69482c9175b5f4e93da240f2f1332f55fe1",
+          "payment_initiated": true,
+          "provider": "stripe_test_mode_simulator",
+          "receipt_sha256": "80df5c90b20dd90f9c00711cd3eb1efabd4e388d05009aacbe1dc59413dfc196",
+          "signature_verified": true,
+          "webhook_received": true
+        },
         "success_fee": "220.00",
         "verification_only": false
       },
       "opportunity_label": true,
       "opportunity_prediction": true,
       "organization_id": "org-pilot-001",
-      "output_sha256": "bb0e15c24e113511cc651630e9d0db95462b7b84cfac2b8325ea7e63ee576c05",
+      "output_sha256": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
       "project_id": "project-pilot-001"
     },
     {
@@ -324,15 +358,19 @@
       "project_id": "project-pilot-001"
     }
   ],
-  "fixture_manifest_sha256": "6f29be12b26bf7391a57cde73dd1f3fc9bdb9e08f07b2b22ca7820d2f34aae17",
+  "fixture_manifest_sha256": "8b3becb82956a6d35bb5bd296125c0ce6084ec306c8dfa2b4b7aac8aff1b46bc",
   "flows": [
     "recovery_lifecycle",
     "authorized_action",
     "cash_and_billing"
   ],
   "metrics": {
+    "action_integrity": "PASS",
     "action_payload_mutation_denial": "PASS",
     "allocation_ceiling": "PASS",
+    "attribution_correctness": "PASS",
+    "authority_correctness": "PASS",
+    "authority_receipt_hash": "PASS",
     "candidate_extraction": {
       "false_negative": 0,
       "false_positive": 2,
@@ -344,6 +382,9 @@
     "concurrent_allocation": "NOT_COVERED_BY_THIS_CORPUS",
     "deadline_replay": "PASS",
     "duplicate_false_positive_rate": 0.0,
+    "evidence_sufficiency": "PASS",
+    "false_positive_prevention": "PASS",
+    "financial_exactness": "PASS",
     "opportunity": {
       "false_negative": 0,
       "false_positive": 0,
@@ -352,12 +393,16 @@
       "true_negative": 11,
       "true_positive": 3
     },
+    "opportunity_precision": 1.0,
+    "payment_provider_boundary": "PASS",
     "policy_denials": "PASS",
     "pricing_replay": "PASS",
     "production_endpoint_contact_count": 0,
     "provider_outage_no_fallback": "PASS",
     "receipt_chain_replay": "PASS",
+    "replay_identity": "PASS",
     "tenant_isolation": "PASS",
+    "unknown_preservation": "PASS",
     "verification_only_fee_suppression": "PASS",
     "verified_fact_precision": "reported_by_case_labels"
   },
@@ -369,9 +414,9 @@
   ],
   "pilot_recommendation": "HOLD",
   "precision_threshold": "NOT_SET_BY_IMPLEMENTATION",
-  "report_sha256": "d846e9703d1cba6e7e73e5610aa774d0f8922237438be9780404ef4474366b74",
-  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "report_sha256": "67fb7379f813d98dd7e317362111ff4da2c63d4fdf06a1aef1ca14c4cb18d135",
+  "run_id": "pilot-12497a4e1c59-8b3becb82956a6d3",
   "schema": "anarchi.recoveries.pilot-evidence-report.v1",
-  "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+  "source_commit": "12497a4e1c5945ae80ed1b362314a855953730e5",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
 }

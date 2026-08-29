@@ -1,7 +1,10 @@
 {
   "artifact_sha256": {
+    "docs/policies/policy-manifest.v1.json": "af3d7e2336af88234db8440c99babf75c096fe77d18c8d7ec37def6c4594e2f8",
     "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
-    "fixtures/pilot/manifest.v1.json": "f6b1299b66926a92cf6525dcc3ddeed22923802351eb9c65dc28a970fd2706d2",
+    "fixtures/pilot/manifest.v1.json": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8",
+    "fixtures/pilot/project-falcon.v1.json": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
+    "governance/enforcement-binding-registry.v1.json": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
     "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca"
   },
   "authority": {
@@ -9,13 +12,18 @@
     "live_services_contacted": false,
     "production_mutated": false
   },
-  "fixture_manifest_sha256": "6f29be12b26bf7391a57cde73dd1f3fc9bdb9e08f07b2b22ca7820d2f34aae17",
-  "receipt_chain_root_sha256": "2bfd7d783885351f96bb3cd70a00fe2f30e6e46c2b309e2fff9c177133c724a9",
-  "report_sha256": "d846e9703d1cba6e7e73e5610aa774d0f8922237438be9780404ef4474366b74",
-  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
-  "run_manifest_sha256": "e5b726b66cd5fefaa57fc001a9c4fa4fa54d1db6ff073e9fce416b84cbe8c19c",
+  "blind_packet_sha256": "6b55b04088e6c3b4e0dd4b224ece64a3466ef538379f6445a66ced55f8369d9f",
+  "fixture_manifest_file_sha256": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8",
+  "fixture_manifest_sha256": "8b3becb82956a6d35bb5bd296125c0ce6084ec306c8dfa2b4b7aac8aff1b46bc",
+  "packet_sha256": "d1be4e6a1cb91ed9b0ffab27212282768768461864faa418a02e5680c5b572ec",
+  "project_universe_file_sha256": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
+  "project_universe_sha256": "d22b0a262860d0693a5a6f00b70687d576242f3807f67f95a831794b25152a5b",
+  "receipt_chain_root_sha256": "f93232e6bb11b4c2eb84126eebf4db2d865ccafbbba4006d3d4706bbf18f7dd3",
+  "report_sha256": "67fb7379f813d98dd7e317362111ff4da2c63d4fdf06a1aef1ca14c4cb18d135",
+  "run_id": "pilot-12497a4e1c59-8b3becb82956a6d3",
+  "run_manifest_sha256": "183acb7a85a1e11114d956663a3ab93e4c9e30b76a98d0ae22874583c809054a",
   "schema": "anarchi.recoveries.pilot-rehearsal-run.v1",
-  "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+  "source_commit": "12497a4e1c5945ae80ed1b362314a855953730e5",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "stack": {
     "compose_config": "PASS",
@@ -31,6 +39,7 @@
       "ghcr.io/zitadel/zitadel:v4.16.2@sha256:4b68a2106f60baa2895e5a00a77fcd915d29d0db3f0c011d3eb9f99f557b2b48"
     ],
     "production_endpoint_contact_count": 0,
+    "rendered_config_sha256": "fb5ce80b5916db05bfc65b1099fbc787b4b7dbe59a469ca39654c1ea7ca90bbd",
     "services_healthy": true,
     "services_started": true,
     "teardown": "PASS"

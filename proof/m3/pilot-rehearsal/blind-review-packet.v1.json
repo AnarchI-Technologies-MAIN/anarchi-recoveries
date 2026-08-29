@@ -1,0 +1,506 @@
+{
+  "action_payload_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+  "attribution_result": [
+    {
+      "attributable_cash": "2200.00",
+      "case_id": "money-partial-multi-payment"
+    },
+    {
+      "attributable_cash": "0.00",
+      "case_id": "money-verification-only"
+    }
+  ],
+  "authority_receipt": {
+    "authority_class": "TECHNICAL_AUTHORIZATION",
+    "binding_id": "ENF-RECOVERIES-00001",
+    "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+    "decision_hash": "868fa603dcab2be452b10ca2224e1f9d3a21cc3b614df792ab9c670abba75075",
+    "decision_id": "decision-action-allowed",
+    "expires_at": "2026-09-28T23:59:59Z",
+    "operation": "submit_external_notice",
+    "organization_id": "org-pilot-001",
+    "payload_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+    "policy_version": "RECOVERIES_AUTH_V1",
+    "purpose": "recovery_notice",
+    "resource": "opportunity-action-allowed",
+    "result": "ALLOW",
+    "subject": "pilot-reviewer-001"
+  },
+  "authority_transition_receipt_sha256": "030600bc3ded9a8229d9a597e5be30a69a70607198807e685ea1da52424cfbe7",
+  "calculation_trace": [
+    {
+      "case_id": "lifecycle-opportunity",
+      "trace": {
+        "deadline": "2026-09-28",
+        "decision": "OPPORTUNITY",
+        "equipment_markup": "5.00",
+        "evidence_provenance": "COMPLETE",
+        "material_markup": "25.00",
+        "quantity_delta": "25.00",
+        "raw_subtotal": "2850.00",
+        "rule_version": "RECOVERIES-DOMAIN-V1",
+        "tax": "237.60",
+        "total": "3117.60"
+      }
+    }
+  ],
+  "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+  "decision_trace": [
+    {
+      "case_id": "lifecycle-opportunity",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "4c33ed2cfedef4020e76ff3e5f775f4af9c49c14693e9103ca4836be1bffa61b",
+      "observed": {
+        "deadline": "2026-09-28",
+        "decision": "OPPORTUNITY",
+        "equipment_markup": "5.00",
+        "evidence_provenance": "COMPLETE",
+        "material_markup": "25.00",
+        "quantity_delta": "25.00",
+        "raw_subtotal": "2850.00",
+        "rule_version": "RECOVERIES-DOMAIN-V1",
+        "tax": "237.60",
+        "total": "3117.60"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "785104de1d2d34940365d468c6b0596770f8c52e2a4657772333336421fd356d",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "b7584ca9ac088a8e67f59d7af292c16e99eea4d4c47cfb64574e2625075abcbb"
+    },
+    {
+      "case_id": "lifecycle-covered",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "2ef380a49eae5d46e50a11b55e5a5180f37f69f630ef436763c21a1fd5472b56",
+      "observed": {
+        "decision": "NO_OPPORTUNITY",
+        "reason": "EXISTING_CHANGE_ORDER_COVERAGE"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "44f4e236b2e7787f82c538e3746602cf7785eb007dce3588656d1bc987aca394"
+    },
+    {
+      "case_id": "lifecycle-contradictory",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "3fbb7303626aa7f585147f6a7e84e2a991e783d14a6e4cfd2eea808242abc9f3",
+      "observed": {
+        "decision": "HOLD",
+        "reason": "CONTRADICTORY_FACTS"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "6f35114c5e2d37b10d7ddfbf5eac66ce6ddeac091ecc332c1d8b7f5f90ff7525"
+    },
+    {
+      "case_id": "lifecycle-missing-provenance",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "5cb7c8939eb47b59906556f8537f4d32a3a04abcc62cdffb51b37f6cfc59e175",
+      "observed": {
+        "decision": "HOLD",
+        "reason": "MISSING_EVIDENCE_PROVENANCE"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "c4f4339f090fd30d48d7e38d5f6185c6b89b5462f6998db058afb943a3465c54"
+    },
+    {
+      "case_id": "provider-outage",
+      "flow": "recovery_lifecycle",
+      "input_sha256": "d091513c1b1364093fd2d1d27d0982f7b7d23a2ebbe3dbf31e3288b396bad657",
+      "observed": {
+        "decision": "PROVIDER_FAILURE",
+        "persisted_candidate_facts": 0,
+        "persisted_verified_facts": 0,
+        "reason": "PROVIDER_UNAVAILABLE"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "55bbe525bc894aa95b85b87d9c9dbb583a300c2e20641d3d76f9e73c0df07a15",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "18be85834af35f5f8d4006f5a759372a1c5f4382a99e5c41608f94168e84fb58"
+    },
+    {
+      "case_id": "action-allowed",
+      "flow": "authorized_action",
+      "input_sha256": "0ddd28a97ab045a248bded8684b1899921c71becf8d255dc380856c17a53063b",
+      "observed": {
+        "action_plan_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+        "authority_receipt": {
+          "authority_class": "TECHNICAL_AUTHORIZATION",
+          "binding_id": "ENF-RECOVERIES-00001",
+          "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+          "decision_hash": "868fa603dcab2be452b10ca2224e1f9d3a21cc3b614df792ab9c670abba75075",
+          "decision_id": "decision-action-allowed",
+          "expires_at": "2026-09-28T23:59:59Z",
+          "operation": "submit_external_notice",
+          "organization_id": "org-pilot-001",
+          "payload_hash": "7491420abf93139500e20fb211fc325939d3341288796f28766ab529e5175e56",
+          "policy_version": "RECOVERIES_AUTH_V1",
+          "purpose": "recovery_notice",
+          "resource": "opportunity-action-allowed",
+          "result": "ALLOW",
+          "subject": "pilot-reviewer-001"
+        },
+        "decision": "ALLOW",
+        "external_receipt": "counterparty-receipt-action-001",
+        "secret_material_persisted": false,
+        "secret_resolution": "REFERENCE_ONLY"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "ace78eff3e493b02c3cc987c20b67f99ad3418a22a2e82984ea7770bbfe960a1",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "030600bc3ded9a8229d9a597e5be30a69a70607198807e685ea1da52424cfbe7"
+    },
+    {
+      "case_id": "action-no-approval",
+      "flow": "authorized_action",
+      "input_sha256": "e059227e1162d6b9bbd055e21ec4158ba43febdf66e960fbc02267f5a5d58e08",
+      "observed": {
+        "decision": "DENY",
+        "reason": "NO_APPROVAL",
+        "secret_material_persisted": false
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "2fa72d71b2c242ccf134004278d82f003bd064ddd3c4c7065f7ce259b288ba4f",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "a0ab231cc6e3f2be9fa0ebb3c5eb97485489628c70b321ef305d9ebaf7c8ac15"
+    },
+    {
+      "case_id": "action-payload-mutation",
+      "flow": "authorized_action",
+      "input_sha256": "1039ab268700c112655f1ed479e14c43eb6178e0a40c7d480e7a7cfd03460297",
+      "observed": {
+        "decision": "DENY",
+        "reason": "PAYLOAD_MUTATION",
+        "secret_material_persisted": false
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "21e344c87f1aa0c377a6a64c8adc5cd66c37400d4dd49bca1b2a78bb475a633d"
+    },
+    {
+      "case_id": "action-wrong-tenant",
+      "flow": "authorized_action",
+      "input_sha256": "bdeeb21b101f0833b34d9bf0c522cab1d2e27457e8309ed271f3473cfb97cf3a",
+      "observed": {
+        "decision": "DENY",
+        "reason": "TENANT_MISMATCH",
+        "secret_material_persisted": false
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "bad72d0b9f5170b34d564ff18974a68eba4c777dc378d83f7b596809341d176d"
+    },
+    {
+      "case_id": "action-wrong-purpose",
+      "flow": "authorized_action",
+      "input_sha256": "cff17df96a12ef375f41e5d5703c32a6c525d92513190cf789e0646802c3682e",
+      "observed": {
+        "decision": "DENY",
+        "reason": "PURPOSE_MISMATCH",
+        "secret_material_persisted": false
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "81b5033df787bfe61d92c6ffda55b3ea1cf94eb9da15bca50edcd15aa52c7c8e"
+    },
+    {
+      "case_id": "action-expired-capability",
+      "flow": "authorized_action",
+      "input_sha256": "504f31a28c956f4094663e55ecc97e90b578f44b5790aee3156ee1b36b1f84cc",
+      "observed": {
+        "decision": "DENY",
+        "reason": "EXPIRED_CAPABILITY",
+        "secret_material_persisted": false
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "e1292fbe604675b0a0344185904b04dc02e76a8a5ad2504e173b135d304221fc",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "805fdcbbd080a319eaf8492aff7a32c958a7c6510cfc4cdb5c17850275f7ced8"
+    },
+    {
+      "case_id": "money-partial-multi-payment",
+      "flow": "cash_and_billing",
+      "input_sha256": "c8f64e44603a13f779b6f8d780b3c3127ec67f4d89ddbb942e0e64aa4c1b9eb6",
+      "observed": {
+        "attributable_cash": "2200.00",
+        "decision": "ALLOCATED",
+        "provider_boundary": {
+          "amount": "2200.00",
+          "amount_currency_catalog_matched": true,
+          "business_state": "PAID",
+          "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+          "checkout_requested": true,
+          "credentials_loaded": false,
+          "currency": "USD",
+          "event_deduplicated": true,
+          "event_id": "evt_checkout-money-partial-multi-payment",
+          "network_contact_count": 0,
+          "payload_sha256": "4be42503dcb2efbc76dcbaf6088cb69482c9175b5f4e93da240f2f1332f55fe1",
+          "payment_initiated": true,
+          "provider": "stripe_test_mode_simulator",
+          "receipt_sha256": "80df5c90b20dd90f9c00711cd3eb1efabd4e388d05009aacbe1dc59413dfc196",
+          "signature_verified": true,
+          "webhook_received": true
+        },
+        "success_fee": "220.00",
+        "verification_only": false
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "1ccc3fdde1217ae33a6ca0e73a13d8eb376abb3fb6584b78721a3be9544a3648"
+    },
+    {
+      "case_id": "money-overallocation",
+      "flow": "cash_and_billing",
+      "input_sha256": "254949ec2c2bc68a6a731e8d8e6403db4b6adb27d692921d57732a48aada432f",
+      "observed": {
+        "allocated_before_denial": "600.00",
+        "decision": "DENY",
+        "reason": "ALLOCATION_CEILING"
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "7fdfdfbb8e40c0b2fdefe92edba301ab8bd10f67d3c718804cadaa896cf82307"
+    },
+    {
+      "case_id": "money-verification-only",
+      "flow": "cash_and_billing",
+      "input_sha256": "5036919e93d7da005c8526697b6e6db10e2cfdbcae162c410496881bcabbe527",
+      "observed": {
+        "attributable_cash": "0.00",
+        "decision": "ALLOCATED",
+        "success_fee": "0.00",
+        "verification_only": true
+      },
+      "organization_id": "org-pilot-001",
+      "output_sha256": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
+      "project_id": "project-pilot-001",
+      "receipt_sha256": "f93232e6bb11b4c2eb84126eebf4db2d865ccafbbba4006d3d4706bbf18f7dd3"
+    }
+  ],
+  "denials": [
+    {
+      "case_id": "lifecycle-covered",
+      "decision": "NO_OPPORTUNITY",
+      "reason": "EXISTING_CHANGE_ORDER_COVERAGE"
+    },
+    {
+      "case_id": "lifecycle-contradictory",
+      "decision": "HOLD",
+      "reason": "CONTRADICTORY_FACTS"
+    },
+    {
+      "case_id": "lifecycle-missing-provenance",
+      "decision": "HOLD",
+      "reason": "MISSING_EVIDENCE_PROVENANCE"
+    },
+    {
+      "case_id": "provider-outage",
+      "decision": "PROVIDER_FAILURE",
+      "reason": "PROVIDER_UNAVAILABLE"
+    },
+    {
+      "case_id": "action-no-approval",
+      "decision": "DENY",
+      "reason": "NO_APPROVAL"
+    },
+    {
+      "case_id": "action-payload-mutation",
+      "decision": "DENY",
+      "reason": "PAYLOAD_MUTATION"
+    },
+    {
+      "case_id": "action-wrong-tenant",
+      "decision": "DENY",
+      "reason": "TENANT_MISMATCH"
+    },
+    {
+      "case_id": "action-wrong-purpose",
+      "decision": "DENY",
+      "reason": "PURPOSE_MISMATCH"
+    },
+    {
+      "case_id": "action-expired-capability",
+      "decision": "DENY",
+      "reason": "EXPIRED_CAPABILITY"
+    },
+    {
+      "case_id": "money-overallocation",
+      "decision": "DENY",
+      "reason": "ALLOCATION_CEILING"
+    }
+  ],
+  "evidence_hashes": {
+    "case_inputs": {
+      "action-allowed": "0ddd28a97ab045a248bded8684b1899921c71becf8d255dc380856c17a53063b",
+      "action-expired-capability": "504f31a28c956f4094663e55ecc97e90b578f44b5790aee3156ee1b36b1f84cc",
+      "action-no-approval": "e059227e1162d6b9bbd055e21ec4158ba43febdf66e960fbc02267f5a5d58e08",
+      "action-payload-mutation": "1039ab268700c112655f1ed479e14c43eb6178e0a40c7d480e7a7cfd03460297",
+      "action-wrong-purpose": "cff17df96a12ef375f41e5d5703c32a6c525d92513190cf789e0646802c3682e",
+      "action-wrong-tenant": "bdeeb21b101f0833b34d9bf0c522cab1d2e27457e8309ed271f3473cfb97cf3a",
+      "lifecycle-contradictory": "3fbb7303626aa7f585147f6a7e84e2a991e783d14a6e4cfd2eea808242abc9f3",
+      "lifecycle-covered": "2ef380a49eae5d46e50a11b55e5a5180f37f69f630ef436763c21a1fd5472b56",
+      "lifecycle-missing-provenance": "5cb7c8939eb47b59906556f8537f4d32a3a04abcc62cdffb51b37f6cfc59e175",
+      "lifecycle-opportunity": "4c33ed2cfedef4020e76ff3e5f775f4af9c49c14693e9103ca4836be1bffa61b",
+      "money-overallocation": "254949ec2c2bc68a6a731e8d8e6403db4b6adb27d692921d57732a48aada432f",
+      "money-partial-multi-payment": "c8f64e44603a13f779b6f8d780b3c3127ec67f4d89ddbb942e0e64aa4c1b9eb6",
+      "money-verification-only": "5036919e93d7da005c8526697b6e6db10e2cfdbcae162c410496881bcabbe527",
+      "provider-outage": "d091513c1b1364093fd2d1d27d0982f7b7d23a2ebbe3dbf31e3288b396bad657"
+    },
+    "case_outputs": {
+      "action-allowed": "ace78eff3e493b02c3cc987c20b67f99ad3418a22a2e82984ea7770bbfe960a1",
+      "action-expired-capability": "e1292fbe604675b0a0344185904b04dc02e76a8a5ad2504e173b135d304221fc",
+      "action-no-approval": "2fa72d71b2c242ccf134004278d82f003bd064ddd3c4c7065f7ce259b288ba4f",
+      "action-payload-mutation": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
+      "action-wrong-purpose": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
+      "action-wrong-tenant": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
+      "lifecycle-contradictory": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
+      "lifecycle-covered": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
+      "lifecycle-missing-provenance": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
+      "lifecycle-opportunity": "785104de1d2d34940365d468c6b0596770f8c52e2a4657772333336421fd356d",
+      "money-overallocation": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
+      "money-partial-multi-payment": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
+      "money-verification-only": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
+      "provider-outage": "55bbe525bc894aa95b85b87d9c9dbb583a300c2e20641d3d76f9e73c0df07a15"
+    },
+    "source_history": {
+      "change-order-12": "synthetic-co-12",
+      "contract-baseline-rev-a": "synthetic-contract-rev-a",
+      "correspondence-bundle": "synthetic-correspondence",
+      "directive-04": "synthetic-directive-04",
+      "drawing-rev-a": "synthetic-drawing-rev-a",
+      "drawing-rev-b": "synthetic-drawing-rev-b",
+      "equipment-ticket-77": "synthetic-equipment-77",
+      "irrelevant-field-change": "synthetic-irrelevant-field-change",
+      "labor-logs-week-32": "synthetic-labor-week-32",
+      "material-invoice-4421": "synthetic-material-4421",
+      "payment-history": "synthetic-payment-history",
+      "rfi-017": "synthetic-rfi-017"
+    }
+  },
+  "external_action_receipt": "counterparty-receipt-action-001",
+  "fee_calculation": [
+    {
+      "case_id": "money-partial-multi-payment",
+      "success_fee": "220.00"
+    },
+    {
+      "case_id": "money-verification-only",
+      "success_fee": "0.00"
+    }
+  ],
+  "final_state": {
+    "independent_review": "PENDING",
+    "pilot_recommendation": "HOLD",
+    "production_mutated": false,
+    "receipt_chain_root_sha256": "f93232e6bb11b4c2eb84126eebf4db2d865ccafbbba4006d3d4706bbf18f7dd3",
+    "replay_identity": "PASS"
+  },
+  "human_adjudication": {
+    "dimension_results": null,
+    "independent_conclusion": null,
+    "recoveries_conclusion": "recorded above; expected labels withheld from this packet",
+    "reviewed_at": null,
+    "reviewer_id": null,
+    "status": "PENDING"
+  },
+  "input_corpus_manifest": {
+    "canonical_sha256": "8b3becb82956a6d35bb5bd296125c0ce6084ec306c8dfa2b4b7aac8aff1b46bc",
+    "corpus_version": "pilot-synthetic-2026-08-29.v1",
+    "path": "fixtures/pilot/manifest.v1.json",
+    "project_universe_canonical_sha256": "d22b0a262860d0693a5a6f00b70687d576242f3807f67f95a831794b25152a5b",
+    "project_universe_path": "fixtures/pilot/project-falcon.v1.json",
+    "project_universe_sha256": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
+    "sha256": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8"
+  },
+  "packet_sha256": "6b55b04088e6c3b4e0dd4b224ece64a3466ef538379f6445a66ced55f8369d9f",
+  "packet_version": "court-record-1",
+  "payment_evidence": [
+    {
+      "case_id": "money-partial-multi-payment",
+      "evidence": {
+        "attributable_cash": "2200.00",
+        "decision": "ALLOCATED",
+        "provider_boundary": {
+          "amount": "2200.00",
+          "amount_currency_catalog_matched": true,
+          "business_state": "PAID",
+          "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+          "checkout_requested": true,
+          "credentials_loaded": false,
+          "currency": "USD",
+          "event_deduplicated": true,
+          "event_id": "evt_checkout-money-partial-multi-payment",
+          "network_contact_count": 0,
+          "payload_sha256": "4be42503dcb2efbc76dcbaf6088cb69482c9175b5f4e93da240f2f1332f55fe1",
+          "payment_initiated": true,
+          "provider": "stripe_test_mode_simulator",
+          "receipt_sha256": "80df5c90b20dd90f9c00711cd3eb1efabd4e388d05009aacbe1dc59413dfc196",
+          "signature_verified": true,
+          "webhook_received": true
+        },
+        "success_fee": "220.00",
+        "verification_only": false
+      }
+    },
+    {
+      "case_id": "money-overallocation",
+      "evidence": {
+        "allocated_before_denial": "600.00",
+        "decision": "DENY",
+        "reason": "ALLOCATION_CEILING"
+      }
+    },
+    {
+      "case_id": "money-verification-only",
+      "evidence": {
+        "attributable_cash": "0.00",
+        "decision": "ALLOCATED",
+        "success_fee": "0.00",
+        "verification_only": true
+      }
+    }
+  ],
+  "pilot_identity": {
+    "company": {
+      "legal_name": "Northstar Electrical Services LLC",
+      "organization_id": "org-pilot-001",
+      "trade": "electrical subcontractor"
+    },
+    "pilot_id": "PILOT-FALCON-001",
+    "project": {
+      "contract_baseline": "contract-baseline-rev-a",
+      "contract_currency": "USD",
+      "name": "Project Falcon",
+      "owner": "Falcon Development Group",
+      "project_id": "project-pilot-001"
+    }
+  },
+  "policy_digest": "af3d7e2336af88234db8440c99babf75c096fe77d18c8d7ec37def6c4594e2f8",
+  "pricing_version": "RECOVERIES-PRICING-V1",
+  "reconciliation_result": {
+    "ceiling_violations": 0,
+    "payment_cases": 3,
+    "status": "RECONCILED",
+    "verification_only_fee_violations": 0
+  },
+  "repository_commit": "12497a4e1c5945ae80ed1b362314a855953730e5",
+  "review_purpose": "independent adjudication without expected labels",
+  "rule_registry_digest": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
+  "schema": "anarchi.recoveries.pilot-blind-review-packet.v1",
+  "spec_digest": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "unknowns": [
+    "independent reviewer must accept or disagree with this evidence pack",
+    "precision threshold is intentionally not set by the implementation",
+    "concurrent allocation and full Step 22 matrix require later fixtures",
+    "production migration, restore, signed clients, and live HTTP proof remain open"
+  ]
+}

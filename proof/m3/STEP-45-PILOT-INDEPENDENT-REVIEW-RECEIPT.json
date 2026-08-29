@@ -1,14 +1,22 @@
 {
   "artifact_sha256": {
-    "docs/architecture/pilot-rehearsal.md": "78dc70c5bb827772a8fde0576b056d5c29210f357c7da8b6e6bad7295d03c9a9",
-    "fixtures/pilot/manifest.v1.json": "f6b1299b66926a92cf6525dcc3ddeed22923802351eb9c65dc28a970fd2706d2",
+    "docs/architecture/pilot-rehearsal.md": "3db311911ba2e380b1ff24a47957bb86b2c3bf85a2a0ed310739f65e13359312",
+    "docs/policies/policy-manifest.v1.json": "af3d7e2336af88234db8440c99babf75c096fe77d18c8d7ec37def6c4594e2f8",
+    "fixtures/pilot/manifest.v1.json": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8",
+    "fixtures/pilot/project-falcon.v1.json": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
+    "governance/enforcement-binding-registry.v1.json": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
     "infra/compose/pilot-rehearsal.compose.yaml": "48626e985cbaf1eff6a4fd23205e2a2df9af9bdd93bfe5ee5991161acc9347ca",
-    "proof/m3/pilot-rehearsal/evidence-report.v1.json": "8ca465eab5c282d52104841265485248f1e9fa6de4cacbf668df25083a82e231",
-    "proof/m3/pilot-rehearsal/independent-review.v1.json": "de06a860df37e3d084ee2b684a0d58f6ab1528d8e847917644976b56f8e5d5dd",
-    "proof/m3/pilot-rehearsal/receipt-chain.v1.json": "97c670915511ab2ed4f5084c865cc5123f596bab1e14b1f868a9433156ae9912",
-    "proof/m3/pilot-rehearsal/run-manifest.v1.json": "1ca05d82836f4cae1d35dfe3ef3587aa4ce00f1845c701f3f5060e4524221dbe",
-    "tools/pilot/run_rehearsal.py": "c9769ed661032c5c9833dce22c2d6090ed57a055635c45b837afb272ff99c36a",
-    "tools/pilot/verify_pilot_rehearsal.py": "76aebf7924861679f5be2a805a336ead49291af530429810240ef63408fabdb4"
+    "proof/m3/pilot-rehearsal/blind-review-packet.v1.json": "72754f331dcf4ad9868d4eca1d05037a721b83897c03beda20a3350793e444ab",
+    "proof/m3/pilot-rehearsal/evidence-report.v1.json": "0d0bfe192ba34e7e42baecb8d85a7c21c3035520b716233ecf6adb6e79015d26",
+    "proof/m3/pilot-rehearsal/independent-adjudication.template.v1.json": "d846d9317de0fe5aed53c567d853ed8f32e5a821a683cd46b9aaf8a76e8add1d",
+    "proof/m3/pilot-rehearsal/independent-review.v1.json": "b8ac024e438f00fc0d1e19fc2d62d28fee98ebbeb8e188a6fcadbba9c007104d",
+    "proof/m3/pilot-rehearsal/pilot-evidence-packet.v1.json": "57819fa4a467ba1afbb5c2deec66277060b2563d53ad874dc158340afb8747dc",
+    "proof/m3/pilot-rehearsal/receipt-chain.v1.json": "69f42668b11fce90768ee3ff9af3dc0efd574e9565b509badba7defa4f320a5c",
+    "proof/m3/pilot-rehearsal/run-manifest.v1.json": "2a59d3b0201ee4d35bf859d4adcbcdbe8fffb4911c078ba6358f1a8254479f53",
+    "tools/pilot/adjudicate_review.py": "761c3afe1e60295e636a2f544b6ada44060fd355a1e7114f80b8fb72bda71ed1",
+    "tools/pilot/payment_boundary.py": "89b29955d53de1cfdf6de8a3d851384e3aaea10cd1e03a25f980cf9b43334cb6",
+    "tools/pilot/run_rehearsal.py": "ef5e3c802d16f17e9b2dbe0f51679baf429556280f1b800c295e2296bf54ecff",
+    "tools/pilot/verify_pilot_rehearsal.py": "3b488496fd69201ff97719798f864fe2f23b7e8bf2a24dc5c665fb10c14ce98f"
   },
   "authority": {
     "live_services_contacted": false,
@@ -19,12 +27,12 @@
   "open_items": [
     "independent reviewer identity and acceptance are pending"
   ],
-  "previous_receipt_sha256": "6403fa431f56ee2d76c8392e4df5ce1ce36b6d3726ff76a88c2e6b57d86ed62a",
-  "receipt_id": "RECOVERIES-STEP_45_PILOT_INDEPENDENT_REVIEW-pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "previous_receipt_sha256": "0abb357efdc79243e29114ef8e5e9a5ff361308b8813da1d5a173dbbee9c5c95",
+  "receipt_id": "RECOVERIES-STEP_45_PILOT_INDEPENDENT_REVIEW-pilot-12497a4e1c59-8b3becb82956a6d3",
   "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
-  "receipt_sha256": "f4a7e62c6e78756bb709264d7cde404b31d17b8862fa35987ad6791271c1cb60",
-  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
-  "source_commit": "cdaacdd77a5a4b4591a80522ff0afecb70e14593",
+  "receipt_sha256": "2afad08aec1f85c5c7f2e854393f922f6e6463ac376e1451db2891995ea1bfa6",
+  "run_id": "pilot-12497a4e1c59-8b3becb82956a6d3",
+  "source_commit": "12497a4e1c5945ae80ed1b362314a855953730e5",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_45_PILOT_INDEPENDENT_REVIEW",
   "transition": "independent evidence review checkpoint",

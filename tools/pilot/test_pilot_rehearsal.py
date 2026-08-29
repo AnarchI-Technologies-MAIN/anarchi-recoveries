@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -33,6 +34,12 @@ class PilotRehearsalTests(unittest.TestCase):
             self.assertEqual(result["case_count"], 14)
             self.assertEqual(result["pilot_recommendation"], "HOLD")
             self.assertEqual(result["review"], "PENDING")
+            packet = read_json(Path(directory) / "pilot-evidence-packet.v1.json")
+            blind = read_json(Path(directory) / "blind-review-packet.v1.json")
+            self.assertEqual(packet["final_state"]["pilot_recommendation"], "HOLD")
+            blind_text = json.dumps(blind, sort_keys=True)
+            self.assertNotIn('"expected":', blind_text)
+            self.assertNotIn('"label":', blind_text)
 
     def test_same_run_id_reproduces_case_and_receipt_hashes(self) -> None:
         first = build_rehearsal(run_id="pilot-test-replay")

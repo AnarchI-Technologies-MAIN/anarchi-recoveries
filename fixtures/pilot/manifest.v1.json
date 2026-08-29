@@ -2,7 +2,16 @@
   "schema": "anarchi.recoveries.pilot-fixture-manifest.v1",
   "corpus_version": "pilot-synthetic-2026-08-29.v1",
   "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+  "pricing_version": "RECOVERIES-PRICING-V1",
   "source_policy": "synthetic-only-no-customer-data",
+  "pilot_identity": {
+    "pilot_id": "PILOT-FALCON-001",
+    "company": "Northstar Electrical Services LLC",
+    "project": "Project Falcon",
+    "organization_id": "org-pilot-001",
+    "project_id": "project-pilot-001"
+  },
+  "project_universe_path": "fixtures/pilot/project-falcon.v1.json",
   "cases": [
     {
       "case_id": "lifecycle-opportunity",

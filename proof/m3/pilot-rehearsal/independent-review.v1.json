@@ -1,15 +1,18 @@
 {
+  "adjudication_template_sha256": "d846d9317de0fe5aed53c567d853ed8f32e5a821a683cd46b9aaf8a76e8add1d",
   "authority": {
     "production_mutated": false,
     "release_authority": "none"
   },
   "comments": "Independent reviewer not yet nominated; this record has no release authority.",
   "decision": "PENDING",
-  "reviewed_artifact_manifest_sha256": "e5b726b66cd5fefaa57fc001a9c4fa4fa54d1db6ff073e9fce416b84cbe8c19c",
+  "reviewed_artifact_manifest_sha256": "183acb7a85a1e11114d956663a3ab93e4c9e30b76a98d0ae22874583c809054a",
   "reviewed_at": null,
-  "reviewed_receipt_chain_root_sha256": "2bfd7d783885351f96bb3cd70a00fe2f30e6e46c2b309e2fff9c177133c724a9",
+  "reviewed_blind_packet_sha256": "6b55b04088e6c3b4e0dd4b224ece64a3466ef538379f6445a66ced55f8369d9f",
+  "reviewed_packet_sha256": "d1be4e6a1cb91ed9b0ffab27212282768768461864faa418a02e5680c5b572ec",
+  "reviewed_receipt_chain_root_sha256": "f93232e6bb11b4c2eb84126eebf4db2d865ccafbbba4006d3d4706bbf18f7dd3",
   "reviewer_id": null,
-  "run_id": "pilot-cdaacdd77a5a-6f29be12b26bf739",
+  "run_id": "pilot-12497a4e1c59-8b3becb82956a6d3",
   "schema": "anarchi.recoveries.pilot-independent-review.v1",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
 }

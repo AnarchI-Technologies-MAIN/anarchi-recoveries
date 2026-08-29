@@ -1,0 +1,39 @@
+{
+  "schema": "anarchi.recoveries.pilot-project-universe.v1",
+  "company": {
+    "legal_name": "Northstar Electrical Services LLC",
+    "trade": "electrical subcontractor",
+    "organization_id": "org-pilot-001"
+  },
+  "project": {
+    "name": "Project Falcon",
+    "project_id": "project-pilot-001",
+    "owner": "Falcon Development Group",
+    "contract_currency": "USD",
+    "contract_baseline": "contract-baseline-rev-a"
+  },
+  "source_history": [
+    {"artifact_id": "contract-baseline-rev-a", "kind": "contract", "revision": "A", "sha256": "synthetic-contract-rev-a"},
+    {"artifact_id": "drawing-rev-a", "kind": "drawing", "revision": "A", "sha256": "synthetic-drawing-rev-a"},
+    {"artifact_id": "drawing-rev-b", "kind": "drawing", "revision": "B", "sha256": "synthetic-drawing-rev-b"},
+    {"artifact_id": "rfi-017", "kind": "rfi", "revision": "1", "sha256": "synthetic-rfi-017"},
+    {"artifact_id": "directive-04", "kind": "directive", "revision": "1", "sha256": "synthetic-directive-04"},
+    {"artifact_id": "labor-logs-week-32", "kind": "labor_log", "revision": "1", "sha256": "synthetic-labor-week-32"},
+    {"artifact_id": "material-invoice-4421", "kind": "material_invoice", "revision": "1", "sha256": "synthetic-material-4421"},
+    {"artifact_id": "equipment-ticket-77", "kind": "equipment_ticket", "revision": "1", "sha256": "synthetic-equipment-77"},
+    {"artifact_id": "change-order-12", "kind": "existing_change_order", "revision": "12", "sha256": "synthetic-co-12"},
+    {"artifact_id": "payment-history", "kind": "payment_history", "revision": "1", "sha256": "synthetic-payment-history"},
+    {"artifact_id": "correspondence-bundle", "kind": "correspondence", "revision": "1", "sha256": "synthetic-correspondence"},
+    {"artifact_id": "irrelevant-field-change", "kind": "irrelevant_change", "revision": "1", "sha256": "synthetic-irrelevant-field-change"}
+  ],
+  "economic_situations": [
+    {"situation_id": "falcon-real-drawing-delta", "classification": "legitimate_recovery", "linked_artifacts": ["drawing-rev-a", "drawing-rev-b", "rfi-017", "directive-04"]},
+    {"situation_id": "falcon-already-contracted-delta", "classification": "already_contracted", "linked_artifacts": ["drawing-rev-b", "change-order-12"]},
+    {"situation_id": "falcon-missing-proof", "classification": "incomplete_evidence", "linked_artifacts": ["drawing-rev-b", "correspondence-bundle"]},
+    {"situation_id": "falcon-tm-slip", "classification": "unconverted_t_and_m", "linked_artifacts": ["labor-logs-week-32", "material-invoice-4421", "equipment-ticket-77"]},
+    {"situation_id": "falcon-duplicate-chain", "classification": "duplicate_evidence_chain", "linked_artifacts": ["drawing-rev-b", "drawing-rev-b"]},
+    {"situation_id": "falcon-irrelevant-change", "classification": "irrelevant_field_change", "linked_artifacts": ["irrelevant-field-change"]},
+    {"situation_id": "falcon-already-paid", "classification": "already_paid", "linked_artifacts": ["payment-history", "correspondence-bundle"]}
+  ],
+  "ground_truth_policy": "synthetic ground truth is retained in the execution corpus and excluded from blind reviewer packet"
+}
