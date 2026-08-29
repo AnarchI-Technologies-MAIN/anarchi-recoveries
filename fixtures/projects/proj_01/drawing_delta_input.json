@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "organization_id": "org_pilot_01",
+  "project_id": "proj_01",
+  "evaluation_time": "2026-08-28T18:00:00Z",
+  "baseline": {
+    "baseline_id": "baseline_proj_01_v1",
+    "organization_id": "org_pilot_01",
+    "project_id": "proj_01",
+    "version": 1,
+    "status": "ACTIVE",
+    "evidence": [
+      {
+        "evidence_id": "evidence_e203_rev2",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "source_location": "E-203 Rev2"
+      }
+    ]
+  },
+  "verified_facts": [
+    {
+      "fact_id": "fact_e203_type_a_delta",
+      "organization_id": "org_pilot_01",
+      "project_id": "proj_01",
+      "verification_status": "VERIFIED",
+      "verified_by": "fixture-reviewer",
+      "verified_at": "2026-08-28T17:30:00Z",
+      "parser_or_model": {
+        "identifier": "fixture-parser",
+        "version": "1.0.0"
+      },
+      "evidence": [
+        {
+          "evidence_id": "evidence_e203_rev2",
+          "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "source_location": "E-203 Rev2"
+        },
+        {
+          "evidence_id": "evidence_e203_rev3",
+          "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "source_location": "E-203 Rev3"
+        },
+        {
+          "evidence_id": "evidence_rfi_227",
+          "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "source_location": "RFI-227"
+        }
+      ],
+      "value": {
+        "fact_type": "DRAWING_QUANTITY_DELTA",
+        "value": {
+          "scope_item_id": "scope_type_a_receptacle",
+          "baseline_revision": "E-203 Rev2",
+          "observed_revision": "E-203 Rev3",
+          "baseline_quantity": "42",
+          "observed_quantity": "48",
+          "unit": "EA",
+          "item_mapping_verified": true,
+          "direction_or_performed_work_verified": true,
+          "existing_change_order_coverage": false,
+          "allowance_remaining": "0",
+          "baseline_evidence": {
+            "evidence_id": "evidence_e203_rev2",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "source_location": "E-203 Rev2"
+          },
+          "revised_evidence": {
+            "evidence_id": "evidence_e203_rev3",
+            "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "source_location": "E-203 Rev3"
+          }
+        }
+      }
+    }
+  ],
+  "domain_rules": {
+    "identifier": "construction-electrical",
+    "version": "DRAWING_QUANTITY_INCREASE_V1"
+  },
+  "notice_rules": {
+    "identifier": "fixture-notice-rule",
+    "version": "1.0.0"
+  },
+  "pricing_rules": {
+    "version": "GOLDEN_PRICING_V1",
+    "currency": "USD",
+    "money_scale": 2,
+    "rounding_mode": "MIDPOINT_AWAY_FROM_ZERO",
+    "material_markup_percent": "15.00",
+    "equipment_markup_percent": "10.00",
+    "tax_percent": "0.00"
+  },
+  "pricing_inputs": {
+    "labor": [
+      {
+        "classification": "journeyman labor",
+        "hours": "14.5",
+        "hourly_rate": "92.50",
+        "currency": "USD",
+        "evidence": {
+          "evidence_id": "evidence_labor_journeyman",
+          "sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "source_location": "verified labor ledger"
+        }
+      },
+      {
+        "classification": "apprentice labor",
+        "hours": "9",
+        "hourly_rate": "61.25",
+        "currency": "USD",
+        "evidence": {
+          "evidence_id": "evidence_labor_apprentice",
+          "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+          "source_location": "verified labor ledger"
+        }
+      }
+    ],
+    "material": {
+      "description": "verified material cost",
+      "amount": "2194.11",
+      "currency": "USD",
+      "evidence": {
+        "evidence_id": "evidence_material",
+        "sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+        "source_location": "verified material ledger"
+      }
+    },
+    "equipment": {
+      "description": "verified equipment cost",
+      "amount": "475.00",
+      "currency": "USD",
+      "evidence": {
+        "evidence_id": "evidence_equipment",
+        "sha256": "7777777777777777777777777777777777777777777777777777777777777777",
+        "source_location": "verified equipment ledger"
+      }
+    }
+  }
+}
+

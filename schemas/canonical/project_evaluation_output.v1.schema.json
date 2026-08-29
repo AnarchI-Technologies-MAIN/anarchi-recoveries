@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/project_evaluation_output.v1.schema.json",
+  "title": "AnarchI Recoveries evaluation record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["canonicalization", "decision", "evaluation_hash"],
+  "properties": {
+    "canonicalization": { "const": "ANARCHI-JCS-COMPATIBLE-V1" },
+    "decision": { "type": "object" },
+    "evaluation_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}
+

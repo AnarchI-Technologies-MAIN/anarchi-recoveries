@@ -1,0 +1,93 @@
+{
+  "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+  "decision": {
+    "decision": "OPPORTUNITY",
+    "result": {
+      "organization_id": "org_pilot_01",
+      "project_id": "proj_01",
+      "baseline_id": "baseline_proj_01_v1",
+      "evaluation_time": "2026-08-28T18:00:00Z",
+      "domain_rule_version": "DRAWING_QUANTITY_INCREASE_V1",
+      "notice_rule_version": "1.0.0",
+      "passed_conditions": [
+        "observed_revision_gt_baseline_revision",
+        "item_mapping_verified",
+        "quantity_delta_positive",
+        "allowance_exhausted",
+        "no_existing_change_order_coverage",
+        "required_evidence_present",
+        "direction_or_performed_work_verified"
+      ],
+      "failed_conditions": [],
+      "missing_conditions": [],
+      "facts_used": ["fact_e203_type_a_delta"],
+      "pricing": {
+        "currency": "USD",
+        "lines": [
+          {
+            "class": "LABOR",
+            "description": "journeyman labor",
+            "amount": "1341.25",
+            "currency": "USD",
+            "evidence_ids": ["evidence_labor_journeyman"],
+            "rule_version": "GOLDEN_PRICING_V1"
+          },
+          {
+            "class": "LABOR",
+            "description": "apprentice labor",
+            "amount": "551.25",
+            "currency": "USD",
+            "evidence_ids": ["evidence_labor_apprentice"],
+            "rule_version": "GOLDEN_PRICING_V1"
+          },
+          {
+            "class": "MATERIAL",
+            "description": "verified material cost",
+            "amount": "2194.11",
+            "currency": "USD",
+            "evidence_ids": ["evidence_material"],
+            "rule_version": "GOLDEN_PRICING_V1"
+          },
+          {
+            "class": "EQUIPMENT",
+            "description": "verified equipment cost",
+            "amount": "475.00",
+            "currency": "USD",
+            "evidence_ids": ["evidence_equipment"],
+            "rule_version": "GOLDEN_PRICING_V1"
+          },
+          {
+            "class": "MATERIAL_MARKUP",
+            "description": "material markup",
+            "amount": "329.12",
+            "currency": "USD",
+            "evidence_ids": ["evidence_material"],
+            "rule_version": "GOLDEN_PRICING_V1"
+          },
+          {
+            "class": "EQUIPMENT_MARKUP",
+            "description": "equipment markup",
+            "amount": "47.50",
+            "currency": "USD",
+            "evidence_ids": ["evidence_equipment"],
+            "rule_version": "GOLDEN_PRICING_V1"
+          },
+          {
+            "class": "TAX",
+            "description": "tax",
+            "amount": "0.00",
+            "currency": "USD",
+            "evidence_ids": [],
+            "rule_version": "GOLDEN_PRICING_V1"
+          }
+        ],
+        "raw_subtotal": "4561.61",
+        "total_markup": "376.62",
+        "tax": "0.00",
+        "total": "4938.23",
+        "pricing_rule_version": "GOLDEN_PRICING_V1"
+      }
+    }
+  },
+  "evaluation_hash": "d1a50ea8564eb00191ab1484cb90c218c692f2370b60bb5b0c0b3058dd6df344"
+}

@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/project_evaluation_input.v1.schema.json",
+  "title": "AnarchI Recoveries project evaluation input v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "organization_id",
+    "project_id",
+    "evaluation_time",
+    "baseline",
+    "verified_facts",
+    "domain_rules",
+    "notice_rules",
+    "pricing_rules",
+    "pricing_inputs"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "organization_id": { "$ref": "#/$defs/non_empty_string" },
+    "project_id": { "$ref": "#/$defs/non_empty_string" },
+    "evaluation_time": { "type": "string", "format": "date-time" },
+    "baseline": { "$ref": "#/$defs/baseline" },
+    "verified_facts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/verified_fact" }
+    },
+    "domain_rules": { "$ref": "#/$defs/version_ref" },
+    "notice_rules": { "$ref": "#/$defs/version_ref" },
+    "pricing_rules": { "$ref": "#/$defs/pricing_rules" },
+    "pricing_inputs": { "$ref": "#/$defs/pricing_inputs" }
+  },
+  "$defs": {
+    "non_empty_string": { "type": "string", "minLength": 1 },
+    "decimal_string": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+    },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "version_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identifier", "version"],
+      "properties": {
+        "identifier": { "$ref": "#/$defs/non_empty_string" },
+        "version": { "$ref": "#/$defs/non_empty_string" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "sha256", "source_location"],
+      "properties": {
+        "evidence_id": { "$ref": "#/$defs/non_empty_string" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "source_location": { "$ref": "#/$defs/non_empty_string" }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baseline_id", "organization_id", "project_id", "version", "status", "evidence"],
+      "properties": {
+        "baseline_id": { "$ref": "#/$defs/non_empty_string" },
+        "organization_id": { "$ref": "#/$defs/non_empty_string" },
+        "project_id": { "$ref": "#/$defs/non_empty_string" },
+        "version": { "type": "integer", "minimum": 1 },
+        "status": { "enum": ["DRAFT", "ACTIVE", "SUPERSEDED"] },
+        "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidence" } }
+      }
+    },
+    "drawing_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_item_id", "baseline_revision", "observed_revision", "baseline_quantity",
+        "observed_quantity", "unit", "item_mapping_verified",
+        "direction_or_performed_work_verified", "existing_change_order_coverage",
+        "allowance_remaining", "baseline_evidence", "revised_evidence"
+      ],
+      "properties": {
+        "scope_item_id": { "$ref": "#/$defs/non_empty_string" },
+        "baseline_revision": { "$ref": "#/$defs/non_empty_string" },
+        "observed_revision": { "$ref": "#/$defs/non_empty_string" },
+        "baseline_quantity": { "$ref": "#/$defs/decimal_string" },
+        "observed_quantity": { "$ref": "#/$defs/decimal_string" },
+        "unit": { "$ref": "#/$defs/non_empty_string" },
+        "item_mapping_verified": { "type": "boolean" },
+        "direction_or_performed_work_verified": { "type": "boolean" },
+        "existing_change_order_coverage": { "type": "boolean" },
+        "allowance_remaining": { "$ref": "#/$defs/decimal_string" },
+        "baseline_evidence": { "$ref": "#/$defs/evidence" },
+        "revised_evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "verified_fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_id", "organization_id", "project_id", "verification_status", "verified_by",
+        "verified_at", "parser_or_model", "evidence", "value"
+      ],
+      "properties": {
+        "fact_id": { "$ref": "#/$defs/non_empty_string" },
+        "organization_id": { "$ref": "#/$defs/non_empty_string" },
+        "project_id": { "$ref": "#/$defs/non_empty_string" },
+        "verification_status": { "const": "VERIFIED" },
+        "verified_by": { "$ref": "#/$defs/non_empty_string" },
+        "verified_at": { "type": "string", "format": "date-time" },
+        "parser_or_model": { "$ref": "#/$defs/version_ref" },
+        "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidence" } },
+        "value": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fact_type", "value"],
+          "properties": {
+            "fact_type": { "const": "DRAWING_QUANTITY_DELTA" },
+            "value": { "$ref": "#/$defs/drawing_delta" }
+          }
+        }
+      }
+    },
+    "labor_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "hours", "hourly_rate", "currency", "evidence"],
+      "properties": {
+        "classification": { "$ref": "#/$defs/non_empty_string" },
+        "hours": { "$ref": "#/$defs/decimal_string" },
+        "hourly_rate": { "$ref": "#/$defs/decimal_string" },
+        "currency": { "$ref": "#/$defs/currency" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "cost_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "amount", "currency", "evidence"],
+      "properties": {
+        "description": { "$ref": "#/$defs/non_empty_string" },
+        "amount": { "$ref": "#/$defs/decimal_string" },
+        "currency": { "$ref": "#/$defs/currency" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "pricing_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["labor", "material", "equipment"],
+      "properties": {
+        "labor": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/labor_input" } },
+        "material": { "$ref": "#/$defs/cost_input" },
+        "equipment": { "$ref": "#/$defs/cost_input" }
+      }
+    },
+    "pricing_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "currency", "money_scale", "rounding_mode",
+        "material_markup_percent", "equipment_markup_percent", "tax_percent"
+      ],
+      "properties": {
+        "version": { "$ref": "#/$defs/non_empty_string" },
+        "currency": { "$ref": "#/$defs/currency" },
+        "money_scale": { "const": 2 },
+        "rounding_mode": { "const": "MIDPOINT_AWAY_FROM_ZERO" },
+        "material_markup_percent": { "$ref": "#/$defs/decimal_string" },
+        "equipment_markup_percent": { "$ref": "#/$defs/decimal_string" },
+        "tax_percent": { "$ref": "#/$defs/decimal_string" }
+      }
+    }
+  }
+}
+

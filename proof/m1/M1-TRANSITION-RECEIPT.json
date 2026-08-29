@@ -1,0 +1,117 @@
+{
+  "receipt_schema": "anarchi.recoveries.transition-receipt.v1",
+  "receipt_id": "RECOVERIES-M1-20260829T042834Z",
+  "recorded_at": "2026-08-29T04:28:34Z",
+  "repository": "/home/alexg-anarchi/anarchi-recoveries",
+  "branch": "main",
+  "transition": {
+    "from": "ABSENT",
+    "to": "M1_LOCAL_PROOF_COMPLETE",
+    "spec_steps": [1, 2, 3, 4, 5],
+    "scope": [
+      "repository skeleton",
+      "canonical cross-language input and output contracts",
+      "typed Rust recovery model",
+      "pure deterministic recovery core",
+      "exact golden pricing fixture",
+      "canonical decision hashing"
+    ]
+  },
+  "authority_limits": {
+    "production_mutated": false,
+    "services_activated": false,
+    "deployment_created": false,
+    "database_created": false,
+    "secrets_accessed": false,
+    "external_effects": false,
+    "anar_core_authorization_claimed": false,
+    "governance_readiness_claimed": false
+  },
+  "provenance": {
+    "frozen_spec": {
+      "path": "docs/specification/SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN.md",
+      "size_bytes": 73369,
+      "sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
+    },
+    "source_manifest": {
+      "path": "proof/m1/source-manifest.sha256",
+      "entries": 19,
+      "sha256": "6b0243c70fc60dace9db19e6d05cfd7661a9bbe1968cd3143489d00ed6f7534e",
+      "verification": "19/19 OK"
+    },
+    "toolchain": {
+      "rustc": "1.98.0 (88d9e12ae 2026-08-18)",
+      "cargo": "1.98.0 (797e8a9bc 2026-08-05)"
+    }
+  },
+  "golden_evaluation": {
+    "currency": "USD",
+    "raw_subtotal": "4561.61",
+    "total_markup": "376.62",
+    "tax": "0.00",
+    "total": "4938.23",
+    "canonicalization": "ANARCHI-JCS-COMPATIBLE-V1",
+    "evaluation_hash": "d1a50ea8564eb00191ab1484cb90c218c692f2370b60bb5b0c0b3058dd6df344",
+    "full_semantic_equality": "PASS",
+    "canonical_hash_replay": "PASS",
+    "ieee_754_financial_boundary": "ABSENT_BY_TYPE"
+  },
+  "verification": [
+    {
+      "gate": "cargo fmt --all -- --check",
+      "result": "PASS"
+    },
+    {
+      "gate": "cargo test --workspace --locked",
+      "result": "PASS",
+      "tests_passed": 4,
+      "tests_failed": 0
+    },
+    {
+      "gate": "cargo clippy --workspace --all-targets -- -D warnings",
+      "result": "PASS"
+    },
+    {
+      "gate": "canonical JSON schema syntax",
+      "result": "PASS",
+      "schemas_checked": 2
+    },
+    {
+      "gate": "source manifest replay",
+      "result": "PASS",
+      "files_checked": 19
+    }
+  ],
+  "construction_findings": [
+    {
+      "sequence": 1,
+      "result": "FAIL",
+      "finding": "golden test local variable shadowed the fixture-loader function",
+      "correction": "renamed local binding and removed the redundant assertion"
+    },
+    {
+      "sequence": 2,
+      "result": "FAIL",
+      "finding": "zero tax serialized without the configured two-decimal money scale",
+      "correction": "rescaled every rounded monetary output to the versioned money scale"
+    },
+    {
+      "sequence": 3,
+      "result": "FAIL",
+      "finding": "expected fixture contained a one-character copied-hash error",
+      "correction": "full semantic equality rejected it; fixture corrected to the replayed digest"
+    },
+    {
+      "sequence": 4,
+      "result": "FAIL",
+      "finding": "strict lint rejected the large evaluation enum variant",
+      "correction": "boxed the opportunity payload without changing serialized semantics"
+    }
+  ],
+  "acceptance": {
+    "status": "PASS",
+    "claim": "SPEC 1.6 M1 deterministic foundation only",
+    "next_spec_step": 6,
+    "next_step_name": "Build DB foundation"
+  }
+}
