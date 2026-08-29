@@ -1,0 +1,40 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_37_IPAD_IPHONE_REVIEW_CONTRACT_COMPLETE",
+  "generated_at": "2026-08-29T12:36:07Z",
+  "from_commit": "3dea671b95729ebed37b6cdf8c6e619747ec02c2",
+  "authority": {
+    "production_mutated": false,
+    "targets": ["iphone", "ipad"],
+    "phone_order": "amount, deadline, delta, entitlement, proof, financial model, approval",
+    "drawing_comparison": "explicitly deferred on phone when unavailable",
+    "approval": "shared confirmation-required action; not an offline execution path",
+    "native_delivery": "not implemented"
+  },
+  "verification": {
+    "ui_package_tests": "PASS_16",
+    "ui_package_typecheck": "PASS",
+    "iphone_breakpoint_guard": "PASS",
+    "ipad_breakpoint_guard": "PASS",
+    "desktop_prompt_guard": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "iOS project and device adapter",
+    "tablet/phone accessibility and visual regression audits",
+    "live server data wiring",
+    "full repository gate after receipt commit"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/ui/src/index.ts": "21330141b546a286f5ac38d82f82d8fa40548bbf090d2a919758b3fe44ac52ef",
+    "packages/ui/src/mobile.ts": "dbdbb3e9645311875553b7fa2864a69d713e9e8005c196d312bae70f9a9ee7ec",
+    "packages/ui/test/mobile.test.ts": "bc8cda175ac2f045ccb9bb6163f9db27c5ff7d326507c7b7aecbf23f7e985caf",
+    "docs/architecture/mobile-review-contract.md": "42b9b974950b02eec6a7c05c913c095772347bc16c4663099d402070c98ee0f9"
+  }
+}
