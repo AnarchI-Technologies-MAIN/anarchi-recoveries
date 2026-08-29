@@ -14,7 +14,7 @@
     { "path": "services/ingestion", "status": "PARTIAL" },
     { "path": "services/normalization", "status": "PARTIAL" },
     { "path": "services/extraction", "status": "PARTIAL" },
-    { "path": "services/action-runner", "status": "SCAFFOLDED" },
+    { "path": "services/action-runner", "status": "PARTIAL" },
     { "path": "services/reconciliation", "status": "SCAFFOLDED" },
     { "path": "crates/recovery-model", "status": "PARTIAL" },
     { "path": "crates/recovery-core", "status": "PARTIAL" },
