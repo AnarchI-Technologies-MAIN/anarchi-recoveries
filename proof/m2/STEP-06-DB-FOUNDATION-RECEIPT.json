@@ -1,0 +1,147 @@
+{
+  "receipt_schema": "anarchi.recoveries.step-transition-receipt.v1",
+  "receipt_id": "RECOVERIES-STEP-06-20260829T044153Z",
+  "recorded_at": "2026-08-29T04:41:53Z",
+  "repository": "/home/alexg-anarchi/anarchi-recoveries",
+  "branch": "main",
+  "transition": {
+    "from": "M1_LOCAL_PROOF_COMPLETE",
+    "to": "STEP_06_DB_FOUNDATION_LOCAL_PROOF_COMPLETE",
+    "spec_step": 6,
+    "scope": [
+      "disposable PostgreSQL test boundary",
+      "ordered content-addressed migrations",
+      "identity and project foundation",
+      "evidence, baseline, and scope foundation",
+      "fact, opportunity, and pricing foundation"
+    ]
+  },
+  "authority_limits": {
+    "production_mutated": false,
+    "production_database_contacted": false,
+    "services_activated": false,
+    "external_effects": false,
+    "anar_core_authorization_claimed": false,
+    "m2_completion_claimed": false
+  },
+  "test_boundary": {
+    "kind": "DISPOSABLE_LOCAL_CONTAINER",
+    "compose_project": "recoveries-m2-test",
+    "database": "recoveries_test",
+    "host_binding": "127.0.0.1:55432",
+    "storage": "tmpfs",
+    "restart_policy": "no",
+    "production_credential_used": false
+  },
+  "artifact_hashes": {
+    ".env.example": "51134737b24347a89b412487d8f2a915789deb8429c3ea18fcaf520a9d7b29ab",
+    "infra/compose/test-postgres.compose.yaml": "c9ad99c02adfea7e81fabfd10109e944ef9b0691f488da67829bf124f85ae293",
+    "tools/migration-check/apply-migrations.sh": "b252da7b968b9eb2c6727a76ee60734cb67f18c38bc02699d08ba14c86f3dd1a",
+    "tools/migration-check/verify-foundation.sql": "d8dc8979b274c00003bfcfd4ce29610085ad79d565fb9ed59cec649078619115",
+    "governance/repository-map.v1.json": "8aef5c75ccefa07519279cf6007a2f81a1708ab2ed204f36492941b7d2957258"
+  },
+  "migration_ledger": [
+    {
+      "version": "000001_extensions",
+      "sha256": "cc3f927cac795cf4e8adc835f679b6de15e31b6130e336e31b1d9c8c609a4468"
+    },
+    {
+      "version": "000002_identity_projects",
+      "sha256": "6ca8b821fc340fb02723417c0468b904eee16d01d4f8db8a45d1e384a0d87141"
+    },
+    {
+      "version": "000003_evidence_baselines_scope",
+      "sha256": "52f62f9f3cd1140f152117aa9f1e7008aed7e43d8c81d7551297fc5e1a86f4c1"
+    },
+    {
+      "version": "000004_facts_opportunities_pricing",
+      "sha256": "888dccf46fb53c0858ac2119b4cbaceee317875352e4596e6bcac164fa9e4da4"
+    }
+  ],
+  "verification": [
+    {
+      "gate": "fresh disposable database replay",
+      "result": "PASS",
+      "migrations_applied": 4
+    },
+    {
+      "gate": "foundation table inventory",
+      "result": "PASS",
+      "tables_observed": 18,
+      "business_tables": 17,
+      "ledger_tables": 1
+    },
+    {
+      "gate": "stored migration digest equality",
+      "result": "PASS",
+      "digests_matched": 4
+    },
+    {
+      "gate": "migration reapplication",
+      "result": "PASS",
+      "ledger_rows_after_reapplication": 4,
+      "distinct_versions_after_reapplication": 4
+    },
+    {
+      "gate": "test database target naming",
+      "result": "PASS",
+      "required_variable": "RECOVERIES_TEST_DATABASE_URL"
+    }
+  ],
+  "construction_findings": [
+    {
+      "sequence": 1,
+      "result": "FAIL",
+      "finding": "the first migration-ledger insertion attempted psql client-variable substitution in a command string where substitution was not performed",
+      "correction": "validate the migration identity and digest before embedding those controlled values in the ledger statement"
+    },
+    {
+      "sequence": 2,
+      "result": "FAIL",
+      "finding": "the migration runner was not executable through its documented direct invocation path",
+      "correction": "set the runner mode to 0755 and replay the direct invocation"
+    },
+    {
+      "sequence": 3,
+      "result": "FAIL_CLOSED",
+      "finding": "an operator check supplied generic DATABASE_URL instead of the required test-only variable",
+      "correction": "retain the narrow RECOVERIES_TEST_DATABASE_URL boundary and correct the invocation"
+    },
+    {
+      "sequence": 4,
+      "result": "FAIL_CLOSED",
+      "finding": "a ledger inspection query requested a nonexistent digest column",
+      "correction": "inspect the canonical table definition and query the sha256 column"
+    },
+    {
+      "sequence": 5,
+      "result": "FAIL_CLOSED",
+      "finding": "the staged-diff gate rejected trailing blank lines in seven Step 6 files before commit",
+      "correction": "remove the blank lines, invalidate the pre-correction migration hashes, and replay a fresh disposable database before commit"
+    }
+  ],
+  "drift_controls_addressed": [
+    {
+      "id": "DRIFT-017",
+      "claim": "Postgres is the implemented business-state boundary for this foundation"
+    },
+    {
+      "id": "DRIFT-026",
+      "claim": "tenant-scoped foundation relationships use organization-aware composite references where those relations exist"
+    },
+    {
+      "id": "DRIFT-035",
+      "claim": "financial columns introduced in the foundation use exact numeric types"
+    },
+    {
+      "id": "DRIFT-044",
+      "claim": "the locked foundation scope is traced to frozen SPEC 1.6 step 6"
+    }
+  ],
+  "acceptance": {
+    "status": "PASS",
+    "claim": "SPEC 1.6 step 6 local database foundation only",
+    "next_spec_step": 7,
+    "next_step_name": "Add temporal/money invariants"
+  }
+}

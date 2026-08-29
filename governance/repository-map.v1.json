@@ -37,9 +37,9 @@
     { "path": "schemas/events", "status": "SCAFFOLDED" },
     { "path": "schemas/rules", "status": "SCAFFOLDED" },
     { "path": "schemas/extraction", "status": "SCAFFOLDED" },
-    { "path": "infra/compose", "status": "SCAFFOLDED" },
+    { "path": "infra/compose", "status": "PARTIAL" },
     { "path": "infra/caddy", "status": "SCAFFOLDED" },
-    { "path": "infra/postgres", "status": "SCAFFOLDED" },
+    { "path": "infra/postgres", "status": "PARTIAL" },
     { "path": "infra/object-store", "status": "SCAFFOLDED" },
     { "path": "infra/nats", "status": "SCAFFOLDED" },
     { "path": "infra/backups", "status": "SCAFFOLDED" },
@@ -58,6 +58,6 @@
     { "path": "tools/replay", "status": "SCAFFOLDED" },
     { "path": "tools/seed", "status": "SCAFFOLDED" },
     { "path": "tools/fixture-generator", "status": "SCAFFOLDED" },
-    { "path": "tools/migration-check", "status": "SCAFFOLDED" }
+    { "path": "tools/migration-check", "status": "PARTIAL" }
   ]
 }
