@@ -1,0 +1,48 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_16_ATTRIBUTION_ENGINE_COMPLETE",
+  "generated_at": "2026-08-29T11:13:56Z",
+  "from_commit": "7765bda4dd53a8e6eb0e3e9f95ad01656cfd2ec6",
+  "authority": {
+    "production_mutated": false,
+    "step_16_complete": true,
+    "attribution_authority": "rust-recovery-core",
+    "payment_observation_and_allocation": "deferred_to_step_19",
+    "billing_side_effects": "deferred_to_step_19",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "attributable_supported_uplift": "max(0, supported_value - prior_recognized_supported_value)",
+    "success_fee_base": "min(attributable_cash_received, attributable_supported_uplift)",
+    "success_fee": "round(success_fee_base * success_fee_rate_percent / 100, money_scale)",
+    "money_scale": 2,
+    "rounding_mode": "MIDPOINT_AWAY_FROM_ZERO",
+    "currency": "explicit ISO uppercase code",
+    "fee_before_cash": "forbidden",
+    "verification_only_fee": "zero"
+  },
+  "verification": {
+    "partial_cash_example_10000_at_15_percent": "PASS_600.00",
+    "prior_recognition_uplift_12481.23_minus_8000_at_15_percent": "PASS_672.18",
+    "verification_only_equal_value": "PASS_ZERO",
+    "cash_above_uplift_capped": "PASS",
+    "replay_hash_stable": "PASS",
+    "negative_values_fail_closed": "PASS",
+    "fee_rate_out_of_range_fails_closed": "PASS",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-003", "DRIFT-004", "DRIFT-005", "DRIFT-009", "DRIFT-010",
+    "DRIFT-011", "DRIFT-014", "DRIFT-020", "DRIFT-035", "DRIFT-036",
+    "DRIFT-037", "DRIFT-038", "DRIFT-042", "DRIFT-044"
+  ],
+  "artifact_sha256": {
+    "crates/recovery-core/src/attribution.rs": "56710fab0eed1005c07a96842a5331261cf12aff8012b069da946a05de05f586",
+    "crates/recovery-core/src/lib.rs": "89dcfd36259200784a5528663e4c706830d7ae3c93f88067b4c5ca31e0f74ac6"
+  }
+}
