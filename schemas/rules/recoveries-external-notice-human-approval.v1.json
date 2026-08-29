@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.anarchi.tech/recoveries/recoveries-external-notice-human-approval.v1.json",
+  "title": "Recoveries external notice human approval rule v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rule_id", "rule_version", "authority_class", "operation", "purpose", "default_result", "fail_mode"],
+  "properties": {
+    "rule_id": { "const": "RULE-AUTH-RECOVERIES-001" },
+    "rule_version": { "const": "RECOVERIES_AUTH_V1" },
+    "authority_class": { "const": "TECHNICAL_AUTHORIZATION" },
+    "operation": { "const": "submit_external_notice" },
+    "purpose": { "const": "recovery_notice" },
+    "default_result": { "const": "DENY" },
+    "fail_mode": { "const": "DENY" }
+  }
+}

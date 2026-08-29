@@ -1,0 +1,18 @@
+{
+  "fixture": "notice-allowed-with-authority",
+  "rule_id": "RULE-AUTH-RECOVERIES-001",
+  "request": {
+    "subject": "user-1",
+    "organization_id": "org-1",
+    "operation": "submit_external_notice",
+    "resource": "opportunity-1",
+    "purpose": "recovery_notice",
+    "policy_version": "RECOVERIES_AUTH_V1",
+    "payload_hash": "sha256:payload-1",
+    "human_approval_id": "approval-1"
+  },
+  "expected": {
+    "result": "ALLOW",
+    "reason_code": "HUMAN_APPROVAL_PRESENT"
+  }
+}
