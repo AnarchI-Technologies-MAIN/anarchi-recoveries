@@ -6,5 +6,21 @@
     "heading": "### 23. Enforcement Binding Registry",
     "sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
   },
-  "bindings": []
+  "bindings": [
+    {
+      "binding_id": "ENF-RECOVERIES-00001",
+      "canonical_rule_id": "RULE-AUTH-RECOVERIES-001",
+      "rule_version": "RECOVERIES_AUTH_V1",
+      "authority_class": "TECHNICAL_AUTHORIZATION",
+      "system": "anarchi-recoveries",
+      "component": "recovery-core",
+      "operation": "submit_external_notice",
+      "enforcement_point": "authorize_external_notice",
+      "implementation_ref": "git:c895c81e4b13a66d7cbc7b66ceaf30a0bef3e92e",
+      "test_ref": "crates/recovery-core/tests/governance_fixture_test.rs",
+      "proof_fixture": "fixtures/governance/notice-denied-without-authority.json",
+      "fail_mode": "DENY",
+      "status": "SIMULATED"
+    }
+  ]
 }

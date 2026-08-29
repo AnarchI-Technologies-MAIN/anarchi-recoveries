@@ -92,7 +92,7 @@ def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
     count = validate_registry(registry)
     print(f"bindings={count} PASS")
-    print("governance_readiness=NOT_READY")
+    print(f"governance_readiness={registry['status']}")
 
 
 if __name__ == "__main__":

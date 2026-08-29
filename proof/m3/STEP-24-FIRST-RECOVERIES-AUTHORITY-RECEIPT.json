@@ -1,0 +1,57 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_24_FIRST_RECOVERIES_AUTHORITY_RULE_PROOF_COMPLETE",
+  "generated_at": "2026-08-29T11:49:08Z",
+  "from_commit": "c895c81e4b13a66d7cbc7b66ceaf30a0bef3e92e",
+  "authority": {
+    "production_mutated": false,
+    "canonical_rule_id": "RULE-AUTH-RECOVERIES-001",
+    "binding_id": "ENF-RECOVERIES-00001",
+    "authority_class": "TECHNICAL_AUTHORIZATION",
+    "operation": "submit_external_notice",
+    "purpose": "recovery_notice",
+    "binding_status": "SIMULATED",
+    "governance_readiness": "NOT_READY",
+    "external_execution": "none",
+    "implicit_clock": false,
+    "floating_point_at_boundary": false
+  },
+  "contract": {
+    "rule": "external notice requires authorized human approval",
+    "deny_without_approval": "HUMAN_APPROVAL_REQUIRED",
+    "allow_with_approval": "HUMAN_APPROVAL_PRESENT",
+    "required_scope": "subject, organization, operation, resource, purpose, policy version, payload hash",
+    "fail_closed": "missing identity, wrong operation/purpose, or missing payload hash rejects the request",
+    "activation": "deferred until durable decision receipts, mutation proof, and release provenance"
+  },
+  "verification": {
+    "negative_fixture_no_approval_denies": "PASS",
+    "positive_fixture_valid_approval_allows": "PASS",
+    "wrong_operation_denies": "PASS",
+    "missing_payload_hash_denies": "PASS",
+    "binding_registry_validator": "PASS_1_SIMULATED_BINDING",
+    "governance_readiness": "NOT_READY_BY_DESIGN",
+    "full_rust_tests_fmt_clippy": "PASS",
+    "full_go_race_vet": "PASS",
+    "full_node_tests_typecheck": "PASS",
+    "spec_controls": "PASS_90_DRIFT_RULES_56_REPOSITORY_PATHS",
+    "production_state": "NOT_TOUCHED"
+  },
+  "drift_controls": [
+    "DRIFT-060", "DRIFT-061", "DRIFT-062", "DRIFT-063", "DRIFT-064",
+    "DRIFT-083", "DRIFT-084", "DRIFT-085", "DRIFT-088", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "crates/recovery-core/src/governance.rs": "86816236ed0cddbd0ce8cace15f577977826e9a9de186203b7f969c7aacf7394",
+    "crates/recovery-core/src/lib.rs": "c5e9195f33cff083862813c757ab3ff3704d012723d1fb03e7e88506bf98dba7",
+    "crates/recovery-core/tests/governance_fixture_test.rs": "3ed1773ce63c127ff88bc11e32f4185a8388fb67d30b71dca48c947761786ec1",
+    "docs/rules/external-notice-human-approval.md": "5c0eaff25d796ad7b42091fa38ad486322348aed69cefaa7ab83ea66522853f1",
+    "schemas/rules/recoveries-external-notice-human-approval.v1.json": "a05e4581527984fcd5b05c724c1223a1dae8a219e994da060e949fe4919b2a00",
+    "fixtures/governance/notice-denied-without-authority.json": "49919f390dd4b3067e3d109487ed807a39fd067b49372a30a671fc9992026cb5",
+    "fixtures/governance/notice-allowed-with-authority.json": "c17f57158a967c55ea1ec5571d83bd516f4fe7fa2a5085b86283b87e78893a7c",
+    "governance/enforcement-binding-registry.v1.json": "6daf172175d5d1c2db33a0e551440cd4e3a774a8b49dbb845ecd5ad4ceee988d",
+    "tools/governance/verify_binding_registry.py": "7aa865d0bf8f34960a616ea84ac08b6cfd72d47544a290f7596d5564d464e629",
+    "tools/governance/test_verify_binding_registry.py": "04e641a1ef17df3ce35fc3bdf82c24d4f315e8d4e06596a3031f9446d7b0990b"
+  }
+}

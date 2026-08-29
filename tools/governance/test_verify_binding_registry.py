@@ -16,7 +16,10 @@ class BindingRegistryTests(unittest.TestCase):
         self.registry = json.loads(MODULE.REGISTRY_PATH.read_text(encoding="utf-8"))
 
     def test_frozen_empty_registry_is_not_ready(self) -> None:
-        self.assertEqual(MODULE.validate_registry(self.registry), 0)
+        empty = dict(self.registry)
+        empty["status"] = "NOT_READY"
+        empty["bindings"] = []
+        self.assertEqual(MODULE.validate_registry(empty), 0)
 
     def test_duplicate_binding_id_is_rejected(self) -> None:
         binding = {
