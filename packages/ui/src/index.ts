@@ -80,3 +80,4 @@ export function createExternalActionButton(
 
 export * from "./screens.ts";
 export * from "./ledger.ts";
+export * from "./dock.ts";

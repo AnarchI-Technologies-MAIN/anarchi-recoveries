@@ -1,0 +1,44 @@
+{
+  "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
+  "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
+  "step": "STEP_36_RECOVERY_DOCK_CONTRACT_COMPLETE",
+  "generated_at": "2026-08-29T12:33:27Z",
+  "from_commit": "49af6d681d665b3a01dc83031b7d98f11eac87b0",
+  "authority": {
+    "production_mutated": false,
+    "dock_role": "read-only desktop companion view",
+    "amounts": "decimal-string MoneyLine values with provenance",
+    "urgent_count": "derived from unique urgent item list",
+    "open_rescue": "navigation only; no external side effect",
+    "data_access": "none in this layer"
+  },
+  "contract": {
+    "product_lockup": "ANARCHI / RECOVERIES",
+    "fields": "open recoverable total, urgent count, urgent items, Open Rescue",
+    "desktop_context": "narrow persistent companion beside Procore/Outlook"
+  },
+  "verification": {
+    "ui_package_tests": "PASS_14",
+    "ui_package_typecheck": "PASS",
+    "duplicate_urgent_ids_rejected": "PASS",
+    "untraceable_amount_rejected": "PASS",
+    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "production_state": "NOT_TOUCHED"
+  },
+  "open_items": [
+    "actual desktop window adapter",
+    "live server data wiring",
+    "desktop focus/keyboard and visual regression audit",
+    "full repository gate after receipt commit"
+  ],
+  "drift_controls": [
+    "DRIFT-045", "DRIFT-048", "DRIFT-049", "DRIFT-050", "DRIFT-052",
+    "DRIFT-057", "DRIFT-058", "DRIFT-081", "DRIFT-083", "DRIFT-090"
+  ],
+  "artifact_sha256": {
+    "packages/ui/src/index.ts": "0a12c69527b7c8fad7ca25df069b541aa8916114aa74150386d65f78d34d854a",
+    "packages/ui/src/dock.ts": "021ae90fbc40cad32362f0865018c56a6ea1b805b28330aff37f3410d5cbd9bc",
+    "packages/ui/test/dock.test.ts": "f70c28372084e383c6fb4920dfcb0b5817a3f851c413615e8950181201189eca",
+    "docs/architecture/recovery-dock-contract.md": "20698bd724d8d56c7dd91f087b6071d56fd8deb6c7d2b454544a0135e1fd238b"
+  }
+}
