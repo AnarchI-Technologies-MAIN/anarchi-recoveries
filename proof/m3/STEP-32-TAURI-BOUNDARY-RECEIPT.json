@@ -2,7 +2,7 @@
   "spec": "SPEC-1.6-AnarchI-Tech-Recoveries-FROZEN",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
   "step": "STEP_32_TAURI_CLIENT_BOUNDARY_BASELINE",
-  "generated_at": "2026-08-29T12:24:23Z",
+  "generated_at": "2026-08-29T12:25:32Z",
   "from_commit": "48c8f91776438f790b91aa3f339a5abce02d8271",
   "status": "BOUNDARY_BASELINE_NOT_PACKAGED",
   "authority": {
@@ -19,7 +19,7 @@
     "cargo_fmt": "PASS",
     "offline_execution_denied": "PASS",
     "reconnect_all_checks_required": "PASS",
-    "full_repository_gate": "PENDING_AFTER_RECEIPT_COMMIT",
+    "full_repository_gate": "PASS",
     "production_state": "NOT_TOUCHED"
   },
   "open_items": [
