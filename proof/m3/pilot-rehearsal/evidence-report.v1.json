@@ -423,9 +423,9 @@
   ],
   "pilot_recommendation": "HOLD",
   "precision_threshold": "NOT_SET_BY_IMPLEMENTATION",
-  "report_sha256": "207c1f708d77d79abe14444b30a7aff4a6719771bbb01921b485793f1ec8317a",
-  "run_id": "pilot-184dc455a1f4-8b3becb82956a6d3",
+  "report_sha256": "c54b009ce8119a579952f57ed01b82876135ba1f4bc352533d43097c7b38da4a",
+  "run_id": "pilot-7fa2f3cf0290-8b3becb82956a6d3",
   "schema": "anarchi.recoveries.pilot-evidence-report.v1",
-  "source_commit": "184dc455a1f4e58037ef358ee69257f4d1fde7d1",
+  "source_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
   "spec_sha256": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869"
 }

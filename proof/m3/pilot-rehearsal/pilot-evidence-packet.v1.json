@@ -26,7 +26,7 @@
     "result": "ALLOW",
     "subject": "pilot-reviewer-001"
   },
-  "authority_transition_receipt_sha256": "313e3e34b350ab40f84afef58892c5e41d2b42bb2064adbb8fcc1e7f570c7717",
+  "authority_transition_receipt_sha256": "06f1d023514256ce9d80351733c36949b04d69e343e3967a70755e55556dda3b",
   "calculation_trace": [
     {
       "case_id": "lifecycle-opportunity",
@@ -65,7 +65,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "785104de1d2d34940365d468c6b0596770f8c52e2a4657772333336421fd356d",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "aa72dfc4ea698b97a5d8031cce34e1123a6a0fe6fd1585c77b9c5982eca11dc4"
+      "receipt_sha256": "eef42020ff2de64dff430f55cd7ce0fbddbb53b36585e531e8e709aed254b001"
     },
     {
       "case_id": "lifecycle-covered",
@@ -78,7 +78,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "a450c9b1c6522de21fe0216f1847c698f95a09f4e4e167700e4f349fd8b9f707",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "02186643ea7a493095f49c59e30c4dba71cf6d2bafd000d8ec35eab30da305e7"
+      "receipt_sha256": "f8a2afffe8ab33b218de257698ecc9c04dda5793d7cd8a80cd9498f46178e622"
     },
     {
       "case_id": "lifecycle-contradictory",
@@ -91,7 +91,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "0bdc7ca5499cd121fcf3a417e7efc4738ca25fc880086edfbf3e334182a8c71e",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "921a2ff0ece4965518982dd34d83dd7e917002e179a00c74e18362d6da517a2c"
+      "receipt_sha256": "cbc71f67df47cc4071f9acb3f91590714d25e1e3b729b549112de4ad0d42e7e3"
     },
     {
       "case_id": "lifecycle-missing-provenance",
@@ -104,7 +104,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "57d974e98f7650005d3ac38bf67e9b2258c0e48bb12d977618930a6825caadb1",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "4d8bfdd5acaaf4102fc030b8ca310935cc5be7cb2d219de731a8af3706fc9203"
+      "receipt_sha256": "48592ee8a7b2e9b970c4bd8961f86adb2b6e18d53bc6ef0bf4277e15904afbb0"
     },
     {
       "case_id": "provider-outage",
@@ -119,7 +119,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "55bbe525bc894aa95b85b87d9c9dbb583a300c2e20641d3d76f9e73c0df07a15",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "736ca970ee030c178a8f7b6c2d677057dc7a5991c3377279012362a656e3aa8f"
+      "receipt_sha256": "2ff0cb71f71802a6708619988495802f98f76810b26ac6cd85c588e6deda82f1"
     },
     {
       "case_id": "action-allowed",
@@ -160,7 +160,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "ef66075c7fbcf4a83fb791fe1fb74f32201e09807fb9d592f797b53a237274d3",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "313e3e34b350ab40f84afef58892c5e41d2b42bb2064adbb8fcc1e7f570c7717"
+      "receipt_sha256": "06f1d023514256ce9d80351733c36949b04d69e343e3967a70755e55556dda3b"
     },
     {
       "case_id": "action-no-approval",
@@ -174,7 +174,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "2fa72d71b2c242ccf134004278d82f003bd064ddd3c4c7065f7ce259b288ba4f",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "23f343d03b963ffc19e2ec5ca7948e854f0a73dd69cf45a742199f24c2c91805"
+      "receipt_sha256": "150df4f96dfb06918ff1f8529ae66184bd229e99463a6be5f8e419f5ffb905e5"
     },
     {
       "case_id": "action-payload-mutation",
@@ -188,7 +188,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "cc8bbc35b64abc60e3050cb5a10e92dc931909fe2c783bbc9705688783157700",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "6d01b628a66f568b461a98e679881590d4ed9dc236bf9663a94433a93df7d103"
+      "receipt_sha256": "56182f9759d3ce0ea73d6c9e5f9056f9b009d8fdf2ac8e570a7635036a6a3b62"
     },
     {
       "case_id": "action-wrong-tenant",
@@ -202,7 +202,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "f2a16851ab97d11ab12021823e0c29167d8e7419f92919cb3324a5e167869f45",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "630bc6fd78fd895942e39e1cf8a584f7144130002159a9885a4cc1b9fe0edd75"
+      "receipt_sha256": "73410b89b8fb89132b4eea82538a3170e7d77677fab064627deaf342ad90a3ac"
     },
     {
       "case_id": "action-wrong-purpose",
@@ -216,7 +216,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "4e22798fd57c244b762e79d468c3d981ddf9adc061b5ed2d25c58f49223079b7",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "0faf5a87286e163f36a05539607b44014326ab9d1bbdc297ecc46cd3726ad48e"
+      "receipt_sha256": "33bfa76ede8f9a2cdac753d3bba449d9ee112a1e2e8642051af2a3c5981bb177"
     },
     {
       "case_id": "action-expired-capability",
@@ -230,7 +230,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "e1292fbe604675b0a0344185904b04dc02e76a8a5ad2504e173b135d304221fc",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "a4fcc170031a3dc67ff9f61fb2ef44b6db8ffeb1fda049767a51ad5eb018964b"
+      "receipt_sha256": "0e1420e04257d1cbf4c8ab6676209609a2565b194bb175771ee3ed831777fd4d"
     },
     {
       "case_id": "money-partial-multi-payment",
@@ -263,7 +263,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "9555be4088239b13800421d13748817cf3d3af86e80d58d82d3a2f5da5e85833",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "4c52890e841ab3893830344e2b77eaec59a32ec75006d5ff8c43ecdee08ae646"
+      "receipt_sha256": "56075540496a9060423b3113c73eea5b3cd7481154291de792144d06b59011f2"
     },
     {
       "case_id": "money-overallocation",
@@ -277,7 +277,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "5ecda08aa1e55301bbd91250eaadbc370ddcf9ca5ec56cc7ca783df1268c316c",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "193941f4073e48848d0114a6193ad62c3d389fcf31457f3e733a768641a12163"
+      "receipt_sha256": "4caeeeca0e5df4b9848d56c084461dec555a8af78eb51d634a2c9032ec40f459"
     },
     {
       "case_id": "money-verification-only",
@@ -292,7 +292,7 @@
       "organization_id": "org-pilot-001",
       "output_sha256": "44df2d6954dd3049ddc428ad911acba0ba9784bcef6fb8d2f9a7f72f215a265b",
       "project_id": "project-pilot-001",
-      "receipt_sha256": "5e7a468e2c5d4fc96d35171dc354dd47dc96e5c367db5a4a4fd24e5b80e55fe4"
+      "receipt_sha256": "3739c2d1cb5daa07ece50c3c61829ff37d92812baab21f22ce7d17d82fd688a5"
     }
   ],
   "denials": [
@@ -418,7 +418,7 @@
     "independent_review": "PENDING",
     "pilot_recommendation": "HOLD",
     "production_mutated": false,
-    "receipt_chain_root_sha256": "5e7a468e2c5d4fc96d35171dc354dd47dc96e5c367db5a4a4fd24e5b80e55fe4",
+    "receipt_chain_root_sha256": "3739c2d1cb5daa07ece50c3c61829ff37d92812baab21f22ce7d17d82fd688a5",
     "replay_identity": "PASS"
   },
   "human_adjudication": {
@@ -438,7 +438,7 @@
     "project_universe_sha256": "1af9d8b90593e15936d1595dac74b03526cc9a7f56382b8d58ca578501643e06",
     "sha256": "69bb501288c6a3a63b83fb9f3da803e2ac556b666d03d50c94e5e43b4e7046d8"
   },
-  "packet_sha256": "ecbcefdd0535feb7d44ce83475326c88f8d7e1082f4de7d970c7d4e03f0dd737",
+  "packet_sha256": "ac5b873e497ecb832d47f872df27cb649e101fc97e4632dc70a254927e3a1d2c",
   "packet_version": "court-record-1",
   "payment_evidence": [
     {
@@ -509,7 +509,7 @@
     "status": "RECONCILED",
     "verification_only_fee_violations": 0
   },
-  "repository_commit": "184dc455a1f4e58037ef358ee69257f4d1fde7d1",
+  "repository_commit": "7fa2f3cf029045bb8cc28e116cc67b25acd3bafb",
   "rule_registry_digest": "059108c0f3db3268a039a5f09b208a5215eb24887c8248d6fee3bee6c2301353",
   "schema": "anarchi.recoveries.pilot-evidence-packet.v1",
   "spec_digest": "0e3877aff0832db9cc0503d9a8769f2b867a1536441fba149874360fbb8f8869",
