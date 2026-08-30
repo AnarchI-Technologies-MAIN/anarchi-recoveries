@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
+    "ci": "npm run test:authz && npm run typecheck:authz && npm run test:design-tokens && npm run typecheck:design-tokens && npm run test:ui && npm run typecheck:ui && npm run test:observability && npm run typecheck:observability",
     "test:authz": "npm --workspace @anarchi/authz test",
     "typecheck:authz": "npm --workspace @anarchi/authz run typecheck",
     "test:design-tokens": "npm --workspace @anarchi/design-tokens test",

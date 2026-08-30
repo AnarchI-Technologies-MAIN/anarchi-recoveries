@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    uses: AnarchI-Technologies-MAIN/.github/.github/workflows/reusable-node.yml@1c0bb0b65afd48f942dfb7bcf6e78f43e50ac750
+    with:
+      node-version: "24"
+      script: ci
+
+  rust:
+    uses: AnarchI-Technologies-MAIN/.github/.github/workflows/reusable-rust.yml@1c0bb0b65afd48f942dfb7bcf6e78f43e50ac750
+    with:
+      rust-version: "1.98"
+      workspace: true
+      all-targets: true
+
+  go:
+    uses: AnarchI-Technologies-MAIN/.github/.github/workflows/reusable-go.yml@1c0bb0b65afd48f942dfb7bcf6e78f43e50ac750
+    with:
+      go-version: "1.26"
+      modules: '["connectors/quickbooks-online","connectors/procore","services/ingestion","services/extraction","services/outbox-publisher","services/normalization","services/action-runner"]'
